@@ -161,6 +161,67 @@ body {
     margin-top: 2rem;
 }
 
+.intelligence-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.intelligence-section p {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.likert-scale {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.likert-scale label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.likert-scale label:hover {
+    background-color: #f0f0f0;
+}
+
+.likert-scale input[type="radio"] {
+    display: none;
+}
+
+.likert-scale label:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transition: all 0.2s ease;
+}
+
+.likert-scale input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.likert-scale input[type="radio"]:checked + label:before {
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
 /* Grille pour les espaces */
 .spaces-grid {
   display: grid;
@@ -761,8 +822,8 @@ body {
                     <p>${item.texte}</p>
                     <div class="likert-scale">
                         ${echelleLibelles.map((libelle, valeur) => `
-                            <label>
-                                <input type="radio" name="q_${index}" value="${valeur + 1}" required>
+                            <label for="q_${index}_${valeur}">
+                                <input type="radio" id="q_${index}_${valeur}" name="q_${index}" value="${valeur + 1}" required>
                                 ${libelle}
                             </label>
                         `).join('')}

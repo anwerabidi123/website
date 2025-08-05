@@ -147,6 +147,67 @@ body {
   margin: 1.5rem 0 1rem 0;
 }
 
+.question {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    background-color: #fdfdff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.question p {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.options label:hover {
+    background-color: #f0f0f0;
+}
+
+.options input[type="radio"] {
+    display: none;
+}
+
+.options label:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transition: all 0.2s ease;
+}
+
+.options input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.options input[type="radio"]:checked + label:before {
+    background-color: var(--white);
+    border-color: var(--white);
+}
+
 /* Grille pour les espaces */
 .spaces-grid {
   display: grid;
@@ -516,57 +577,57 @@ body {
             <div class="question">
                 <p>1. أقوم بأنشطة تعبر عن أفكاري ووجهة نظري.</p>
                 <div class="options">
-                    <label><input type="radio" name="q1" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q1" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q1" value="3"> دائمًا</label>
+                    <label for="q1_1"><input type="radio" id="q1_1" name="q1" value="1"> نادرًا</label>
+                    <label for="q1_2"><input type="radio" id="q1_2" name="q1" value="2"> أحيانًا</label>
+                    <label for="q1_3"><input type="radio" id="q1_3" name="q1" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>2. أستطيع استخدام إمكاناتي في أداء المهام التي تحقق أهدافي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q2" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q2" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q2" value="3"> دائمًا</label>
+                    <label for="q2_1"><input type="radio" id="q2_1" name="q2" value="1"> نادرًا</label>
+                    <label for="q2_2"><input type="radio" id="q2_2" name="q2" value="2"> أحيانًا</label>
+                    <label for="q2_3"><input type="radio" id="q2_3" name="q2" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>3. أشعر بالثقة عند أدائي لأي مهمة.</p>
                 <div class="options">
-                    <label><input type="radio" name="q3" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q3" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q3" value="3"> دائمًا</label>
+                    <label for="q3_1"><input type="radio" id="q3_1" name="q3" value="1"> نادرًا</label>
+                    <label for="q3_2"><input type="radio" id="q3_2" name="q3" value="2"> أحيانًا</label>
+                    <label for="q3_3"><input type="radio" id="q3_3" name="q3" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>4. أعي جوانب القوة والضعف في شخصيتي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q4" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q4" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q4" value="3"> دائمًا</label>
+                    <label for="q4_1"><input type="radio" id="q4_1" name="q4" value="1"> نادرًا</label>
+                    <label for="q4_2"><input type="radio" id="q4_2" name="q4" value="2"> أحيانًا</label>
+                    <label for="q4_3"><input type="radio" id="q4_3" name="q4" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>5. أفهم حقيقة مشاعري في المواقف المختلفة.</p>
                 <div class="options">
-                    <label><input type="radio" name="q5" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q5" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q5" value="3"> دائمًا</label>
+                    <label for="q5_1"><input type="radio" id="q5_1" name="q5" value="1"> نادرًا</label>
+                    <label for="q5_2"><input type="radio" id="q5_2" name="q5" value="2"> أحيانًا</label>
+                    <label for="q5_3"><input type="radio" id="q5_3" name="q5" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>6. أستطيع التحكم في انفعالاتي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q6" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q6" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q6" value="3"> دائمًا</label>
+                    <label for="q6_1"><input type="radio" id="q6_1" name="q6" value="1"> نادرًا</label>
+                    <label for="q6_2"><input type="radio" id="q6_2" name="q6" value="2"> أحيانًا</label>
+                    <label for="q6_3"><input type="radio" id="q6_3" name="q6" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>7. يتسم أدائي بكفاءة عالية عند القيام بنشاط ما.</p>
                 <div class="options">
-                    <label><input type="radio" name="q7" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q7" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q7" value="3"> دائمًا</label>
+                    <label for="q7_1"><input type="radio" id="q7_1" name="q7" value="1"> نادرًا</label>
+                    <label for="q7_2"><input type="radio" id="q7_2" name="q7" value="2"> أحيانًا</label>
+                    <label for="q7_3"><input type="radio" id="q7_3" name="q7" value="3"> دائمًا</label>
                 </div>
             </div>
 
@@ -575,57 +636,57 @@ body {
             <div class="question">
                 <p>8. أمتلك القدرة على تطوير أدائي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q8" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q8" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q8" value="3"> دائمًا</label>
+                    <label for="q8_1"><input type="radio" id="q8_1" name="q8" value="1"> نادرًا</label>
+                    <label for="q8_2"><input type="radio" id="q8_2" name="q8" value="2"> أحيانًا</label>
+                    <label for="q8_3"><input type="radio" id="q8_3" name="q8" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>9. أفتخر بنفسي وأقدرها.</p>
                 <div class="options">
-                    <label><input type="radio" name="q9" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q9" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q9" value="3"> دائمًا</label>
+                    <label for="q9_1"><input type="radio" id="q9_1" name="q9" value="1"> نادرًا</label>
+                    <label for="q9_2"><input type="radio" id="q9_2" name="q9" value="2"> أحيانًا</label>
+                    <label for="q9_3"><input type="radio" id="q9_3" name="q9" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>10. يمكنني بسهولة التعبير عن آرائي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q10" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q10" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q10" value="3"> دائمًا</label>
+                    <label for="q10_1"><input type="radio" id="q10_1" name="q10" value="1"> نادرًا</label>
+                    <label for="q10_2"><input type="radio" id="q10_2" name="q10" value="2"> أحيانًا</label>
+                    <label for="q10_3"><input type="radio" id="q10_3" name="q10" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>11. أحترم ذاتي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q11" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q11" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q11" value="3"> دائمًا</label>
+                    <label for="q11_1"><input type="radio" id="q11_1" name="q11" value="1"> نادرًا</label>
+                    <label for="q11_2"><input type="radio" id="q11_2" name="q11" value="2"> أحيانًا</label>
+                    <label for="q11_3"><input type="radio" id="q11_3" name="q11" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>12. أتسم بالاستقلالية.</p>
                 <div class="options">
-                    <label><input type="radio" name="q12" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q12" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q12" value="3"> دائمًا</label>
+                    <label for="q12_1"><input type="radio" id="q12_1" name="q12" value="1"> نادرًا</label>
+                    <label for="q12_2"><input type="radio" id="q12_2" name="q12" value="2"> أحيانًا</label>
+                    <label for="q12_3"><input type="radio" id="q12_3" name="q12" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>13. أجد نفسي جديرة بما أقوم به من أعمال.</p>
                 <div class="options">
-                    <label><input type="radio" name="q13" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q13" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q13" value="3"> دائمًا</label>
+                    <label for="q13_1"><input type="radio" id="q13_1" name="q13" value="1"> نادرًا</label>
+                    <label for="q13_2"><input type="radio" id="q13_2" name="q13" value="2"> أحيانًا</label>
+                    <label for="q13_3"><input type="radio" id="q13_3" name="q13" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>14. أفعل ما أراه صحيحًا حتى لو لم يعجب الآخرين.</p>
                 <div class="options">
-                    <label><input type="radio" name="q14" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q14" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q14" value="3"> دائمًا</label>
+                    <label for="q14_1"><input type="radio" id="q14_1" name="q14" value="1"> نادرًا</label>
+                    <label for="q14_2"><input type="radio" id="q14_2" name="q14" value="2"> أحيانًا</label>
+                    <label for="q14_3"><input type="radio" id="q14_3" name="q14" value="3"> دائمًا</label>
                 </div>
             </div>
 
@@ -634,57 +695,57 @@ body {
             <div class="question">
                 <p>15. أتقبل ذاتي كما هي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q15" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q15" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q15" value="3"> دائمًا</label>
+                    <label for="q15_1"><input type="radio" id="q15_1" name="q15" value="1"> نادرًا</label>
+                    <label for="q15_2"><input type="radio" id="q15_2" name="q15" value="2"> أحيانًا</label>
+                    <label for="q15_3"><input type="radio" id="q15_3" name="q15" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>16. أحظى باهتمام ورضا والدي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q16" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q16" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q16" value="3"> دائمًا</label>
+                    <label for="q16_1"><input type="radio" id="q16_1" name="q16" value="1"> نادرًا</label>
+                    <label for="q16_2"><input type="radio" id="q16_2" name="q16" value="2"> أحيانًا</label>
+                    <label for="q16_3"><input type="radio" id="q16_3" name="q16" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>17. أهتم بمظهري الخارجي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q17" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q17" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q17" value="3"> دائمًا</label>
+                    <label for="q17_1"><input type="radio" id="q17_1" name="q17" value="1"> نادرًا</label>
+                    <label for="q17_2"><input type="radio" id="q17_2" name="q17" value="2"> أحيانًا</label>
+                    <label for="q17_3"><input type="radio" id="q17_3" name="q17" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>18. أحتاج للتدعيم والتشجيع من أسرتي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q18" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q18" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q18" value="3"> دائمًا</label>
+                    <label for="q18_1"><input type="radio" id="q18_1" name="q18" value="1"> نادرًا</label>
+                    <label for="q18_2"><input type="radio" id="q18_2" name="q18" value="2"> أحيانًا</label>
+                    <label for="q18_3"><input type="radio" id="q18_3" name="q18" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>19. أقول الصدق مهما كلفني ذلك.</p>
                 <div class="options">
-                    <label><input type="radio" name="q19" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q19" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q19" value="3"> دائمًا</label>
+                    <label for="q19_1"><input type="radio" id="q19_1" name="q19" value="1"> نادرًا</label>
+                    <label for="q19_2"><input type="radio" id="q19_2" name="q19" value="2"> أحيانًا</label>
+                    <label for="q19_3"><input type="radio" id="q19_3" name="q19" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>20. مشاعري تتسق مع سلوكي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q20" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q20" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q20" value="3"> دائمًا</label>
+                    <label for="q20_1"><input type="radio" id="q20_1" name="q20" value="1"> نادرًا</label>
+                    <label for="q20_2"><input type="radio" id="q20_2" name="q20" value="2"> أحيانًا</label>
+                    <label for="q20_3"><input type="radio" id="q20_3" name="q20" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>21. أعرف مواطن الضعف في نفسي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q21" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q21" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q21" value="3"> دائمًا</label>
+                    <label for="q21_1"><input type="radio" id="q21_1" name="q21" value="1"> نادرًا</label>
+                    <label for="q21_2"><input type="radio" id="q21_2" name="q21" value="2"> أحيانًا</label>
+                    <label for="q21_3"><input type="radio" id="q21_3" name="q21" value="3"> دائمًا</label>
                 </div>
             </div>
 
@@ -693,57 +754,57 @@ body {
             <div class="question">
                 <p>22. أبذل مجهودًا لفهم الأمور من حولي وكيفية التعامل معها.</p>
                 <div class="options">
-                    <label><input type="radio" name="q22" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q22" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q22" value="3"> دائمًا</label>
+                    <label for="q22_1"><input type="radio" id="q22_1" name="q22" value="1"> نادرًا</label>
+                    <label for="q22_2"><input type="radio" id="q22_2" name="q22" value="2"> أحيانًا</label>
+                    <label for="q22_3"><input type="radio" id="q22_3" name="q22" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>23. أثق في نفسي عند أداء المهام المطلوبة مني.</p>
                 <div class="options">
-                    <label><input type="radio" name="q23" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q23" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q23" value="3"> دائمًا</label>
+                    <label for="q23_1"><input type="radio" id="q23_1" name="q23" value="1"> نادرًا</label>
+                    <label for="q23_2"><input type="radio" id="q23_2" name="q23" value="2"> أحيانًا</label>
+                    <label for="q23_3"><input type="radio" id="q23_3" name="q23" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>24. أقارن بين جهودي وتوقعاتي المستقبلية بناءً على خبرتي في أي موقف.</p>
                 <div class="options">
-                    <label><input type="radio" name="q24" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q24" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q24" value="3"> دائمًا</label>
+                    <label for="q24_1"><input type="radio" id="q24_1" name="q24" value="1"> نادرًا</label>
+                    <label for="q24_2"><input type="radio" id="q24_2" name="q24" value="2"> أحيانًا</label>
+                    <label for="q24_3"><input type="radio" id="q24_3" name="q24" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>25. أعزو نجاحي في أداء أي مهمة إلى قدراتي وجهدي المبذول فيها.</p>
                 <div class="options">
-                    <label><input type="radio" name="q25" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q25" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q25" value="3"> دائمًا</label>
+                    <label for="q25_1"><input type="radio" id="q25_1" name="q25" value="1"> نادرًا</label>
+                    <label for="q25_2"><input type="radio" id="q25_2" name="q25" value="2"> أحيانًا</label>
+                    <label for="q25_3"><input type="radio" id="q25_3" name="q25" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>26. أحرص على بذل مزيد من الجهد للتفوق على زملائي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q26" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q26" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q26" value="3"> دائمًا</label>
+                    <label for="q26_1"><input type="radio" id="q26_1" name="q26" value="1"> نادرًا</label>
+                    <label for="q26_2"><input type="radio" id="q26_2" name="q26" value="2"> أحيانًا</label>
+                    <label for="q26_3"><input type="radio" id="q26_3" name="q26" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>27. أطمح للتفوق.</p>
                 <div class="options">
-                    <label><input type="radio" name="q27" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q27" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q27" value="3"> دائمًا</label>
+                    <label for="q27_1"><input type="radio" id="q27_1" name="q27" value="1"> نادرًا</label>
+                    <label for="q27_2"><input type="radio" id="q27_2" name="q27" value="2"> أحيانًا</label>
+                    <label for="q27_3"><input type="radio" id="q27_3" name="q27" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>28. أكافئ نفسي عند أدائي لمهام صعبة.</p>
                 <div class="options">
-                    <label><input type="radio" name="q28" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q28" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q28" value="3"> دائمًا</label>
+                    <label for="q28_1"><input type="radio" id="q28_1" name="q28" value="1"> نادرًا</label>
+                    <label for="q28_2"><input type="radio" id="q28_2" name="q28" value="2"> أحيانًا</label>
+                    <label for="q28_3"><input type="radio" id="q28_3" name="q28" value="3"> دائمًا</label>
                 </div>
             </div>
 
@@ -752,57 +813,57 @@ body {
             <div class="question">
                 <p>29. أقدم حلولًا للمشكلات التي تواجهني بطرق إبداعية.</p>
                 <div class="options">
-                    <label><input type="radio" name="q29" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q29" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q29" value="3"> دائمًا</label>
+                    <label for="q29_1"><input type="radio" id="q29_1" name="q29" value="1"> نادرًا</label>
+                    <label for="q29_2"><input type="radio" id="q29_2" name="q29" value="2"> أحيانًا</label>
+                    <label for="q29_3"><input type="radio" id="q29_3" name="q29" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>30. أثق في أدائي العقلي وقدرتي على التفكير.</p>
                 <div class="options">
-                    <label><input type="radio" name="q30" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q30" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q30" value="3"> دائمًا</label>
+                    <label for="q30_1"><input type="radio" id="q30_1" name="q30" value="1"> نادرًا</label>
+                    <label for="q30_2"><input type="radio" id="q30_2" name="q30" value="2"> أحيانًا</label>
+                    <label for="q30_3"><input type="radio" id="q30_3" name="q30" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>31. لدي القدرة على الأداء الناجح وتحقيق الهدف.</p>
                 <div class="options">
-                    <label><input type="radio" name="q31" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q31" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q31" value="3"> دائمًا</label>
+                    <label for="q31_1"><input type="radio" id="q31_1" name="q31" value="1"> نادرًا</label>
+                    <label for="q31_2"><input type="radio" id="q31_2" name="q31" value="2"> أحيانًا</label>
+                    <label for="q31_3"><input type="radio" id="q31_3" name="q31" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>32. أبذل كل جهدي وطاقاتي للوصول للنجاح.</p>
                 <div class="options">
-                    <label><input type="radio" name="q32" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q32" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q32" value="3"> دائمًا</label>
+                    <label for="q32_1"><input type="radio" id="q32_1" name="q32" value="1"> نادرًا</label>
+                    <label for="q32_2"><input type="radio" id="q32_2" name="q32" value="2"> أحيانًا</label>
+                    <label for="q32_3"><input type="radio" id="q32_3" name="q32" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>33. لدي القدرة على التأثير في الآخرين.</p>
                 <div class="options">
-                    <label><input type="radio" name="q33" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q33" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q33" value="3"> دائمًا</label>
+                    <label for="q33_1"><input type="radio" id="q33_1" name="q33" value="1"> نادرًا</label>
+                    <label for="q33_2"><input type="radio" id="q33_2" name="q33" value="2"> أحيانًا</label>
+                    <label for="q33_3"><input type="radio" id="q33_3" name="q33" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>34. أتعلم من أخطائي ولا أكررها.</p>
                 <div class="options">
-                    <label><input type="radio" name="q34" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q34" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q34" value="3"> دائمًا</label>
+                    <label for="q34_1"><input type="radio" id="q34_1" name="q34" value="1"> نادرًا</label>
+                    <label for="q34_2"><input type="radio" id="q34_2" name="q34" value="2"> أحيانًا</label>
+                    <label for="q34_3"><input type="radio" id="q34_3" name="q34" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>35. أتميز بالمثابرة والعمل الجاد.</p>
                 <div class="options">
-                    <label><input type="radio" name="q35" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q35" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q35" value="3"> دائمًا</label>
+                    <label for="q35_1"><input type="radio" id="q35_1" name="q35" value="1"> نادرًا</label>
+                    <label for="q35_2"><input type="radio" id="q35_2" name="q35" value="2"> أحيانًا</label>
+                    <label for="q35_3"><input type="radio" id="q35_3" name="q35" value="3"> دائمًا</label>
                 </div>
             </div>
 
@@ -811,57 +872,57 @@ body {
             <div class="question">
                 <p>36. أشعر برضا ذاتي مقارنة بقبول الآخرين لي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q36" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q36" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q36" value="3"> دائمًا</label>
+                    <label for="q36_1"><input type="radio" id="q36_1" name="q36" value="1"> نادرًا</label>
+                    <label for="q36_2"><input type="radio" id="q36_2" name="q36" value="2"> أحيانًا</label>
+                    <label for="q36_3"><input type="radio" id="q36_3" name="q36" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>37. أنا راض عن ذاتي عندما أفكر فيما حققته من إنجاز.</p>
                 <div class="options">
-                    <label><input type="radio" name="q37" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q37" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q37" value="3"> دائمًا</label>
+                    <label for="q37_1"><input type="radio" id="q37_1" name="q37" value="1"> نادرًا</label>
+                    <label for="q37_2"><input type="radio" id="q37_2" name="q37" value="2"> أحيانًا</label>
+                    <label for="q37_3"><input type="radio" id="q37_3" name="q37" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>38. أنا راض عندما يحمل زملائي عني أفكارًا إيجابية.</p>
                 <div class="options">
-                    <label><input type="radio" name="q38" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q38" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q38" value="3"> دائمًا</label>
+                    <label for="q38_1"><input type="radio" id="q38_1" name="q38" value="1"> نادرًا</label>
+                    <label for="q38_2"><input type="radio" id="q38_2" name="q38" value="2"> أحيانًا</label>
+                    <label for="q38_3"><input type="radio" id="q38_3" name="q38" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>39. أقنع بما لدي من قدرات وأتطلع للأفضل.</p>
                 <div class="options">
-                    <label><input type="radio" name="q39" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q39" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q39" value="3"> دائمًا</label>
+                    <label for="q39_1"><input type="radio" id="q39_1" name="q39" value="1"> نادرًا</label>
+                    <label for="q39_2"><input type="radio" id="q39_2" name="q39" value="2"> أحيانًا</label>
+                    <label for="q39_3"><input type="radio" id="q39_3" name="q39" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>40. أكون مسرورًا عند التقدير والاستحسان.</p>
                 <div class="options">
-                    <label><input type="radio" name="q40" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q40" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q40" value="3"> دائمًا</label>
+                    <label for="q40_1"><input type="radio" id="q40_1" name="q40" value="1"> نادرًا</label>
+                    <label for="q40_2"><input type="radio" id="q40_2" name="q40" value="2"> أحيانًا</label>
+                    <label for="q40_3"><input type="radio" id="q40_3" name="q40" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>41. أنا متوافق مع نفسي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q41" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q41" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q41" value="3"> دائمًا</label>
+                    <label for="q41_1"><input type="radio" id="q41_1" name="q41" value="1"> نادرًا</label>
+                    <label for="q41_2"><input type="radio" id="q41_2" name="q41" value="2"> أحيانًا</label>
+                    <label for="q41_3"><input type="radio" id="q41_3" name="q41" value="3"> دائمًا</label>
                 </div>
             </div>
             <div class="question">
                 <p>42. أنا راض عن أسرتي وعن أصحابي.</p>
                 <div class="options">
-                    <label><input type="radio" name="q42" value="1"> نادرًا</label>
-                    <label><input type="radio" name="q42" value="2"> أحيانًا</label>
-                    <label><input type="radio" name="q42" value="3"> دائمًا</label>
+                    <label for="q42_1"><input type="radio" id="q42_1" name="q42" value="1"> نادرًا</label>
+                    <label for="q42_2"><input type="radio" id="q42_2" name="q42" value="2"> أحيانًا</label>
+                    <label for="q42_3"><input type="radio" id="q42_3" name="q42" value="3"> دائمًا</label>
                 </div>
             </div>
 
