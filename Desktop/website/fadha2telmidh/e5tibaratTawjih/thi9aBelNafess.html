@@ -218,7 +218,7 @@ select {
                 <li class="nav-item"><a href="../espace-parent.html">فضاء الأولياء</a></li>
                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
                  <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
-                <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>
+                <li class="nav-item"><a href="../index.html" class="active">الصفحة الرئيسية</a></li>
             </ul>
         </div>
     </nav>
@@ -241,7 +241,7 @@ select {
                     <input type="text" id="captchaInput" placeholder="أدخل الرمز هنا">
                 </div>
 
-                <div class="text-center mt-2">
+                <div class="text-center mt-2 btn-group">
                     <button type="button" class="btn" onclick="showCaptcha()">تحليل النتائج</button>
                 </div>
             </form>
@@ -358,9 +358,12 @@ select {
         function showCaptcha() {
             document.querySelector('.captcha').style.display = 'block';
             generateCaptcha();
+            const showCaptchaButton = document.querySelector('button[onclick="showCaptcha()"]');
+            showCaptchaButton.innerText = "التحقق من الرمز";
+            showCaptchaButton.onclick = calculateScore;
+
         }
 
-        // حساب النتائج
         function calculateScore() {
             const captchaInput = document.getElementById('captchaInput').value;
             const captchaCode = document.getElementById('captchaCode').innerText;
@@ -691,7 +694,7 @@ function showNotification(message, type = 'info') {
         notification.style.animation = 'slideUp 0.3s ease-out';
         setTimeout(() => {
             document.body.removeChild(notification);
-        }, 300);
+        }, 3000);
     }, 3000);
 }
 

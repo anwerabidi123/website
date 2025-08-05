@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,337 +147,21 @@ body {
   margin: 1.5rem 0 1rem 0;
 }
 
-/* Grille pour les espaces */
-.spaces-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
-  gap: 2rem;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-.space-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: var(--transition);
-  border-top: 4px solid var(--primary-color);
-  width: 100%;
-  min-height: 200px; /* Hauteur minimale pour la cohérence */
-}
-
-.space-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-}
-
-.space-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  word-wrap: break-word;
-}
-
-.space-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-/* Boutons */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: var(--primary-color);
-  color: var(--white);
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-.btn:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background-color: var(--accent-color);
-}
-
-.btn-secondary:hover {
-  background-color: #f57c00;
-}
-
-/* Articles récents */
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-.article-card {
-  background: var(--white);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  width: 100%;
-}
-
-.article-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-
-.article-meta {
-  padding: 1rem;
-  background-color: var(--background-color);
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-
-.article-content {
-  padding: 1.5rem;
-}
-
-.article-title {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  word-wrap: break-word;
-}
-
-/* Footer */
-.footer {
-  background-color: var(--primary-color);
-  color: var(--white);
-  text-align: center;
-  padding: 2rem 0;
-  margin-top: 3rem;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.social-links {
-  margin: 1rem 0;
-}
-
-.social-links a {
-  color: var(--white);
-  font-size: 1.5rem;
-  margin: 0 1rem;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  color: var(--accent-color);
-}
-
-/* Responsive - Tablettes */
-@media (max-width: 1024px) {
-  .container {
+.section-content {
     padding: 1.5rem;
-  }
-
-  .section {
-    padding: 1.5rem;
-  }
-
-  .spaces-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .nav-menu {
-    gap: 1rem;
-  }
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
-/* Responsive - Mobiles */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 1rem;
-  }
-
-  .test {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0 1rem;
-    justify-content: center !important;
-  }
-
-  .nav-item {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-item a {
-    display: block;
-    width: 100%;
-    padding: 0.8rem 1rem;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .section {
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .spaces-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .articles-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .logo {
-    font-size: 1.4rem;
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  .tagline {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  .space-card, .article-card {
-    padding: 1.5rem;
-  }
-
-  .btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
-    width: auto;
-    min-width: 120px;
-  }
-
-  .text {
-    text-align: center;
-  }
-}
-
-/* Responsive - Très petits écrans */
-@media (max-width: 480px) {
-  .header-content {
-    padding: 0 0.5rem;
-  }
-
-  .nav-content {
-    padding: 0 0.5rem;
-  }
-
-  .container {
-    padding: 0.5rem;
-  }
-
-  .section {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .section-title {
-    font-size: 1.4rem;
-  }
-
-  .space-card, .article-card {
-    padding: 1rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .spaces-grid, .articles-grid {
-    gap: 0.8rem;
-  }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Utilitaires */
-.text-center { text-align: center; }
-.text-primary { color: var(--primary-color); }
-.text-secondary { color: var(--secondary-color); }
-.mb-2 { margin-bottom: 2rem; }
-.mt-2 { margin-top: 2rem; }
-
-/* Amélioration de la lisibilité sur mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px; /* Taille de police de base plus grande sur mobile */
-  }
-
-  p {
-    line-height: 1.7; /* Améliorer l'espacement des lignes */
-    margin-bottom: 1rem;
-  }
-
-  h1, h2, h3 {
-    line-height: 1.3;
-    margin-bottom: 1rem;
-  }
-
-  /* Améliorer l'espacement tactile */
-  .nav-item a, .btn {
-    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+.btn-group {
     display: flex;
-    align-items: center;
+    gap: 1rem;
     justify-content: center;
-  }
+    margin-top: 2rem;
 }
 
-    </style>
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -507,250 +191,251 @@ body {
     <!-- Contenu principal -->
     <main class="container">
         <section class="section">
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-graduation-cap"></i> ما الكفاية التي تحتاج إليها؟</h1>
-            <div class="quote">
-                "الطريقة الوحيدة للتميز هي دخول منطقة امتيازك وعبقريتك"
-            </div>
-        </header>
-
-        <section class="intro">
-            <p>أتذكر عرض المناطق الأربع للكفايات؟ الطريقة الوحيدة للتميّز هي دخول منطقة امتيازك و"عبقريتك".</p>
-            <p>هذا يعني اكتساب المعارف والكفاءات السلوكية والكفايات العملية اللازمة لممارسة النشاط (أو تنفيذ المشروع) الذي يهمك أكثر من غيره - والاعتراف بك كخبير فيه!</p>
-            <p><strong>لا سرّ في ذلك، عليك أن تتعلم! حان دورك!</strong></p>
-        </section>
-
-        <section class="competence-section">
-            <h2 class="section-title">ابدأ باكتساب الكفايات الأساسية</h2>
-
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3><i class="fas fa-search"></i> تحديد هدفك</h3>
-                    <p>بغض النظر عن هدفك المهني، خصص الوقت الكافي لرصد الكفايات التي تحتاجها لممارسة هذه المهنة أو تنفيذ هذا المشروع.</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3><i class="fas fa-globe"></i> إجراء البحوث</h3>
-                    <p>يمكنك بسهولة إجراء بحث على الإنترنت بكتابة "بطاقة مهنية" + اسم المهنة - أو مقابلة محترف مباشرة!</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3><i class="fas fa-hands-helping"></i> طلب المساعدة</h3>
-                    <p>فكر في طلب المساعدة من حولك عند الحاجة! يمكن للأشخاص ذوي الخبرة توجيهك في مسارك.</p>
-                </div>
-            </div>
-
-            <h3 style="margin: 30px 0 20px; color: var(--primary);">الأركان الثلاثة للكفايات</h3>
-
-            <table class="skills-table">
-                <thead>
-                    <tr>
-                        <th style="width: 33%;"><i class="fas fa-book"></i> المعارف (الإطار النظري)</th>
-                        <th style="width: 33%;"><i class="fas fa-user"></i> الكفاءات السلوكية (المهارات الناعمة)</th>
-                        <th style="width: 33%;"><i class="fas fa-tools"></i> الكفايات العملية (التطبيق)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>المعارف النظرية</td>
-                        <td>الاتصال الفعال</td>
-                        <td>حل المشكلات</td>
-                    </tr>
-                    <tr>
-                        <td>الخبرة التقنية</td>
-                        <td>العمل الجماعي</td>
-                        <td>إدارة المشاريع</td>
-                    </tr>
-                    <tr>
-                        <td>معرفة القطاع</td>
-                        <td>الإبداع</td>
-                        <td>اتخاذ القرارات</td>
-                    </tr>
-                    <tr>
-                        <td>اللغات الأجنبية</td>
-                        <td>المرونة</td>
-                        <td>استخدام أدوات متخصصة</td>
-                    </tr>
-                    <tr>
-                        <td>المعايير واللوائح</td>
-                        <td>القيادة</td>
-                        <td>التطبيق العملي للمعارف</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="tip-box">
-                <p><strong>الآن أصبح الأمر واضحًا!</strong> أنت تعرف ما تحتاج إلى تعلمه والخطوات التالية في مسارك التدريبي.</p>
-            </div>
-        </section>
-
-        <section class="competence-section">
-            <h2 class="section-title">كيف تتميز؟</h2>
-
-            <p>غالبًا ما يكون ما يميزك هو ما قمت به <strong>بالإضافة إلى الآخرين</strong> (من خلال الدورات، التدريبات، الخبرات، الممارسة) و/أو <strong>بشكل مختلف</strong> (السلوك، الصفات الإنسانية، الإبداع، الأصالة، الأفكار).</p>
-
-            <p>حاول صياغة بعض الأفكار التي قد تمكنك من التميز مقارنة بشخص آخر يمتلك نفس الكفايات الأساسية.</p>
-
-            <p><strong>تذكر أن جميع الخريجين من نفس الدورة التدريبية يمتلكون نفس الكفايات الأساسية!</strong></p>
-
-            <div style="margin: 30px 0;">
-                <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fas fa-lightbulb"></i> أفكاري للتميز:</h3>
-                <textarea placeholder="سجل هنا أفكارك للتميز..."></textarea>
-
-                <button class="btn btn-accent">
-                    <i class="fas fa-save"></i> حفظ الأفكار
-                </button>
-            </div>
-
-            <div class="tip-box">
-                <p><i class="fas fa-question-circle"></i> <strong>إذا لم تكن لديك أفكار</strong>، اطلب النصيحة ممن حولك أو ادرس مسار الناجحين في مجالك (كيف حققوا النجاح؟ لماذا هم متميزون؟)</p>
-            </div>
-        </section>
-
-        <section class="resources-section">
-            <h2 class="section-title">موارد للبحث باللغة الفرنسية</h2>
-
-            <p>للحصول على بطاقات المهن، يمكنك استشارة المواقع المتخصصة التالية:</p>
-
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <h4><i class="fas fa-graduation-cap"></i> ONISEP</h4>
-                    <p>Informations complètes sur les métiers et formations</p>
-                    <div class="resource-link">
-                        <a href="https://www.onisep.fr/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
+            <h1 class="section-title">ما الكفاية التي تحتاج إليها؟</h1>
+            <div class="section-content">
+                <header>
+                    <h1><i class="fas fa-graduation-cap"></i> ما الكفاية التي تحتاج إليها؟</h1>
+                    <div class="quote">
+                        "الطريقة الوحيدة للتميز هي دخول منطقة امتيازك وعبقريتك"
                     </div>
-                </div>
+                </header>
 
-                <div class="resource-card">
-                    <h4><i class="fas fa-briefcase"></i> Pôle emploi</h4>
-                    <p>Descriptions de métiers et offres d'emploi</p>
-                    <div class="resource-link">
-                        <a href="https://www.pole-emploi.fr/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
-                    </div>
-                </div>
+                <section class="intro">
+                    <p>أتذكر عرض المناطق الأربع للكفايات؟ الطريقة الوحيدة للتميّز هي دخول منطقة امتيازك و"عبقريتك".</p>
+                    <p>هذا يعني اكتساب المعارف والكفاءات السلوكية والكفايات العملية اللازمة لممارسة النشاط (أو تنفيذ المشروع) الذي يهمك أكثر من غيره - والاعتراف بك كخبير فيه!</p>
+                    <p><strong>لا سرّ في ذلك، عليك أن تتعلم! حان دورك!</strong></p>
+                </section>
 
-                <div class="resource-card">
-                    <h4><i class="fas fa-lightbulb"></i> Imagine ton futur</h4>
-                    <p>Orientation et découverte des métiers</p>
-                    <div class="resource-link">
-                        <a href="https://www.imaginetonfutur.com/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
-                    </div>
-                </div>
+                <section class="competence-section">
+                    <h2 class="section-title">ابدأ باكتساب الكفايات الأساسية</h2>
 
-                <div class="resource-card">
-                    <h4><i class="fas fa-user-graduate"></i> L'étudiant</h4>
-                    <p>Conseils pour les étudiants et jeunes diplômés</p>
-                    <div class="resource-link">
-                        <a href="https://www.letudiant.fr/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
-                    </div>
-                </div>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3><i class="fas fa-search"></i> تحديد هدفك</h3>
+                            <p>بغض النظر عن هدفك المهني، خصص الوقت الكافي لرصد الكفايات التي تحتاجها لممارسة هذه المهنة أو تنفيذ هذا المشروع.</p>
+                        </div>
 
-                <div class="resource-card">
-                    <h4><i class="fas fa-book-open"></i> Studyrama</h4>
-                    <p>Guides des formations et métiers</p>
-                    <div class="resource-link">
-                        <a href="https://www.studyrama.com/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
-                    </div>
-                </div>
+                        <div class="skill-card">
+                            <h3><i class="fas fa-globe"></i> إجراء البحوث</h3>
+                            <p>يمكنك بسهولة إجراء بحث على الإنترنت بكتابة "بطاقة مهنية" + اسم المهنة - أو مقابلة محترف مباشرة!</p>
+                        </div>
 
-                <div class="resource-card">
-                    <h4><i class="fas fa-info-circle"></i> CIDJ</h4>
-                    <p>Centre d'Information et de Documentation Jeunesse</p>
-                    <div class="resource-link">
-                        <a href="https://www.cidj.com/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
+                        <div class="skill-card">
+                            <h3><i class="fas fa-hands-helping"></i> طلب المساعدة</h3>
+                            <p>فكر في طلب المساعدة من حولك عند الحاجة! يمكن للأشخاص ذوي الخبرة توجيهك في مسارك.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="resource-card">
-                    <h4><i class="fas fa-newspaper"></i> Phosphore</h4>
-                    <p>Magazine d'orientation pour les jeunes</p>
-                    <div class="resource-link">
-                        <a href="https://www.phosphore.com/" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> زيارة الموقع
-                        </a>
+                    <h3 style="margin: 30px 0 20px; color: var(--primary);">الأركان الثلاثة للكفايات</h3>
+
+                    <table class="skills-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 33%;"><i class="fas fa-book"></i> المعارف (الإطار النظري)</th>
+                                <th style="width: 33%;"><i class="fas fa-user"></i> الكفاءات السلوكية (المهارات الناعمة)</th>
+                                <th style="width: 33%;"><i class="fas fa-tools"></i> الكفايات العملية (التطبيق)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>المعارف النظرية</td>
+                                <td>الاتصال الفعال</td>
+                                <td>حل المشكلات</td>
+                            </tr>
+                            <tr>
+                                <td>الخبرة التقنية</td>
+                                <td>العمل الجماعي</td>
+                                <td>إدارة المشاريع</td>
+                            </tr>
+                            <tr>
+                                <td>معرفة القطاع</td>
+                                <td>الإبداع</td>
+                                <td>اتخاذ القرارات</td>
+                            </tr>
+                            <tr>
+                                <td>اللغات الأجنبية</td>
+                                <td>المرونة</td>
+                                <td>استخدام أدوات متخصصة</td>
+                            </tr>
+                            <tr>
+                                <td>المعايير واللوائح</td>
+                                <td>القيادة</td>
+                                <td>التطبيق العملي للمعارف</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="tip-box">
+                        <p><strong>الآن أصبح الأمر واضحًا!</strong> أنت تعرف ما تحتاج إلى تعلمه والخطوات التالية في مسارك التدريبي.</p>
                     </div>
-                </div>
+                </section>
+
+                <section class="competence-section">
+                    <h2 class="section-title">كيف تتميز؟</h2>
+
+                    <p>غالبًا ما يكون ما يميزك هو ما قمت به <strong>بالإضافة إلى الآخرين</strong> (من خلال الدورات، التدريبات، الخبرات، الممارسة) و/أو <strong>بشكل مختلف</strong> (السلوك، الصفات الإنسانية، الإبداع، الأصالة، الأفكار).</p>
+
+                    <p>حاول صياغة بعض الأفكار التي قد تمكنك من التميز مقارنة بشخص آخر يمتلك نفس الكفايات الأساسية.</p>
+
+                    <p><strong>تذكر أن جميع الخريجين من نفس الدورة التدريبية يمتلكون نفس الكفايات الأساسية!</strong></p>
+
+                    <div style="margin: 30px 0;">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;"><i class="fas fa-lightbulb"></i> أفكاري للتميز:</h3>
+                        <textarea placeholder="سجل هنا أفكارك للتميز..."></textarea>
+
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-save"></i> حفظ الأفكار
+                        </button>
+                    </div>
+
+                    <div class="tip-box">
+                        <p><i class="fas fa-question-circle"></i> <strong>إذا لم تكن لديك أفكار</strong>، اطلب النصيحة ممن حولك أو ادرس مسار الناجحين في مجالك (كيف حققوا النجاح؟ لماذا هم متميزون؟)</p>
+                    </div>
+                </section>
+
+                <section class="resources-section">
+                    <h2 class="section-title">موارد للبحث باللغة الفرنسية</h2>
+
+                    <p>للحصول على بطاقات المهن، يمكنك استشارة المواقع المتخصصة التالية:</p>
+
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h4><i class="fas fa-graduation-cap"></i> ONISEP</h4>
+                            <p>Informations complètes sur les métiers et formations</p>
+                            <div class="resource-link">
+                                <a href="https://www.onisep.fr/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4><i class="fas fa-briefcase"></i> Pôle emploi</h4>
+                            <p>Descriptions de métiers et offres d'emploi</p>
+                            <div class="resource-link">
+                                <a href="https://www.pole-emploi.fr/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4><i class="fas fa-lightbulb"></i> Imagine ton futur</h4>
+                            <p>Orientation et découverte des métiers</p>
+                            <div class="resource-link">
+                                <a href="https://www.imaginetonfutur.com/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4><i class="fas fa-user-graduate"></i> L'étudiant</h4>
+                            <p>Conseils pour les étudiants et jeunes diplômés</p>
+                            <div class="resource-link">
+                                <a href="https://www.letudiant.fr/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4><i class="fas fa-book-open"></i> Studyrama</h4>
+                            <p>Guides des formations et métiers</p>
+                            <div class="resource-link">
+                                <a href="https://www.studyrama.com/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4><i class="fas fa-info-circle"></i> CIDJ</h4>
+                            <p>Centre d'Information et de Documentation Jeunesse</p>
+                            <div class="resource-link">
+                                <a href="https://www.cidj.com/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <h4><i class="fas fa-newspaper"></i> Phosphore</h4>
+                            <p>Magazine d'orientation pour les jeunes</p>
+                            <div class="resource-link">
+                                <a href="https://www.phosphore.com/" target="_blank" class="btn">
+                                    <i class="fas fa-external-link-alt"></i> زيارة الموقع
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box" style="margin-top: 30px;">
+                        <p><i class="fas fa-keyboard"></i> <strong>نصيحة:</strong> اكتب "fiche métier" + [nom du métier] في محرك البحث المفضل لديك للحصول على معلومات مفصلة.</p>
+                    </div>
+                </section>
+
+                <footer>
+                    <p>طور كفاياتك وتميز في مجالك!</p>
+                    <p><i class="fas fa-copyright"></i> 2023 - دليل الكفايات المهنية</p>
+                </footer>
             </div>
 
-            <div class="tip-box" style="margin-top: 30px;">
-                <p><i class="fas fa-keyboard"></i> <strong>نصيحة:</strong> اكتب "fiche métier" + [nom du métier] في محرك البحث المفضل لديك للحصول على معلومات مفصلة.</p>
-            </div>
-        </section>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Animation des cartes
+                    const cards = document.querySelectorAll('.skill-card, .resource-card');
+                    cards.forEach((card, index) => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
-        <footer>
-            <p>طور كفاياتك وتميز في مجالك!</p>
-            <p><i class="fas fa-copyright"></i> 2023 - دليل الكفايات المهنية</p>
-        </footer>
-    </div>
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 200 * index);
+                    });
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animation des cartes
-            const cards = document.querySelectorAll('.skill-card, .resource-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    // Animation des lignes du tableau
+                    const tableRows = document.querySelectorAll('.skills-table tbody tr');
+                    tableRows.forEach((row, index) => {
+                        row.style.opacity = '0';
+                        row.style.transform = 'translateX(-20px)';
+                        row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 200 * index);
-            });
+                        setTimeout(() => {
+                            row.style.opacity = '1';
+                            row.style.transform = 'translateX(0)';
+                        }, 200 * index);
+                    });
 
-            // Animation des lignes du tableau
-            const tableRows = document.querySelectorAll('.skills-table tbody tr');
-            tableRows.forEach((row, index) => {
-                row.style.opacity = '0';
-                row.style.transform = 'translateX(-20px)';
-                row.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    // Fonction pour sauvegarder les idées
+                    const saveButton = document.querySelector('.btn-accent');
+                    saveButton.addEventListener('click', function() {
+                        const textarea = document.querySelector('textarea');
+                        if (textarea.value.trim() !== '') {
+                            localStorage.setItem('differentiationIdeas', textarea.value);
 
-                setTimeout(() => {
-                    row.style.opacity = '1';
-                    row.style.transform = 'translateX(0)';
-                }, 200 * index);
-            });
+                            // Animation de confirmation
+                            saveButton.innerHTML = '<i class="fas fa-check"></i> تم الحفظ!';
+                            saveButton.style.background = 'var(--success)';
 
-            // Fonction pour sauvegarder les idées
-            const saveButton = document.querySelector('.btn-accent');
-            saveButton.addEventListener('click', function() {
-                const textarea = document.querySelector('textarea');
-                if (textarea.value.trim() !== '') {
-                    localStorage.setItem('differentiationIdeas', textarea.value);
+                            setTimeout(() => {
+                                saveButton.innerHTML = '<i class="fas fa-save"></i> حفظ الأفكار';
+                                saveButton.style.background = 'var(--accent)';
+                            }, 2000);
+                        } else {
+                            alert('الرجاء إدخال أفكارك قبل الحفظ.');
+                        }
+                    });
 
-                    // Animation de confirmation
-                    saveButton.innerHTML = '<i class="fas fa-check"></i> تم الحفظ!';
-                    saveButton.style.background = 'var(--success)';
-
-                    setTimeout(() => {
-                        saveButton.innerHTML = '<i class="fas fa-save"></i> حفظ الأفكار';
-                        saveButton.style.background = 'var(--accent)';
-                    }, 2000);
-                } else {
-                    alert('الرجاء إدخال أفكارك قبل الحفظ.');
-                }
-            });
-
-            // Charger les idées sauvegardées
-            const savedIdeas = localStorage.getItem('differentiationIdeas');
-            if (savedIdeas) {
-                document.querySelector('textarea').value = savedIdeas;
-            }
-        });
-    </script>
+                    // Charger les idées sauvegardées
+                    const savedIdeas = localStorage.getItem('differentiationIdeas');
+                    if (savedIdeas) {
+                        document.querySelector('textarea').value = savedIdeas;
+                    }
+                });
+            </script>
         </section>
     </main>
 
@@ -939,7 +624,7 @@ function showNotification(message, type = 'info') {
         notification.style.animation = 'slideUp 0.3s ease-out';
         setTimeout(() => {
             document.body.removeChild(notification);
-        }, 300);
+        }, 3000);
     }, 3000);
 }
 
