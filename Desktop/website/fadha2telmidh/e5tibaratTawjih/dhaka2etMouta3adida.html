@@ -1,820 +1,437 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon guide d'orientation positive - La voie du succès</title>
-    <link rel="icon" type="image/x-icon" href="../tnn.jpg">
-    <style>
-        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
-
-/* Variables CSS pour la cohérence du thème */
-:root {
-  --primary-color: #2c5aa0;
-  --secondary-color: #e91e63;
-  --accent-color: #ff9800;
-  --text-color: #333;
-  --text-light: #666;
-  --background-color: #f8f9fa;
-  --white: #ffffff;
-  --border-color: #e0e0e0;
-  --shadow: 0 2px 10px rgba(0,0,0,0.1);
-  --border-radius: 8px;
-  --transition: all 0.3s ease;
-}
-
-/* Reset et base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.text {
-  text-align: end;
-}
-
-.test {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  overflow-x: hidden; /* Éviter le défilement horizontal */
-}
-
-/* Header */
-.header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: var(--white);
-  padding: 1rem 0;
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--white);
-  word-wrap: break-word; /* Permettre la coupure des mots longs */
-}
-
-.tagline {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-top: 0.2rem;
-}
-
-/* Navigation */
-.nav {
-  background-color: var(--primary-color);
-  padding: 0.5rem 0;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  flex-wrap: wrap; /* Permettre le retour à la ligne */
-}
-
-.nav-item a {
-  color: var(--white);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  white-space: nowrap; /* Éviter la coupure des liens */
-}
-
-.nav-item a:hover,
-.nav-item a.active {
-  background-color: rgba(255,255,255,0.2);
-}
-
-/* Container principal */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  width: 100%; /* Assurer la largeur complète */
-}
-
-/* Sections */
-.section {
-  background: var(--white);
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  width: 100%; /* Assurer la largeur complète */
-}
-
-.section-title {
-  color: var(--primary-color);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid var(--accent-color);
-  padding-bottom: 0.5rem;
-  word-wrap: break-word; /* Permettre la coupure des titres longs */
-}
-
-.section-subtitle {
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  margin: 1.5rem 0 1rem 0;
-}
-
-.section-content {
-  padding: 1.5rem;
-  background-color: var(--white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-}
-
-.btn-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.custom-radio {
-    display: block;
-    position: relative;
-    padding-right: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 1rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.custom-radio input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-    border: 1px solid #ccc;
-}
-
-.custom-radio:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-.custom-radio input:checked ~ .checkmark {
-    background-color: var(--primary-color);
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.custom-radio input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.custom-radio .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-}
-
-.intelligence-section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-}
-
-.intelligence-section p {
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-</style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content test">
-            <div>
-                <a href="../index.html" class="logo">دليلي للتوجيه الإيجابي</a>
-                <div class="tagline">طريق النجاح
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <ul class="nav-menu " style="justify-content: end;">
-
-                <li class="nav-item"><a href="../espace-parent.html">فضاء الأولياء</a></li>
-                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
-                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
-                <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Contenu principal -->
-<main class="container">
-<section class="section">
-    <h1 class="section-title">اختبار الذكاءات المتعددة</h1>
-    <div class="section-content">
-        <form id="testForm">
-            <!-- Les sections seront générées dynamiquement par JavaScript -->
-        </form>
-
-        <!-- Section CAPTCHA -->
-        <div class="captcha text-center">
-            <p>الرجاء حل هذا الـ CAPTCHA للمتابعة:</p>
-            <p id="captchaQuestion"></p>
-            <input type="text" id="captchaInput" placeholder="إجابتك" required>
-            <small id="captchaError" style="color: red; display: none;">إجابة خاطئة. الرجاء المحاولة مرة أخرى.</small>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn" onclick="verifierCaptcha()">حساب النتائج</button>
-            <button class="btn btn-secondary" onclick="reinitialiserFormulaire()">إعادة تعيين</button>
-        </div>
-        <div id="resultats" class="mt-2"></div>
-    </div>
-
-    <script>
-        // Données du test avec vos affirmations
-        const typesIntelligence = [
-            {
-                nom: "الذكاء اللغوي",
-                affirmations: [
-                    "أقرأ كثيراً.",
-                    "أحب رواية القصص واللعب بالكلمات.",
-                    "قدرتي على الكتابة والتأليف أعلى من المتوسط.",
-                    "أعبّر عن نفسي بمفردات غنية.",
-                    "أحب ابتكار القصص وكتابتها.",
-                    "قدرتي على الكتابة والتأليف أعلى من المتوسط."
-                ],
-                metiers: [
-                    "كاتب",
-                    "صحفي",
-                    "مترجم",
-                    "معلم",
-                    "محامي",
-                    "محرر"
-                ]
-            },
-            {
-                nom: "الذكاء المنطقي الرياضي",
-                affirmations: [
-                    "أحب استخدام الآلة الحاسبة وجداول البيانات الإلكترونية وبرامج قواعد البيانات.",
-                    "لدي سهولة في حل المشكلات.",
-                    "لدي قدرة كبيرة على الحساب الذهني.",
-                    "أطرح الكثير من الأسئلة حول كيفية عمل الأشياء أو أسباب الظواهر والأحداث.",
-                    "أنا ماهر في الألعاب الفكرية (الشطرنج، الداما...).",
-                    "أحب إجراء التجارب العلمية."
-                ],
-                metiers: [
-                    "مهندس",
-                    "عالم رياضيات",
-                    "عالم بيانات",
-                    "محلل بيانات",
-                    "مبرمج",
-                    "اقتصادي"
-                ]
-            },
-            {
-                nom: "الذكاء المكاني",
-                affirmations: [
-                    "عندما أقرأ، أفضل الرسوم التوضيحية وأستطيع تذكرها بسهولة في ذهني.",
-                    "أرى صوراً في ذهني عندما أفكر في شيء ما.",
-                    "أقرأ الخرائط والجداول والرسوم البيانية بدون صعوبة.",
-                    "أحب الرسم والخربشة كثيراً.",
-                    "أحب حل الألغاز وألعاب المتاهات والبناء.",
-                    "أجد طريقي بسهولة في حي جديد."
-                ],
-                metiers: [
-                    "مهندس معماري",
-                    "مصمم",
-                    "طيار",
-                    "رسام خرائط",
-                    "فنان ثلاثي الأبعاد",
-                    "مصور"
-                ]
-            },
-            {
-                nom: "الذكاء الجسدي الحركي",
-                affirmations: [
-                    "أحتاج إلى الحركة.",
-                    "أتحرك أو أقرع بقدمي عندما أجلس لفترة طويلة.",
-                    "أحب العمل اليدوي.",
-                    "لدي حس تناسق جيد (مثلاً في الرياضة، الرقص، المسرح...).",
-                    "أنا ماهر في عدة رياضات أو أنشطة بدنية.",
-                    "أحب لمس الأشياء."
-                ],
-                metiers: [
-                    "رياضي",
-                    "راقص",
-                    "حرفي",
-                    "جراح",
-                    "ممثل",
-                    "نجار"
-                ]
-            },
-            {
-                nom: "الذكاء الموسيقي",
-                affirmations: [
-                    "أعزف أو أود أن أعزف على آلة موسيقية.",
-                    "غالباً ما أدندن أغنية (أو لحناً) في ذهني أو بصوت عالٍ.",
-                    "أتذكر بسهولة إيقاع أو موسيقى الإعلانات.",
-                    "أحب الاستماع إلى الموسيقى كثيراً.",
-                    "أستمع إلى أنواع مختلفة من الموسيقى.",
-                    "أنتبه للضوضاء والأصوات."
-                ],
-                metiers: [
-                    "موسيقي",
-                    "ملحن",
-                    "مغني",
-                    "مهندس صوت",
-                    "مدرس موسيقى",
-                    "دي جي"
-                ]
-            },
-            {
-                nom: "الذكاء الاجتماعي",
-                affirmations: [
-                    "أحب العمل مع الآخرين والتواجد معهم.",
-                    "أدرك مشاعر الآخرين بسهولة.",
-                    "لدي العديد من الأصدقاء. أنا محبوب.",
-                    "أشارك وأقدم المساعدة بسهولة.",
-                    "أتحدث بسهولة مع أشخاص لا أعرفهم.",
-                    "أنا عضو في فريق رياضي أو نادٍ اجتماعي."
-                ],
-                metiers: [
-                    "عالم نفس",
-                    "معلم",
-                    "مدير",
-                    "بائع",
-                    "دبلوماسي",
-                    "عامل اجتماعي"
-                ]
-            },
-            {
-                nom: "الذكاء الذاتي",
-                affirmations: [
-                    "أنا مستقل ولدي إرادة. أعمل بشكل أفضل وحدي من العمل مع الآخرين.",
-                    "قادر على تكوين آرائي الخاصة.",
-                    "قادر على الاحساس بعمق.",
-                    "أدرك نقاط قوتي وضعفي.",
-                    "أحب كتابة مذكراتي والتعبير عن مشاعري في القصائد أو ممارسة بعض الهوايات بمفردي.",
-                    "لدي مشاريع شخصية."
-                ],
-                metiers: [
-                    "كاتب",
-                    "فيلسوف",
-                    "عالم نفس",
-                    "مستشار",
-                    "فنان",
-                    "باحث"
-                ]
-            },
-            {
-                nom: "الذكاء الطبيعي",
-                affirmations: [
-                    "أحب تعلم أشياء جديدة عن الطبيعة.",
-                    "أهتم بالبيئة في تصرفاتي اليومية.",
-                    "أقضي وقتاً طويلاً في الخارج؛ أحب الهواء الطلق.",
-                    "أحب التعرف على النباتات والحيوانات والحشرات والأصداف والصخور أو تصنيفها.",
-                    "أشعر بالراحة في الطبيعة.",
-                    "أحب الذهاب للصيد وصيد السمك، أو المشي في الغابة."
-                ],
-                metiers: [
-                    "عالم أحياء",
-                    "عالم نباتات",
-                    "طبيب بيطري",
-                    "جيولوجي",
-                    "مزارع",
-                    "عالم بيئة"
-                ]
-            }
-        ];
-
-        const echelleLibelles = [
-            "أبداً",
-            "قليلاً",
-            "متوسط",
-            "نعم",
-            "نعم جداً"
-        ];
-
-        // Variables pour le CAPTCHA
-        let captchaReponseCorrecte;
-
-        // Fonction pour générer une question CAPTCHA
-        function genererCaptcha() {
-            const a = Math.floor(Math.random() * 10) + 1;
-            const b = Math.floor(Math.random() * 10) + 1;
-            captchaReponseCorrecte = a + b;
-            document.getElementById('captchaQuestion').textContent = `ما ناتج ${a} + ${b} ؟`;
-        }
-
-        // Fonction pour vérifier le CAPTCHA
-        function verifierCaptcha() {
-            const reponseUtilisateur = parseInt(document.getElementById('captchaInput').value);
-            if (reponseUtilisateur === captchaReponseCorrecte) {
-                document.getElementById('captchaError').style.display = 'none';
-                calculerResultats();
-            } else {
-                document.getElementById('captchaError').style.display = 'block';
-            }
-        }
-
-        // Fonction pour mélanger les affirmations
-        function melangerTableau(tableau) {
-            for (let i = tableau.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [tableau[i], tableau[j]] = [tableau[j], tableau[i]];
-            }
-            return tableau;
-        }
-
-        // Fonction pour générer le formulaire
-        function genererFormulaire() {
-            const form = document.getElementById('testForm');
-            const affirmationsAleatoires = [];
-
-            typesIntelligence.forEach(type => {
-                type.affirmations.forEach(affirmation => {
-                    affirmationsAleatoires.push({
-                        texte: affirmation,
-                        type: type.nom
-                    });
-                });
-            });
-
-            const affirmationsMelangees = melangerTableau(affirmationsAleatoires);
-
-            affirmationsMelangees.forEach((item, index) => {
-                const div = document.createElement('div');
-                div.className = 'intelligence-section';
-                div.innerHTML = `
-                    <p>${item.texte}</p>
-                    <div>
-                        ${echelleLibelles.map((libelle, valeur) => `
-                            <label class="custom-radio">${libelle}
-                                <input type="radio" id="q_${index}_${valeur}" name="q_${index}" value="${valeur + 1}" required>
-                                <span class="checkmark"></span>
-                            </label>
-                        `).join('')}
-                    </div>
-                `;
-                form.appendChild(div);
-            });
-        }
-
-        // Fonction pour calculer les résultats
-        function calculerResultats() {
-            const radios = document.querySelectorAll('input[type="radio"]:checked');
-            if (radios.length < typesIntelligence.length * 6) {
-                alert("الرجاء الإجابة على جميع الأسئلة قبل حساب النتائج.");
-                return;
-            }
-
-            const resultatsDiv = document.getElementById('resultats');
-            const resultats = {};
-
-            typesIntelligence.forEach(type => {
-                resultats[type.nom] = {
-                    score: 0,
-                    metiers: type.metiers
-                };
-            });
-
-            typesIntelligence.forEach((type, indexType) => {
-                type.affirmations.forEach((_, indexAffirmation) => {
-                    const radios = document.getElementsByName(`q_${indexType * 6 + indexAffirmation}`);
-                    radios.forEach(radio => {
-                        if (radio.checked) {
-                            resultats[type.nom].score += parseInt(radio.value);
-                        }
-                    });
-                });
-            });
-
-            const resultatHTML = Object.entries(resultats).map(([type, data]) => `
-                <p>
-                    <strong>${type}</strong>:
-                    ${data.score}/30
-                    (${(data.score / 30 * 100).toFixed(1)}%)
-                    <div class="metiers">
-                        المهن المقترحة: ${data.metiers.join(", ")}
-                    </div>
-                </p>
-            `).join('');
-
-            resultatsDiv.innerHTML = `
-                <h2>نتائجك</h2>
-                ${resultatHTML}
-            `;
-        }
-
-        // Fonction pour réinitialiser le formulaire
-        function reinitialiserFormulaire() {
-            document.getElementById('testForm').reset();
-            document.getElementById('resultats').innerHTML = '';
-            genererCaptcha(); // Régénérer un nouveau CAPTCHA
-        }
-
-        // Générer le formulaire et le CAPTCHA au chargement de la page
-        genererFormulaire();
-        genererCaptcha();
-    </script>
-</section>
-</main>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Mon guide d'orientation positive. Tous droits réservés.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="LinkedIn">💼</a>
-                <a href="#" aria-label="YouTube">📺</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>// JavaScript pour Mon guide d'orientation positive
-
-// Attendre que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', function() {
-
-    // Animation d'apparition des éléments
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observer tous les éléments avec la classe 'section'
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Animation des cartes au survol
-    const cards = document.querySelectorAll('.space-card, .article-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        });
-    });
-
-
-
-    // Navigation mobile (hamburger menu)
-    const navToggle = document.createElement('button');
-    navToggle.classList.add('nav-toggle');
-    navToggle.innerHTML = '☰';
-    navToggle.style.display = 'none';
-
-    const navContent = document.querySelector('.nav-content');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (navContent && navMenu) {
-        navContent.insertBefore(navToggle, navMenu);
-
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('nav-menu-open');
-        });
-    }
-
-    // Smooth scrolling pour les liens internes
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Effet de typing pour le titre principal (optionnel)
-    const mainTitle = document.querySelector('.section-title');
-    if (mainTitle && mainTitle.textContent.includes('Bienvenue')) {
-        const text = mainTitle.textContent;
-        mainTitle.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                mainTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-
-        // Démarrer l'effet après un court délai
-        setTimeout(typeWriter, 500);
-    }
-
-    // Gestion des formulaires (si présents)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Validation basique
-            const inputs = this.querySelectorAll('input[required], textarea[required]');
-            let isValid = true;
-
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#e91e63';
-                } else {
-                    input.style.borderColor = '#e0e0e0';
-                }
-            });
-
-            if (isValid) {
-                // Simulation d'envoi
-                const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
-                if (submitBtn) {
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Envoi en cours...';
-                    submitBtn.disabled = true;
-
-                    setTimeout(() => {
-                        submitBtn.textContent = 'Message envoyé !';
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.disabled = false;
-                            form.reset();
-                        }, 2000);
-                    }, 1000);
-                }
-            }
-        });
-    });
-
-
-    // Statistiques de visite (simulation)
-    const stats = {
-        visits: localStorage.getItem('visits') || 0,
-        lastVisit: localStorage.getItem('lastVisit') || new Date().toISOString()
-    };
-
-    stats.visits++;
-    localStorage.setItem('visits', stats.visits);
-    localStorage.setItem('lastVisit', new Date().toISOString());
-
-    console.log(`Bienvenue ! C'est votre visite n°${stats.visits}`);
-});
-
-// Fonctions utilitaires
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.classList.add('notification', `notification-${type}`);
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--primary-color);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: var(--border-radius);
-        z-index: 1002;
-        animation: slideDown 0.3s ease-out;
-    `;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.style.animation = 'slideUp 0.3s ease-out';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
-}
-
-// Ajout des styles CSS pour les animations
-const additionalStyles = `
-    @keyframes slideDown {
-        from { transform: translateX(-50%) translateY(-100%); }
-        to { transform: translateX(-50%) translateY(0); }
-    }
-
-    @keyframes slideUp {
-        from { transform: translateX(-50%) translateY(0); }
-        to { transform: translateX(-50%) translateY(-100%); }
-    }
-
-    .nav-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-        .nav-toggle {
-            display: block;
-        }
-
-        .nav-menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--primary-color);
-            padding: 1rem;
-        }
-
-        .nav-menu-open {
-            display: flex;
-        }
-    }
-
-    .dark-theme {
-        --background-color: #1a1a1a;
-        --white: #2d2d2d;
-        --text-color: #e0e0e0;
-        --text-light: #b0b0b0;
-    }
-`;
-
-const styleSheet = document.createElement('style');
-styleSheet.textContent = additionalStyles;
-document.head.appendChild(styleSheet);
-</script>
-</body>
+<!DOCTYPE html>␍
+<html lang="ar" dir="rtl">␍
+<head>␍
+    <meta charset="UTF-8">␍
+    <title>اختبار الذكاءات المتعددة</title>␍
+    <style>␍
+        /* Styles généraux */␍
+        body {␍
+            font-family: Arial, sans-serif;␍
+            max-width: 800px;␍
+            margin: 0 auto;␍
+            padding: 20px;␍
+            line-height: 1.6;␍
+            background-color: #f0f0f0;␍
+            text-align: right; /* Alignement du texte à droite */␍
+        }␍
+␍
+        h1 {␍
+            color: #E30B5D; /* Rose Framboise */␍
+            text-align: center;␍
+            margin-bottom: 30px;␍
+        }␍
+␍
+        /* Styles pour les sections d'intelligence */␍
+        .intelligence-section {␍
+            margin-bottom: 20px;␍
+            padding: 20px;␍
+            border-radius: 10px;␍
+            background-color: #B2F2BB; /* Vert Mint */␍
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);␍
+            text-align: right; /* Alignement du texte à droite */␍
+        }␍
+␍
+        .intelligence-section:nth-child(even) {␍
+            background-color: #FFD1DC; /* Rose Framboise clair */␍
+        }␍
+␍
+        .intelligence-section p {␍
+            font-weight: bold;␍
+            margin-bottom: 10px;␍
+        }␍
+␍
+        /* Styles pour l'échelle de Likert */␍
+        .likert-scale {␍
+            display: flex;␍
+            justify-content: space-between;␍
+            margin-top: 10px;␍
+        }␍
+␍
+        .likert-scale label {␍
+            display: flex;␍
+            align-items: center;␍
+            gap: 5px;␍
+            cursor: pointer;␍
+        }␍
+␍
+        /* Styles pour les boutons */␍
+        .buttons {␍
+            display: flex;␍
+            justify-content: center;␍
+            gap: 10px;␍
+            margin-top: 20px;␍
+        }␍
+␍
+        button {␍
+            background-color: #E30B5D; /* Rose Framboise */␍
+            color: white;␍
+            border: none;␍
+            padding: 10px 20px;␍
+            cursor: pointer;␍
+            border-radius: 5px;␍
+            font-size: 16px;␍
+            transition: background-color 0.3s ease;␍
+        }␍
+␍
+        button:hover {␍
+            background-color: #D64161; /* Rose Framboise plus foncé */␍
+        }␍
+␍
+        /* Styles pour les résultats */␍
+        #resultats {␍
+            background-color: #B2F2BB; /* Vert Mint */␍
+            padding: 20px;␍
+            border-radius: 10px;␍
+            border: 2px solid #E30B5D; /* Rose Framboise */␍
+            margin-top: 30px;␍
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);␍
+            text-align: right; /* Alignement du texte à droite */␍
+        }␍
+␍
+        #resultats h2 {␍
+            color: #E30B5D; /* Rose Framboise */␍
+            margin-bottom: 15px;␍
+            text-align: center;␍
+        }␍
+␍
+        #resultats p {␍
+            background-color: white;␍
+            padding: 10px;␍
+            border-radius: 5px;␍
+            border: 1px solid #B2F2BB; /* Vert Mint */␍
+            margin: 10px 0;␍
+        }␍
+␍
+        .metiers {␍
+            font-style: italic;␍
+            color: #555;␍
+            margin-top: 5px;␍
+        }␍
+␍
+        /* Styles pour le CAPTCHA */␍
+        .captcha {␍
+            margin-top: 20px;␍
+            padding: 10px;␍
+            background-color: #fff;␍
+            border-radius: 5px;␍
+            border: 1px solid #ddd;␍
+            text-align: center;␍
+        }␍
+␍
+        .captcha input {␍
+            padding: 5px;␍
+            margin-top: 10px;␍
+            border: 1px solid #ccc;␍
+            border-radius: 3px;␍
+        }␍
+    </style>␍
+</head>␍
+<body>␍
+    <h1>اختبار الذكاءات المتعددة</h1>␍
+    <form id="testForm">␍
+        <!-- Les sections seront générées dynamiquement par JavaScript -->␍
+    </form>␍
+␍
+    <!-- Section CAPTCHA -->␍
+    <div class="captcha">␍
+        <p>الرجاء حل هذا الـ CAPTCHA للمتابعة:</p>␍
+        <p id="captchaQuestion"></p>␍
+        <input type="text" id="captchaInput" placeholder="إجابتك" required>␍
+        <small id="captchaError" style="color: red; display: none;">إجابة خاطئة. الرجاء المحاولة مرة أخرى.</small>␍
+    </div>␍
+␍
+    <div class="buttons">␍
+        <button onclick="verifierCaptcha()">حساب النتائج</button>␍
+        <button onclick="reinitialiserFormulaire()">إعادة تعيين</button>␍
+    </div>␍
+    <div id="resultats"></div>␍
+␍
+    <script>␍
+        // Données du test avec vos affirmations␍
+        const typesIntelligence = [␍
+            {␍
+                nom: "الذكاء اللغوي",␍
+                affirmations: [␍
+                    "أقرأ كثيراً.",␍
+                    "أحب رواية القصص واللعب بالكلمات.",␍
+                    "قدرتي على الكتابة والتأليف أعلى من المتوسط.",␍
+                    "أعبّر عن نفسي بمفردات غنية.",␍
+                    "أحب ابتكار القصص وكتابتها.",␍
+                    "قدرتي على الكتابة والتأليف أعلى من المتوسط."␍
+                ],␍
+                metiers: [␍
+                    "كاتب",␍
+                    "صحفي",␍
+                    "مترجم",␍
+                    "معلم",␍
+                    "محامي",␍
+                    "محرر"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء المنطقي الرياضي",␍
+                affirmations: [␍
+                    "أحب استخدام الآلة الحاسبة وجداول البيانات الإلكترونية وبرامج قواعد البيانات.",␍
+                    "لدي سهولة في حل المشكلات.",␍
+                    "لدي قدرة كبيرة على الحساب الذهني.",␍
+                    "أطرح الكثير من الأسئلة حول كيفية عمل الأشياء أو أسباب الظواهر والأحداث.",␍
+                    "أنا ماهر في الألعاب الفكرية (الشطرنج، الداما...).",␍
+                    "أحب إجراء التجارب العلمية."␍
+                ],␍
+                metiers: [␍
+                    "مهندس",␍
+                    "عالم رياضيات",␍
+                    "عالم بيانات",␍
+                    "محلل بيانات",␍
+                    "مبرمج",␍
+                    "اقتصادي"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء المكاني",␍
+                affirmations: [␍
+                    "عندما أقرأ، أفضل الرسوم التوضيحية وأستطيع تذكرها بسهولة في ذهني.",␍
+                    "أرى صوراً في ذهني عندما أفكر في شيء ما.",␍
+                    "أقرأ الخرائط والجداول والرسوم البيانية بدون صعوبة.",␍
+                    "أحب الرسم والخربشة كثيراً.",␍
+                    "أحب حل الألغاز وألعاب المتاهات والبناء.",␍
+                    "أجد طريقي بسهولة في حي جديد."␍
+                ],␍
+                metiers: [␍
+                    "مهندس معماري",␍
+                    "مصمم",␍
+                    "طيار",␍
+                    "رسام خرائط",␍
+                    "فنان ثلاثي الأبعاد",␍
+                    "مصور"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء الجسدي الحركي",␍
+                affirmations: [␍
+                    "أحتاج إلى الحركة.",␍
+                    "أتحرك أو أقرع بقدمي عندما أجلس لفترة طويلة.",␍
+                    "أحب العمل اليدوي.",␍
+                    "لدي حس تناسق جيد (مثلاً في الرياضة، الرقص، المسرح...).",␍
+                    "أنا ماهر في عدة رياضات أو أنشطة بدنية.",␍
+                    "أحب لمس الأشياء."␍
+                ],␍
+                metiers: [␍
+                    "رياضي",␍
+                    "راقص",␍
+                    "حرفي",␍
+                    "جراح",␍
+                    "ممثل",␍
+                    "نجار"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء الموسيقي",␍
+                affirmations: [␍
+                    "أعزف أو أود أن أعزف على آلة موسيقية.",␍
+                    "غالباً ما أدندن أغنية (أو لحناً) في ذهني أو بصوت عالٍ.",␍
+                    "أتذكر بسهولة إيقاع أو موسيقى الإعلانات.",␍
+                    "أحب الاستماع إلى الموسيقى كثيراً.",␍
+                    "أستمع إلى أنواع مختلفة من الموسيقى.",␍
+                    "أنتبه للضوضاء والأصوات."␍
+                ],␍
+                metiers: [␍
+                    "موسيقي",␍
+                    "ملحن",␍
+                    "مغني",␍
+                    "مهندس صوت",␍
+                    "مدرس موسيقى",␍
+                    "دي جي"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء الاجتماعي",␍
+                affirmations: [␍
+                    "أحب العمل مع الآخرين والتواجد معهم.",␍
+                    "أدرك مشاعر الآخرين بسهولة.",␍
+                    "لدي العديد من الأصدقاء. أنا محبوب.",␍
+                    "أشارك وأقدم المساعدة بسهولة.",␍
+                    "أتحدث بسهولة مع أشخاص لا أعرفهم.",␍
+                    "أنا عضو في فريق رياضي أو نادٍ اجتماعي."␍
+                ],␍
+                metiers: [␍
+                    "عالم نفس",␍
+                    "معلم",␍
+                    "مدير",␍
+                    "بائع",␍
+                    "دبلوماسي",␍
+                    "عامل اجتماعي"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء الذاتي",␍
+                affirmations: [␍
+                    "أنا مستقل ولدي إرادة. أعمل بشكل أفضل وحدي من العمل مع الآخرين.",␍
+                    "قادر على تكوين آرائي الخاصة.",␍
+                    "قادر على الاحساس بعمق.",␍
+                    "أدرك نقاط قوتي وضعفي.",␍
+                    "أحب كتابة مذكراتي والتعبير عن مشاعري في القصائد أو ممارسة بعض الهوايات بمفردي.",␍
+                    "لدي مشاريع شخصية."␍
+                ],␍
+                metiers: [␍
+                    "كاتب",␍
+                    "فيلسوف",␍
+                    "عالم نفس",␍
+                    "مستشار",␍
+                    "فنان",␍
+                    "باحث"␍
+                ]␍
+            },␍
+            {␍
+                nom: "الذكاء الطبيعي",␍
+                affirmations: [␍
+                    "أحب تعلم أشياء جديدة عن الطبيعة.",␍
+                    "أهتم بالبيئة في تصرفاتي اليومية.",␍
+                    "أقضي وقتاً طويلاً في الخارج؛ أحب الهواء الطلق.",␍
+                    "أحب التعرف على النباتات والحيوانات والحشرات والأصداف والصخور أو تصنيفها.",␍
+                    "أشعر بالراحة في الطبيعة.",␍
+                    "أحب الذهاب للصيد وصيد السمك، أو المشي في الغابة."␍
+                ],␍
+                metiers: [␍
+                    "عالم أحياء",␍
+                    "عالم نباتات",␍
+                    "طبيب بيطري",␍
+                    "جيولوجي",␍
+                    "مزارع",␍
+                    "عالم بيئة"␍
+                ]␍
+            }␍
+        ];␍
+␍
+        const echelleLibelles = [␍
+            "أبداً",  <!-- تم استبدال "ليس على الإطلاق" بـ "أبداً" -->␍
+            "قليلاً",␍
+            "متوسط",␍
+            "نعم",␍
+            "نعم جداً"␍
+        ];␍
+␍
+        // Variables pour le CAPTCHA␍
+        let captchaReponseCorrecte;␍
+␍
+        // Fonction pour générer une question CAPTCHA␍
+        function genererCaptcha() {␍
+            const a = Math.floor(Math.random() * 10) + 1;␍
+            const b = Math.floor(Math.random() * 10) + 1;␍
+            captchaReponseCorrecte = a + b;␍
+            document.getElementById('captchaQuestion').textContent = `ما ناتج ${a} + ${b} ؟`;␍
+        }␍
+␍
+        // Fonction pour vérifier le CAPTCHA␍
+        function verifierCaptcha() {␍
+            const reponseUtilisateur = parseInt(document.getElementById('captchaInput').value);␍
+            if (reponseUtilisateur === captchaReponseCorrecte) {␍
+                document.getElementById('captchaError').style.display = 'none';␍
+                calculerResultats();␍
+            } else {␍
+                document.getElementById('captchaError').style.display = 'block';␍
+            }␍
+        }␍
+␍
+        // Fonction pour mélanger les affirmations␍
+        function melangerTableau(tableau) {␍
+            for (let i = tableau.length - 1; i > 0; i--) {␍
+                const j = Math.floor(Math.random() * (i + 1));␍
+                [tableau[i], tableau[j]] = [tableau[j], tableau[i]];␍
+            }␍
+            return tableau;␍
+        }␍
+␍
+        // Fonction pour générer le formulaire␍
+        function genererFormulaire() {␍
+            const form = document.getElementById('testForm');␍
+            const affirmationsAleatoires = [];␍
+␍
+            typesIntelligence.forEach(type => {␍
+                type.affirmations.forEach(affirmation => {␍
+                    affirmationsAleatoires.push({␍
+                        texte: affirmation,␍
+                        type: type.nom␍
+                    });␍
+                });␍
+            });␍
+␍
+            const affirmationsMelangees = melangerTableau(affirmationsAleatoires);␍
+␍
+            affirmationsMelangees.forEach((item, index) => {␍
+                const div = document.createElement('div');␍
+                div.className = 'intelligence-section';␍
+                div.innerHTML = `␍
+                    <p>${item.texte}</p>␍
+                    <div class="likert-scale">␍
+                        ${echelleLibelles.map((libelle, valeur) => `␍
+                            <label>␍
+                                <input type="radio" name="q_${index}" value="${valeur + 1}" required>␍
+                                ${libelle}␍
+                            </label>␍
+                        `).join('')}␍
+                    </div>␍
+                `;␍
+                form.appendChild(div);␍
+            });␍
+        }␍
+␍
+        // Fonction pour calculer les résultats␍
+        function calculerResultats() {␍
+            const radios = document.querySelectorAll('input[type="radio"]:checked');␍
+            if (radios.length < typesIntelligence.length * 6) {␍
+                alert("الرجاء الإجابة على جميع الأسئلة قبل حساب النتائج.");␍
+                return;␍
+            }␍
+␍
+            const resultatsDiv = document.getElementById('resultats');␍
+            const resultats = {};␍
+␍
+            typesIntelligence.forEach(type => {␍
+                resultats[type.nom] = {␍
+                    score: 0,␍
+                    metiers: type.metiers␍
+                };␍
+            });␍
+␍
+            typesIntelligence.forEach((type, indexType) => {␍
+                type.affirmations.forEach((_, indexAffirmation) => {␍
+                    const radios = document.getElementsByName(`q_${indexType * 6 + indexAffirmation}`);␍
+                    radios.forEach(radio => {␍
+                        if (radio.checked) {␍
+                            resultats[type.nom].score += parseInt(radio.value);␍
+                        }␍
+                    });␍
+                });␍
+            });␍
+␍
+            const resultatHTML = Object.entries(resultats).map(([type, data]) => `␍
+                <p>␍
+                    <strong>${type}</strong>: ␍
+                    ${data.score}/30 ␍
+                    (${(data.score / 30 * 100).toFixed(1)}%)␍
+                    <div class="metiers">␍
+                        المهن المقترحة: ${data.metiers.join(", ")}␍
+                    </div>␍
+                </p>␍
+            `).join('');␍
+␍
+            resultatsDiv.innerHTML = `␍
+                <h2>نتائجك</h2>␍
+                ${resultatHTML}␍
+            `;␍
+        }␍
+␍
+        // Fonction pour réinitialiser le formulaire␍
+        function reinitialiserFormulaire() {␍
+            document.getElementById('testForm').reset();␍
+            document.getElementById('resultats').innerHTML = '';␍
+            genererCaptcha(); // Régénérer un nouveau CAPTCHA␍
+        }␍
+␍
+        // Générer le formulaire et le CAPTCHA au chargement de la page␍
+        genererFormulaire();␍
+        genererCaptcha();␍
+    </script>␍
+</body>␍
 </html>

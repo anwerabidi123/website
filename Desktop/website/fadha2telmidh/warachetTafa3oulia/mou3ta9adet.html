@@ -1,1074 +1,889 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon guide d'orientation positive - La voie du succès</title>
-    <link rel="icon" type="image/x-icon" href="../tnn.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
-
-/* Variables CSS pour la cohérence du thème */
-:root {
-  --primary-color: #2c5aa0;
-  --secondary-color: #e91e63;
-  --accent-color: #ff9800;
-  --text-color: #333;
-  --text-light: #666;
-  --background-color: #f8f9fa;
-  --white: #ffffff;
-  --border-color: #e0e0e0;
-  --shadow: 0 2px 10px rgba(0,0,0,0.1);
-  --border-radius: 8px;
-  --transition: all 0.3s ease;
-}
-
-/* Reset et base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.text {
-  text-align: end;
-}
-
-.test {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  overflow-x: hidden; /* Éviter le défilement horizontal */
-}
-
-/* Header */
-.header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: var(--white);
-  padding: 1rem 0;
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--white);
-  word-wrap: break-word; /* Permettre la coupure des mots longs */
-}
-
-.tagline {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-top: 0.2rem;
-}
-
-/* Navigation */
-.nav {
-  background-color: var(--primary-color);
-  padding: 0.5rem 0;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  flex-wrap: wrap; /* Permettre le retour à la ligne */
-}
-
-.nav-item a {
-  color: var(--white);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  white-space: nowrap; /* Éviter la coupure des liens */
-}
-
-.nav-item a:hover,
-.nav-item a.active {
-  background-color: rgba(255,255,255,0.2);
-}
-
-/* Container principal */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  width: 100%; /* Assurer la largeur complète */
-}
-
-/* Sections */
-.section {
-  background: var(--white);
-  margin-bottom: 2rem;
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  width: 100%; /* Assurer la largeur complète */
-}
-
-.section-title {
-  color: var(--primary-color);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid var(--accent-color);
-  padding-bottom: 0.5rem;
-  word-wrap: break-word; /* Permettre la coupure des titres longs */
-}
-
-.section-subtitle {
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-  margin: 1.5rem 0 1rem 0;
-}
-
-/* Grille pour les espaces */
-.spaces-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
-  gap: 2rem;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-.space-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: var(--transition);
-  border-top: 4px solid var(--primary-color);
-  width: 100%;
-  min-height: 200px; /* Hauteur minimale pour la cohérence */
-}
-
-.space-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-}
-
-.space-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  word-wrap: break-word;
-}
-
-.space-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  word-wrap: break-word;
-}
-
-/* Boutons */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: var(--primary-color);
-  color: var(--white);
-  text-decoration: none;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-.btn:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background-color: var(--accent-color);
-}
-
-.btn-secondary:hover {
-  background-color: #f57c00;
-}
-
-/* Articles récents */
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-.article-card {
-  background: var(--white);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  width: 100%;
-}
-
-.article-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-}
-
-.article-meta {
-  padding: 1rem;
-  background-color: var(--background-color);
-  font-size: 0.9rem;
-  color: var(--text-light);
-}
-
-.article-content {
-  padding: 1.5rem;
-}
-
-.article-title {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  word-wrap: break-word;
-}
-
-/* Footer */
-.footer {
-  background-color: var(--primary-color);
-  color: var(--white);
-  text-align: center;
-  padding: 2rem 0;
-  margin-top: 3rem;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.social-links {
-  margin: 1rem 0;
-}
-
-.social-links a {
-  color: var(--white);
-  font-size: 1.5rem;
-  margin: 0 1rem;
-  transition: var(--transition);
-}
-
-.social-links a:hover {
-  color: var(--accent-color);
-}
-
-/* Responsive - Tablettes */
-@media (max-width: 1024px) {
-  .container {
-    padding: 1.5rem;
-  }
-
-  .section {
-    padding: 1.5rem;
-  }
-
-  .spaces-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .nav-menu {
-    gap: 1rem;
-  }
-}
-
-/* Responsive - Mobiles */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 1rem;
-  }
-
-  .test {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0 1rem;
-    justify-content: center !important;
-  }
-
-  .nav-item {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-item a {
-    display: block;
-    width: 100%;
-    padding: 0.8rem 1rem;
-  }
-
-  .container {
-    padding: 1rem;
-  }
-
-  .section {
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .spaces-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .articles-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .logo {
-    font-size: 1.4rem;
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  .tagline {
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  .space-card, .article-card {
-    padding: 1.5rem;
-  }
-
-  .btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.9rem;
-    width: auto;
-    min-width: 120px;
-  }
-
-  .text {
-    text-align: center;
-  }
-}
-
-/* Responsive - Très petits écrans */
-@media (max-width: 480px) {
-  .header-content {
-    padding: 0 0.5rem;
-  }
-
-  .nav-content {
-    padding: 0 0.5rem;
-  }
-
-  .container {
-    padding: 0.5rem;
-  }
-
-  .section {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .section-title {
-    font-size: 1.4rem;
-  }
-
-  .space-card, .article-card {
-    padding: 1rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .spaces-grid, .articles-grid {
-    gap: 0.8rem;
-  }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Utilitaires */
-.text-center { text-align: center; }
-.text-primary { color: var(--primary-color); }
-.text-secondary { color: var(--secondary-color); }
-.mb-2 { margin-bottom: 2rem; }
-.mt-2 { margin-top: 2rem; }
-
-/* Amélioration de la lisibilité sur mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px; /* Taille de police de base plus grande sur mobile */
-  }
-
-  p {
-    line-height: 1.7; /* Améliorer l'espacement des lignes */
-    margin-bottom: 1rem;
-  }
-
-  h1, h2, h3 {
-    line-height: 1.3;
-    margin-bottom: 1rem;
-  }
-
-  /* Améliorer l'espacement tactile */
-  .nav-item a, .btn {
-    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content test">
-            <div>
-                <a href="../index.html" class="logo">دليلي للتوجيه الإيجابي</a>
-                <div class="tagline">طريق النجاح
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-content">
-            <ul class="nav-menu " style="justify-content: end;">
-
-                <li class="nav-item"><a href="../espace-parent.html">فضاء الأولياء</a></li>
-                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
-                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
-                <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Contenu principal -->
-<main class="container">
-<section class="section">
-  <div class="header">
-    <h1><i class="fas fa-brain"></i> قوة المعتقدات في التوجيه الدراسي</h1>
-  </div>
-
-  <div class="container">
-    <blockquote>
-      «المعتقدات ليست مجرد أفكار في عقولنا، بل هي قوى تشكل واقعنا وتحدد مساراتنا التعليمية والمهنية.»
-    </blockquote>
-
-    <p><strong>تأثير المعتقدات على التوجيه الدراسي:</strong><br>
-    تلعب معتقداتنا دوراً حاسماً في تحديد خياراتنا الدراسية والمهنية. سواء كنا نؤمن بقدراتنا أو نشك فيها، فإن هذه المعتقدات تصبح نبوءة تتحقق ذاتياً. في هذه الصفحة، سوف نستكشف كيف تؤثر معتقداتنا على مسارنا التعليمي والمهني، وكيف يمكننا تسخير هذه القوة لصالحنا</p>
-
-    <div class="illustration">
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&h=300&q=80" alt="قوة العقل">
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="section-title">
-      <i class="fas fa-flask"></i>
-      <h2>تجارب علمية تكشف قوة المعتقدات</h2>
-    </div>
-
-    <p>هاتان تجربتان علميتان معترف بهما كشفتا عواقب المعتقدات على العقل البشري. ربما تكون قد جربتهما بالفعل؟</p>
-
-    <div class="experiment-grid">
-      <div class="experiment-card">
-        <h3><i class="fas fa-pills"></i> تأثير البلاسيبو في الطب</h3>
-        <p>يتم إقناع المريض بأنه يتناول دواءً حقيقياً، بينما في الواقع يتم إعطاؤه (بدون علمه) مادة غير فعالة تماماً ومع ذلك يشفى! في بعض الأحيان، تكون تأثيرات البلاسيبو أفضل من الأدوية الحقيقية! معدل النجاح أكثر من 35% (باستخدام منتج غير فعال تماماً، كما أذكرك).</p>
-
-        <p>والعكس صحيح للأسف. توفي أشخاص بعد إخبارهم بالخطأ أنهم مصابون بمرض قاتل. احترم جسمهم المعلومة، رغم عدم وجود أي مرض حقيقي! في كلتا الحالتين، قام العقل والمعتقد بإبلاغ الخلايا والتأثير عليها!</p>
-
-        <p>يتم دراسة تأثير المعتقدات على النجاحات والأمراض بشكل متزايد. يمكنك على وجه الخصوص البحث عن د. بروس إتش ليبتون وجو ديسبينزا.</p>
-      </div>
-
-      <div class="experiment-card">
-        <h3><i class="fas fa-graduation-cap"></i> تأثير بيغمليون في التعليم</h3>
-        <p>أظهر روبرت روزنتال أن التوقعات ونظرة الشخص تجاه شخص آخر (خاصة في العلاقة بين البالغ والطفل) تؤثر على نتائج هذا الشخص، مثل نبوءة تتحقق ذاتياً = ما أؤمن به يتحقق.</p>
-
-        <p>تتمثل تجربته الأكثر شهرة في إقناع المعلمين بأن بعض طلابهم يتمتعون بقدرات عالية (على الرغم من أنهم تم اختيارهم عشوائياً تماماً). في غضون بضعة أشهر، أصبح هؤلاء الأطفال ممتازين حقاً، وأفضل بكثير من الآخرين.</p>
-
-        <p>لماذا؟ لأن المعلمين (الذين يعتقدون أن هؤلاء الأطفال لديهم إمكانات هائلة) تعاملوا معهم بشكل مختلف. كانوا أكثر صبراً؛ دفعوهم أكثر؛ كان لديهم ثقة في قدراتهم... وبالتالي كان لدى الأطفال ثقة أكبر في أنفسهم!</p>
-      </div>
-    </div>
-
-    <div class="impact-section">
-      <h3><i class="fas fa-lightbulb"></i> كيف يؤثر هذا على التوجيه الدراسي؟</h3>
-
-      <ul class="impact-list">
-        <li>
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <strong>تأثير المعتقدات الذاتية:</strong> إذا كنت تعتقد أنك جيد في الرياضيات، فمن المرجح أن تختار مساراً دراسياً يركز على هذا المجال وتنجح فيه.
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <strong>تأثير توقعات الآخرين:</strong> عندما يعتقد معلموك أو عائلتك أنك ستنجح في مجال معين، فإنهم سيدعمونك أكثر وستكون فرص نجاحك أعلى.
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <strong>التغلب على المعتقدات المحددة:</strong> غالباً ما تكون معتقدات مثل "هذا المجال صعب جداً" أو "لست جيداً بما يكفي" هي العوائق الحقيقية أمام النجاح.
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-check-circle"></i>
-          <div>
-            <strong>خلق معتقدات إيجابية:</strong> يمكنك استخدام قوة المعتقدات لصالحك من خلال تطوير صورة إيجابية عن قدراتك ومستقبلك الدراسي.
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-
-        </div>
-        <a href="https://www.youtube.com/watch?v=W81CHn414AM" target="_blank" class="btn-primary">
-          <i class="fas fa-play"></i> شاهد الفيديو
-        </a>
-      </div>
-
-      <div class="video-card">
-        <h3><i class="fab fa-youtube"></i> تأثير بيغمليون</h3>
-        <p>تجربة روزنتال وتأثير التوقعات على الأداء</p>
-        <div class="video-thumbnail">
-          <div class="play-icon"><i class="fas fa-play-circle"></i></div>
-        </div>
-        <a href="https://www.youtube.com/watch?v=T3t-0LBHp70" target="_blank" class="btn-primary">
-          <i class="fas fa-play"></i> شاهد الفيديو
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="section-title">
-      <i class="fas fa-edit"></i>
-      <h2>تمرين: اكتشف معتقداتك الدراسية</h2>
-    </div>
-
-    <p>لتطبيق هذه المعرفة على مسارك الدراسي، خذ بضع دقائق للتفكير في المعتقدات التالية:</p>
-
-    <div class="belief-form" id="beliefForm">
-      <div class="form-group">
-        <label>ما هي معتقداتك حول قدراتك الدراسية؟</label>
-        <textarea id="belief1" placeholder="أنا أعتقد أنني..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>ما هي التوقعات التي يضعها الآخرون (العائلة، المعلمون) حول مسارك الدراسي؟</label>
-        <textarea id="belief2" placeholder="الآخرون يتوقعون أنني..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>ما هي المعتقدات التي قد تعيق تقدمك الدراسي؟</label>
-        <textarea id="belief3" placeholder="أنا أعتقد أنني لا أستطيع..."></textarea>
-      </div>
-
-      <div class="form-group">
-        <label>ما هي المعتقدات الإيجابية التي ترغب في تطويرها لدعم مسارك الدراسي؟</label>
-        <textarea id="belief4" placeholder="سأبدأ في الاعتقاد أنني..."></textarea>
-      </div>
-
-      <div class="btn-container">
-        <button class="btn-primary" id="saveBtn">
-          <i class="fas fa-save"></i> حفظ التأملات
-        </button>
-        <button class="btn-secondary" id="resetBtn">
-          <i class="fas fa-redo"></i> بدء من جديد
-        </button>
-        <button class="btn-primary" id="viewBtn" style="display: none;">
-          <i class="fas fa-eye"></i> عرض النتائج
-        </button>
-      </div>
-    </div>
-
-    <div class="result-box" id="resultBox">
-      <h3><i class="fas fa-chart-bar"></i> نتائج تأملاتك حول المعتقدات الدراسية</h3>
-      <div class="result-content" id="resultContent"></div>
-    </div>
-
-    <div class="impact-section">
-      <h3><i class="fas fa-rocket"></i> نصائح عملية لتطوير معتقدات إيجابية</h3>
-
-      <ul class="impact-list">
-        <li>
-          <i class="fas fa-star"></i>
-          <div>
-            <strong>حدد معتقداتك السلبية:</strong> اكتبها على ورقة لتدرك تأثيرها على خياراتك الدراسية.
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-star"></i>
-          <div>
-            <strong>استبدل المعتقدات السلبية بإيجابية:</strong> حوّل "لا أستطيع فهم الرياضيات" إلى "أستطيع تطوير مهاراتي في الرياضيات بالتدريب".
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-star"></i>
-          <div>
-            <strong>ابحث عن نماذج نجاح:</strong> اقرأ قصص أشخاص نجحوا في المجال الذي تهتم به رغم الصعوبات.
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-star"></i>
-          <div>
-            <strong>تخيل نجاحك:</strong> استخدم التخيل لتجربة شعور النجاح في مسارك الدراسي المستقبلي.
-          </div>
-        </li>
-        <li>
-          <i class="fas fa-star"></i>
-          <div>
-            <strong>احط نفسك بداعمين:</strong> اقضِ وقتاً مع أشخاص يؤمنون بقدراتك ويدعمون طموحاتك الدراسية.
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="notification" id="notification">تم حفظ تأملاتك بنجاح!</div>
-
-  <footer>
-    <p>اكتشف قوة معتقداتك في التوجيه الدراسي - أداة للتحول الشخصي</p>
-    <p>©  - تم  تطويره من قبل عبد الحميد العبيدي ب ـ <i class="fas fa-heart" style="color: var(--heart-color);"></i></p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // عناصر DOM
-      const saveBtn = document.getElementById('saveBtn');
-      const resetBtn = document.getElementById('resetBtn');
-      const viewBtn = document.getElementById('viewBtn');
-      const resultBox = document.getElementById('resultBox');
-      const resultContent = document.getElementById('resultContent');
-      const beliefForm = document.getElementById('beliefForm');
-      const notification = document.getElementById('notification');
-
-      // استعادة البيانات المحفوظة إن وجدت
-      loadSavedBeliefs();
-
-      // زر الحفظ
-      saveBtn.addEventListener('click', function() {
-        saveBeliefs();
-      });
-
-      // زر إعادة التعيين
-      resetBtn.addEventListener('click', function() {
-        resetBeliefs();
-      });
-
-      // زر عرض النتائج
-      viewBtn.addEventListener('click', function() {
-        displayResults();
-      });
-
-      // وظيفة حفظ المعتقدات
-      function saveBeliefs() {
-        const belief1 = document.getElementById('belief1').value;
-        const belief2 = document.getElementById('belief2').value;
-        const belief3 = document.getElementById('belief3').value;
-        const belief4 = document.getElementById('belief4').value;
-
-        if (!belief1 || !belief2 || !belief3 || !belief4) {
-          showNotification('الرجاء ملء جميع الحقول قبل الحفظ', 'warning');
-          return;
-        }
-
-        const beliefsData = {
-          belief1,
-          belief2,
-          belief3,
-          belief4,
-          timestamp: new Date().toLocaleString('ar-EG')
-        };
-
-        localStorage.setItem('beliefsData', JSON.stringify(beliefsData));
-        showNotification('تم حفظ تأملاتك بنجاح!');
-        viewBtn.style.display = 'flex';
-      }
-
-      // وظيفة تحميل المعتقدات المحفوظة
-      function loadSavedBeliefs() {
-        const savedData = localStorage.getItem('beliefsData');
-        if (savedData) {
-          const beliefsData = JSON.parse(savedData);
-          document.getElementById('belief1').value = beliefsData.belief1;
-          document.getElementById('belief2').value = beliefsData.belief2;
-          document.getElementById('belief3').value = beliefsData.belief3;
-          document.getElementById('belief4').value = beliefsData.belief4;
-          viewBtn.style.display = 'flex';
-        }
-      }
-
-      // وظيفة إعادة تعيين الحقول
-      function resetBeliefs() {
-        document.getElementById('belief1').value = '';
-        document.getElementById('belief2').value = '';
-        document.getElementById('belief3').value = '';
-        document.getElementById('belief4').value = '';
-        localStorage.removeItem('beliefsData');
-        resultBox.style.display = 'none';
-        viewBtn.style.display = 'none';
-        showNotification('تم مسح جميع البيانات بنجاح');
-      }
-
-      // وظيفة عرض النتائج
-      function displayResults() {
-        const savedData = localStorage.getItem('beliefsData');
-        if (!savedData) {
-          showNotification('لا توجد بيانات لعرضها', 'warning');
-          return;
-        }
-
-        const beliefsData = JSON.parse(savedData);
-
-        resultContent.innerHTML = `
-          <div class="result-item">
-            <h4><i class="fas fa-user"></i> معتقداتك حول قدراتك الدراسية</h4>
-            <p>${beliefsData.belief1}</p>
-          </div>
-          <div class="result-item">
-            <h4><i class="fas fa-users"></i> توقعات الآخرين حول مسارك الدراسي</h4>
-            <p>${beliefsData.belief2}</p>
-          </div>
-          <div class="result-item">
-            <h4><i class="fas fa-exclamation-triangle"></i> المعتقدات المعيقة لتقدمك الدراسي</h4>
-            <p>${beliefsData.belief3}</p>
-          </div>
-          <div class="result-item">
-            <h4><i class="fas fa-bullseye"></i> المعتقدات الإيجابية التي ترغب في تطويرها</h4>
-            <p>${beliefsData.belief4}</p>
-          </div>
-          <div style="margin-top: 20px; font-style: italic; color: #666; text-align: center;">
-            <i class="fas fa-clock"></i> تم الحفظ بتاريخ: ${beliefsData.timestamp}
-          </div>
-        `;
-
-        resultBox.style.display = 'block';
-        resultBox.scrollIntoView({ behavior: 'smooth' });
-      }
-
-      // وظيفة عرض الإشعارات
-      function showNotification(message, type = 'success') {
-        notification.textContent = message;
-        notification.style.backgroundColor = type === 'success' ? 'var(--primary)' : 'var(--warning)';
-        notification.style.display = 'block';
-
-        setTimeout(() => {
-          notification.style.display = 'none';
-        }, 3000);
-      }
-    });
-  </script>
-</section>
-</main>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Mon guide d'orientation positive. Tous droits réservés.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="LinkedIn">💼</a>
-                <a href="#" aria-label="YouTube">📺</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>// JavaScript pour Mon guide d'orientation positive
-
-// Attendre que le DOM soit chargé
-document.addEventListener('DOMContentLoaded', function() {
-
-    // Animation d'apparition des éléments
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, observerOptions);
-
-    // Observer tous les éléments avec la classe 'section'
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-
-    // Animation des cartes au survol
-    const cards = document.querySelectorAll('.space-card, .article-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        });
-    });
-
-
-
-    // Navigation mobile (hamburger menu)
-    const navToggle = document.createElement('button');
-    navToggle.classList.add('nav-toggle');
-    navToggle.innerHTML = '☰';
-    navToggle.style.display = 'none';
-
-    const navContent = document.querySelector('.nav-content');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (navContent && navMenu) {
-        navContent.insertBefore(navToggle, navMenu);
-
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('nav-menu-open');
-        });
-    }
-
-    // Smooth scrolling pour les liens internes
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Effet de typing pour le titre principal (optionnel)
-    const mainTitle = document.querySelector('.section-title');
-    if (mainTitle && mainTitle.textContent.includes('Bienvenue')) {
-        const text = mainTitle.textContent;
-        mainTitle.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                mainTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-
-        // Démarrer l'effet après un court délai
-        setTimeout(typeWriter, 500);
-    }
-
-    // Gestion des formulaires (si présents)
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Validation basique
-            const inputs = this.querySelectorAll('input[required], textarea[required]');
-            let isValid = true;
-
-            inputs.forEach(input => {
-                if (!input.value.trim()) {
-                    isValid = false;
-                    input.style.borderColor = '#e91e63';
-                } else {
-                    input.style.borderColor = '#e0e0e0';
-                }
-            });
-
-            if (isValid) {
-                // Simulation d'envoi
-                const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
-                if (submitBtn) {
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Envoi en cours...';
-                    submitBtn.disabled = true;
-
-                    setTimeout(() => {
-                        submitBtn.textContent = 'Message envoyé !';
-                        setTimeout(() => {
-                            submitBtn.textContent = originalText;
-                            submitBtn.disabled = false;
-                            form.reset();
-                        }, 2000);
-                    }, 1000);
-                }
-            }
-        });
-    });
-
-
-    // Statistiques de visite (simulation)
-    const stats = {
-        visits: localStorage.getItem('visits') || 0,
-        lastVisit: localStorage.getItem('lastVisit') || new Date().toISOString()
-    };
-
-    stats.visits++;
-    localStorage.setItem('visits', stats.visits);
-    localStorage.setItem('lastVisit', new Date().toISOString());
-
-    console.log(`Bienvenue ! C'est votre visite n°${stats.visits}`);
-});
-
-// Fonctions utilitaires
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.classList.add('notification', `notification-${type}`);
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--primary-color);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: var(--border-radius);
-        z-index: 1002;
-        animation: slideDown 0.3s ease-out;
-    `;
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.style.animation = 'slideUp 0.3s ease-out';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
-}
-
-// Ajout des styles CSS pour les animations
-const additionalStyles = `
-    @keyframes slideDown {
-        from { transform: translateX(-50%) translateY(-100%); }
-        to { transform: translateX(-50%) translateY(0); }
-    }
-
-    @keyframes slideUp {
-        from { transform: translateX(-50%) translateY(0); }
-        to { transform: translateX(-50%) translateY(-100%); }
-    }
-
-    .nav-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-        .nav-toggle {
-            display: block;
-        }
-
-        .nav-menu {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--primary-color);
-            padding: 1rem;
-        }
-
-        .nav-menu-open {
-            display: flex;
-        }
-    }
-
-    .dark-theme {
-        --background-color: #1a1a1a;
-        --white: #2d2d2d;
-        --text-color: #e0e0e0;
-        --text-light: #b0b0b0;
-    }
-`;
-
-const styleSheet = document.createElement('style');
-styleSheet.textContent = additionalStyles;
-document.head.appendChild(styleSheet);
-</script>
-</body>
+<!DOCTYPE html>␍
+<html lang="ar" dir="rtl">␍
+<head>␍
+  <meta charset="UTF-8" />␍
+  <meta name="viewport" content="width=device-width, initial-scale=1" />␍
+  <title>قوة المعتقدات في التوجيه الدراسي</title>␍
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">␍
+  <style>␍
+    :root {␍
+      --primary: #3498db;␍
+      --primary-dark: #1a5276;␍
+      --secondary: #e67e22;␍
+      --secondary-dark: #9c581c;␍
+      --accent: #2ecc71;␍
+      --light-bg: #f9f9f9;␍
+      --card-bg: #fff;␍
+      --text: #222;␍
+      --text-light: #555;␍
+      --border: #ddd;␍
+      --success: #2ecc71;␍
+      --warning: #f39c12;␍
+      --heart-color: #e74c3c;␍
+    }␍
+    ␍
+    * {␍
+      box-sizing: border-box;␍
+      margin: 0;␍
+      padding: 0;␍
+    }␍
+    ␍
+    body {␍
+      font-family: 'Segoe UI', Tahoma, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;␍
+      max-width: 900px;␍
+      margin: 0 auto;␍
+      padding: 20px;␍
+      line-height: 1.8;␍
+      background: linear-gradient(135deg, #e0f7fa, #f9f9f9);␍
+      color: var(--text);␍
+      position: relative;␍
+      overflow-x: hidden;␍
+      text-align: right;␍
+      direction: rtl;␍
+    }␍
+    ␍
+    body::before {␍
+      content: "";␍
+      position: absolute;␍
+      top: 0;␍
+      left: 0;␍
+      right: 0;␍
+      height: 300px;␍
+      background: linear-gradient(to left, #3498db, #2ecc71);␍
+      z-index: -1;␍
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);␍
+    }␍
+    ␍
+    .header {␍
+      text-align: center;␍
+      padding: 40px 20px 20px;␍
+      position: relative;␍
+      color: white;␍
+      margin-bottom: 30px;␍
+    }␍
+    ␍
+    h1 {␍
+      font-size: 2.8rem;␍
+      margin-bottom: 10px;␍
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);␍
+    }␍
+    ␍
+    h1 i.fa-brain {␍
+      color: var(--accent);␍
+      text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);␍
+      animation: pulse 1.5s infinite;␍
+    }␍
+    ␍
+    h2 {␍
+      font-size: 1.8rem;␍
+      color: var(--primary-dark);␍
+      margin: 25px 0 15px;␍
+      position: relative;␍
+      display: inline-block;␍
+    }␍
+    ␍
+    h2::after {␍
+      content: "";␍
+      position: absolute;␍
+      bottom: -8px;␍
+      right: 0;␍
+      width: 60%;␍
+      height: 4px;␍
+      background: var(--accent);␍
+      border-radius: 2px;␍
+    }␍
+    ␍
+    .container {␍
+      background: var(--card-bg);␍
+      border-radius: 16px;␍
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);␍
+      padding: 30px;␍
+      margin-bottom: 30px;␍
+      position: relative;␍
+      overflow: hidden;␍
+    }␍
+    ␍
+    .container::before {␍
+      content: "";␍
+      position: absolute;␍
+      top: 0;␍
+      right: 0;␍
+      width: 8px;␍
+      height: 100%;␍
+      background: linear-gradient(to bottom, var(--primary), var(--accent));␍
+    }␍
+    ␍
+    blockquote {␍
+      font-style: italic;␍
+      color: var(--text-light);␍
+      border-right: 4px solid var(--primary);␍
+      margin: 1.5rem 0 2rem 0;␍
+      padding: 15px 20px;␍
+      background: rgba(52, 152, 219, 0.05);␍
+      border-radius: 8px 0 0 8px;␍
+      position: relative;␍
+      font-size: 1.1rem;␍
+      text-align: center;␍
+    }␍
+    ␍
+    blockquote::before {␍
+      content: """;␍
+      position: absolute;␍
+      top: -20px;␍
+      right: 10px;␍
+      font-size: 5rem;␍
+      color: rgba(52, 152, 219, 0.1);␍
+      font-family: Georgia, serif;␍
+      line-height: 1;␍
+    }␍
+    ␍
+    .author {␍
+      display: block;␍
+      text-align: left;␍
+      font-weight: 700;␍
+      color: var(--primary-dark);␍
+      margin-top: 10px;␍
+      font-style: normal;␍
+    }␍
+    ␍
+    p {␍
+      margin: 1.2rem 0;␍
+      font-size: 1.05rem;␍
+    }␍
+    ␍
+    .section-title {␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      margin: 25px 0 15px;␍
+    }␍
+    ␍
+    .section-title i {␍
+      background: var(--primary);␍
+      color: white;␍
+      width: 40px;␍
+      height: 40px;␍
+      border-radius: 50%;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      font-size: 1.2rem;␍
+    }␍
+    ␍
+    .btn-container {␍
+      display: flex;␍
+      justify-content: center;␍
+      gap: 20px;␍
+      margin: 30px 0;␍
+    }␍
+    ␍
+    button {␍
+      padding: 14px 35px;␍
+      border: none;␍
+      border-radius: 50px;␍
+      font-size: 1.1rem;␍
+      font-weight: 700;␍
+      cursor: pointer;␍
+      transition: all 0.3s ease;␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .btn-primary {␍
+      background: var(--primary);␍
+      color: white;␍
+    }␍
+    ␍
+    .btn-primary:hover {␍
+      background: var(--primary-dark);␍
+      transform: translateY(-3px);␍
+      box-shadow: 0 6px 12px rgba(26, 82, 118, 0.25);␍
+    }␍
+    ␍
+    .btn-secondary {␍
+      background: #f1f1f1;␍
+      color: var(--text);␍
+    }␍
+    ␍
+    .btn-secondary:hover {␍
+      background: #e0e0e0;␍
+      transform: translateY(-3px);␍
+    }␍
+    ␍
+    .relation-section {␍
+      display: flex;␍
+      flex-wrap: wrap;␍
+      gap: 20px;␍
+      margin-top: 25px;␍
+    }␍
+    ␍
+    .relation-card {␍
+      flex: 1;␍
+      min-width: 250px;␍
+      background: white;␍
+      border-radius: 12px;␍
+      padding: 20px;␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+      border-top: 4px solid var(--accent);␍
+      transition: transform 0.3s;␍
+    }␍
+    ␍
+    .relation-card:hover {␍
+      transform: translateY(-5px);␍
+    }␍
+    ␍
+    .relation-card h3 {␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      margin-bottom: 15px;␍
+      color: var(--primary-dark);␍
+    }␍
+    ␍
+    .relation-card i {␍
+      background: var(--accent);␍
+      color: white;␍
+      width: 30px;␍
+      height: 30px;␍
+      border-radius: 50%;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      font-size: 0.9rem;␍
+    }␍
+    ␍
+    footer {␍
+      text-align: center;␍
+      padding: 20px;␍
+      color: var(--text-light);␍
+      font-size: 0.9rem;␍
+      margin-top: 30px;␍
+    }␍
+    ␍
+    .counter {␍
+      position: absolute;␍
+      top: 20px;␍
+      left: 20px;␍
+      background: white;␍
+      border-radius: 50px;␍
+      padding: 5px 15px;␍
+      font-weight: 700;␍
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);␍
+      color: var(--primary-dark);␍
+    }␍
+    ␍
+    .illustration {␍
+      text-align: center;␍
+      margin: 25px 0;␍
+    }␍
+    ␍
+    .illustration img {␍
+      width: 100%;␍
+      max-width: 500px;␍
+      border-radius: 10px;␍
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .experiment-grid {␍
+      display: grid;␍
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));␍
+      gap: 25px;␍
+      margin: 30px 0;␍
+    }␍
+    ␍
+    .experiment-card {␍
+      background: white;␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);␍
+      border-left: 4px solid var(--secondary);␍
+      transition: transform 0.3s;␍
+      position: relative;␍
+      overflow: hidden;␍
+    }␍
+    ␍
+    .experiment-card:hover {␍
+      transform: translateY(-5px);␍
+    }␍
+    ␍
+    .experiment-card h3 {␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 12px;␍
+      margin-bottom: 15px;␍
+      color: var(--primary-dark);␍
+    }␍
+    ␍
+    .experiment-card i {␍
+      background: var(--secondary);␍
+      color: white;␍
+      width: 35px;␍
+      height: 35px;␍
+      border-radius: 50%;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      font-size: 1rem;␍
+    }␍
+    ␍
+    .impact-section {␍
+      background: rgba(46, 204, 113, 0.1);␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      margin: 30px 0;␍
+      border-left: 4px solid var(--accent);␍
+    }␍
+    ␍
+    .impact-section h3 {␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      color: var(--primary-dark);␍
+      margin-bottom: 15px;␍
+    }␍
+    ␍
+    .impact-list {␍
+      list-style-type: none;␍
+      padding: 0;␍
+    }␍
+    ␍
+    .impact-list li {␍
+      padding: 12px;␍
+      border-bottom: 1px dashed var(--border);␍
+      display: flex;␍
+      align-items: flex-start;␍
+      gap: 12px;␍
+    }␍
+    ␍
+    .impact-list li:last-child {␍
+      border-bottom: none;␍
+    }␍
+    ␍
+    .impact-list li i {␍
+      color: var(--accent);␍
+      font-size: 1.2rem;␍
+      margin-top: 4px;␍
+    }␍
+    ␍
+    .video-container {␍
+      display: flex;␍
+      flex-wrap: wrap;␍
+      gap: 20px;␍
+      margin: 30px 0;␍
+      justify-content: center;␍
+    }␍
+    ␍
+    .video-card {␍
+      flex: 1;␍
+      min-width: 300px;␍
+      background: white;␍
+      border-radius: 12px;␍
+      padding: 20px;␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+      border-top: 4px solid var(--primary);␍
+      transition: transform 0.3s;␍
+      text-align: center;␍
+    }␍
+    ␍
+    .video-card:hover {␍
+      transform: translateY(-5px);␍
+    }␍
+    ␍
+    .video-card h3 {␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      gap: 10px;␍
+      margin-bottom: 15px;␍
+      color: var(--primary-dark);␍
+    }␍
+    ␍
+    .video-thumbnail {␍
+      width: 100%;␍
+      height: 180px;␍
+      background-color: #f0f0f0;␍
+      border-radius: 8px;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      margin: 15px 0;␍
+      position: relative;␍
+      overflow: hidden;␍
+    }␍
+    ␍
+    .video-thumbnail img {␍
+      width: 100%;␍
+      height: 100%;␍
+      object-fit: cover;␍
+    }␍
+    ␍
+    .play-icon {␍
+      position: absolute;␍
+      font-size: 3rem;␍
+      color: white;␍
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);␍
+    }␍
+    ␍
+    .belief-form {␍
+      background: rgba(52, 152, 219, 0.08);␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      margin: 30px 0;␍
+      border-right: 4px solid var(--primary);␍
+    }␍
+    ␍
+    .form-group {␍
+      margin-bottom: 20px;␍
+    }␍
+    ␍
+    label {␍
+      display: block;␍
+      margin-bottom: 8px;␍
+      font-weight: 600;␍
+      color: var(--primary-dark);␍
+    }␍
+    ␍
+    textarea, input[type="text"] {␍
+      width: 100%;␍
+      padding: 12px 15px;␍
+      font-size: 1rem;␍
+      border-radius: 8px;␍
+      border: 1px solid var(--border);␍
+      resize: vertical;␍
+      font-family: inherit;␍
+      transition: all 0.3s;␍
+      text-align: right;␍
+    }␍
+    ␍
+    textarea:focus, input[type="text"]:focus {␍
+      outline: none;␍
+      border-color: var(--primary);␍
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);␍
+    }␍
+    ␍
+    .result-box {␍
+      background: rgba(46, 204, 113, 0.1);␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      margin: 30px 0;␍
+      border-left: 4px solid var(--accent);␍
+      display: none;␍
+    }␍
+    ␍
+    .result-box h3 {␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      color: var(--primary-dark);␍
+      margin-bottom: 15px;␍
+    }␍
+    ␍
+    .result-content {␍
+      padding: 15px;␍
+      background: rgba(255, 255, 255, 0.7);␍
+      border-radius: 8px;␍
+    }␍
+    ␍
+    .result-item {␍
+      margin-bottom: 15px;␍
+      padding-bottom: 15px;␍
+      border-bottom: 1px dashed var(--border);␍
+    }␍
+    ␍
+    .result-item:last-child {␍
+      border-bottom: none;␍
+      margin-bottom: 0;␍
+      padding-bottom: 0;␍
+    }␍
+    ␍
+    .result-item h4 {␍
+      color: var(--secondary-dark);␍
+      margin-bottom: 8px;␍
+    }␍
+    ␍
+    @media (max-width: 768px) {␍
+      body {␍
+        padding: 15px;␍
+      }␍
+      ␍
+      h1 {␍
+        font-size: 2.2rem;␍
+      }␍
+      ␍
+      .container {␍
+        padding: 20px;␍
+      }␍
+      ␍
+      .btn-container {␍
+        flex-direction: column;␍
+        gap: 15px;␍
+      }␍
+      ␍
+      button {␍
+        width: 100%;␍
+        justify-content: center;␍
+      }␍
+      ␍
+      .relation-section {␍
+        flex-direction: column;␍
+      }␍
+      ␍
+      .experiment-grid {␍
+        grid-template-columns: 1fr;␍
+      }␍
+    }␍
+    ␍
+    @keyframes pulse {␍
+      0% { transform: scale(1); }␍
+      50% { transform: scale(1.05); }␍
+      100% { transform: scale(1); }␍
+    }␍
+    ␍
+    @keyframes fadeIn {␍
+      from { opacity: 0; bottom: 0; }␍
+      to { opacity: 1; bottom: 20px; }␍
+    }␍
+    ␍
+    @keyframes fadeOut {␍
+      from { opacity: 1; bottom: 20px; }␍
+      to { opacity: 0; bottom: 0; }␍
+    }␍
+    ␍
+    .notification {␍
+      position: fixed;␍
+      bottom: 20px;␍
+      right: 20px;␍
+      background-color: var(--primary);␍
+      color: white;␍
+      padding: 15px 25px;␍
+      border-radius: 8px;␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);␍
+      z-index: 1000;␍
+      font-weight: 600;␍
+      animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;␍
+      display: none;␍
+    }␍
+  </style>␍
+</head>␍
+<body>␍
+  <div class="header">␍
+    <h1><i class="fas fa-brain"></i> قوة المعتقدات في التوجيه الدراسي</h1>␍
+  </div>␍
+␍
+  <div class="container">␍
+    <blockquote>␍
+      «المعتقدات ليست مجرد أفكار في عقولنا، بل هي قوى تشكل واقعنا وتحدد مساراتنا التعليمية والمهنية.»␍
+    </blockquote>␍
+␍
+    <p><strong>تأثير المعتقدات على التوجيه الدراسي:</strong><br>␍
+    تلعب معتقداتنا دوراً حاسماً في تحديد خياراتنا الدراسية والمهنية. سواء كنا نؤمن بقدراتنا أو نشك فيها، فإن هذه المعتقدات تصبح نبوءة تتحقق ذاتياً. في هذه الصفحة، سوف نستكشف كيف تؤثر معتقداتنا على مسارنا التعليمي والمهني، وكيف يمكننا تسخير هذه القوة لصالحنا</p>␍
+    ␍
+    <div class="illustration">␍
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&h=300&q=80" alt="قوة العقل">␍
+    </div>␍
+  </div>␍
+␍
+  <div class="container">␍
+    <div class="section-title">␍
+      <i class="fas fa-flask"></i>␍
+      <h2>تجارب علمية تكشف قوة المعتقدات</h2>␍
+    </div>␍
+    ␍
+    <p>هاتان تجربتان علميتان معترف بهما كشفتا عواقب المعتقدات على العقل البشري. ربما تكون قد جربتهما بالفعل؟</p>␍
+    ␍
+    <div class="experiment-grid">␍
+      <div class="experiment-card">␍
+        <h3><i class="fas fa-pills"></i> تأثير البلاسيبو في الطب</h3>␍
+        <p>يتم إقناع المريض بأنه يتناول دواءً حقيقياً، بينما في الواقع يتم إعطاؤه (بدون علمه) مادة غير فعالة تماماً ومع ذلك يشفى! في بعض الأحيان، تكون تأثيرات البلاسيبو أفضل من الأدوية الحقيقية! معدل النجاح أكثر من 35% (باستخدام منتج غير فعال تماماً، كما أذكرك).</p>␍
+        ␍
+        <p>والعكس صحيح للأسف. توفي أشخاص بعد إخبارهم بالخطأ أنهم مصابون بمرض قاتل. احترم جسمهم المعلومة، رغم عدم وجود أي مرض حقيقي! في كلتا الحالتين، قام العقل والمعتقد بإبلاغ الخلايا والتأثير عليها!</p>␍
+        ␍
+        <p>يتم دراسة تأثير المعتقدات على النجاحات والأمراض بشكل متزايد. يمكنك على وجه الخصوص البحث عن د. بروس إتش ليبتون وجو ديسبينزا.</p>␍
+      </div>␍
+      ␍
+      <div class="experiment-card">␍
+        <h3><i class="fas fa-graduation-cap"></i> تأثير بيغمليون في التعليم</h3>␍
+        <p>أظهر روبرت روزنتال أن التوقعات ونظرة الشخص تجاه شخص آخر (خاصة في العلاقة بين البالغ والطفل) تؤثر على نتائج هذا الشخص، مثل نبوءة تتحقق ذاتياً = ما أؤمن به يتحقق.</p>␍
+        ␍
+        <p>تتمثل تجربته الأكثر شهرة في إقناع المعلمين بأن بعض طلابهم يتمتعون بقدرات عالية (على الرغم من أنهم تم اختيارهم عشوائياً تماماً). في غضون بضعة أشهر، أصبح هؤلاء الأطفال ممتازين حقاً، وأفضل بكثير من الآخرين.</p>␍
+        ␍
+        <p>لماذا؟ لأن المعلمين (الذين يعتقدون أن هؤلاء الأطفال لديهم إمكانات هائلة) تعاملوا معهم بشكل مختلف. كانوا أكثر صبراً؛ دفعوهم أكثر؛ كان لديهم ثقة في قدراتهم... وبالتالي كان لدى الأطفال ثقة أكبر في أنفسهم!</p>␍
+      </div>␍
+    </div>␍
+    ␍
+    <div class="impact-section">␍
+      <h3><i class="fas fa-lightbulb"></i> كيف يؤثر هذا على التوجيه الدراسي؟</h3>␍
+      ␍
+      <ul class="impact-list">␍
+        <li>␍
+          <i class="fas fa-check-circle"></i>␍
+          <div>␍
+            <strong>تأثير المعتقدات الذاتية:</strong> إذا كنت تعتقد أنك جيد في الرياضيات، فمن المرجح أن تختار مساراً دراسياً يركز على هذا المجال وتنجح فيه.␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-check-circle"></i>␍
+          <div>␍
+            <strong>تأثير توقعات الآخرين:</strong> عندما يعتقد معلموك أو عائلتك أنك ستنجح في مجال معين، فإنهم سيدعمونك أكثر وستكون فرص نجاحك أعلى.␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-check-circle"></i>␍
+          <div>␍
+            <strong>التغلب على المعتقدات المحددة:</strong> غالباً ما تكون معتقدات مثل "هذا المجال صعب جداً" أو "لست جيداً بما يكفي" هي العوائق الحقيقية أمام النجاح.␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-check-circle"></i>␍
+          <div>␍
+            <strong>خلق معتقدات إيجابية:</strong> يمكنك استخدام قوة المعتقدات لصالحك من خلال تطوير صورة إيجابية عن قدراتك ومستقبلك الدراسي.␍
+          </div>␍
+        </li>␍
+      </ul>␍
+    </div>␍
+  </div>␍
+␍
+  ␍
+      ␍
+        </div>␍
+        <a href="https://www.youtube.com/watch?v=W81CHn414AM" target="_blank" class="btn-primary">␍
+          <i class="fas fa-play"></i> شاهد الفيديو␍
+        </a>␍
+      </div>␍
+      ␍
+      <div class="video-card">␍
+        <h3><i class="fab fa-youtube"></i> تأثير بيغمليون</h3>␍
+        <p>تجربة روزنتال وتأثير التوقعات على الأداء</p>␍
+        <div class="video-thumbnail">␍
+          <div class="play-icon"><i class="fas fa-play-circle"></i></div>␍
+        </div>␍
+        <a href="https://www.youtube.com/watch?v=T3t-0LBHp70" target="_blank" class="btn-primary">␍
+          <i class="fas fa-play"></i> شاهد الفيديو␍
+        </a>␍
+      </div>␍
+    </div>␍
+  </div>␍
+␍
+  <div class="container">␍
+    <div class="section-title">␍
+      <i class="fas fa-edit"></i>␍
+      <h2>تمرين: اكتشف معتقداتك الدراسية</h2>␍
+    </div>␍
+    ␍
+    <p>لتطبيق هذه المعرفة على مسارك الدراسي، خذ بضع دقائق للتفكير في المعتقدات التالية:</p>␍
+    ␍
+    <div class="belief-form" id="beliefForm">␍
+      <div class="form-group">␍
+        <label>ما هي معتقداتك حول قدراتك الدراسية؟</label>␍
+        <textarea id="belief1" placeholder="أنا أعتقد أنني..."></textarea>␍
+      </div>␍
+      ␍
+      <div class="form-group">␍
+        <label>ما هي التوقعات التي يضعها الآخرون (العائلة، المعلمون) حول مسارك الدراسي؟</label>␍
+        <textarea id="belief2" placeholder="الآخرون يتوقعون أنني..."></textarea>␍
+      </div>␍
+      ␍
+      <div class="form-group">␍
+        <label>ما هي المعتقدات التي قد تعيق تقدمك الدراسي؟</label>␍
+        <textarea id="belief3" placeholder="أنا أعتقد أنني لا أستطيع..."></textarea>␍
+      </div>␍
+      ␍
+      <div class="form-group">␍
+        <label>ما هي المعتقدات الإيجابية التي ترغب في تطويرها لدعم مسارك الدراسي؟</label>␍
+        <textarea id="belief4" placeholder="سأبدأ في الاعتقاد أنني..."></textarea>␍
+      </div>␍
+      ␍
+      <div class="btn-container">␍
+        <button class="btn-primary" id="saveBtn">␍
+          <i class="fas fa-save"></i> حفظ التأملات␍
+        </button>␍
+        <button class="btn-secondary" id="resetBtn">␍
+          <i class="fas fa-redo"></i> بدء من جديد␍
+        </button>␍
+        <button class="btn-primary" id="viewBtn" style="display: none;">␍
+          <i class="fas fa-eye"></i> عرض النتائج␍
+        </button>␍
+      </div>␍
+    </div>␍
+    ␍
+    <div class="result-box" id="resultBox">␍
+      <h3><i class="fas fa-chart-bar"></i> نتائج تأملاتك حول المعتقدات الدراسية</h3>␍
+      <div class="result-content" id="resultContent"></div>␍
+    </div>␍
+    ␍
+    <div class="impact-section">␍
+      <h3><i class="fas fa-rocket"></i> نصائح عملية لتطوير معتقدات إيجابية</h3>␍
+      ␍
+      <ul class="impact-list">␍
+        <li>␍
+          <i class="fas fa-star"></i>␍
+          <div>␍
+            <strong>حدد معتقداتك السلبية:</strong> اكتبها على ورقة لتدرك تأثيرها على خياراتك الدراسية.␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-star"></i>␍
+          <div>␍
+            <strong>استبدل المعتقدات السلبية بإيجابية:</strong> حوّل "لا أستطيع فهم الرياضيات" إلى "أستطيع تطوير مهاراتي في الرياضيات بالتدريب".␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-star"></i>␍
+          <div>␍
+            <strong>ابحث عن نماذج نجاح:</strong> اقرأ قصص أشخاص نجحوا في المجال الذي تهتم به رغم الصعوبات.␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-star"></i>␍
+          <div>␍
+            <strong>تخيل نجاحك:</strong> استخدم التخيل لتجربة شعور النجاح في مسارك الدراسي المستقبلي.␍
+          </div>␍
+        </li>␍
+        <li>␍
+          <i class="fas fa-star"></i>␍
+          <div>␍
+            <strong>احط نفسك بداعمين:</strong> اقضِ وقتاً مع أشخاص يؤمنون بقدراتك ويدعمون طموحاتك الدراسية.␍
+          </div>␍
+        </li>␍
+      </ul>␍
+    </div>␍
+  </div>␍
+  ␍
+  <div class="notification" id="notification">تم حفظ تأملاتك بنجاح!</div>␍
+  ␍
+  <footer>␍
+    <p>اكتشف قوة معتقداتك في التوجيه الدراسي - أداة للتحول الشخصي</p>␍
+    <p>©  - تم  تطويره من قبل عبد الحميد العبيدي ب ـ <i class="fas fa-heart" style="color: var(--heart-color);"></i></p>␍
+  </footer>␍
+␍
+  <script>␍
+    document.addEventListener('DOMContentLoaded', function() {␍
+      // عناصر DOM␍
+      const saveBtn = document.getElementById('saveBtn');␍
+      const resetBtn = document.getElementById('resetBtn');␍
+      const viewBtn = document.getElementById('viewBtn');␍
+      const resultBox = document.getElementById('resultBox');␍
+      const resultContent = document.getElementById('resultContent');␍
+      const beliefForm = document.getElementById('beliefForm');␍
+      const notification = document.getElementById('notification');␍
+      ␍
+      // استعادة البيانات المحفوظة إن وجدت␍
+      loadSavedBeliefs();␍
+      ␍
+      // زر الحفظ␍
+      saveBtn.addEventListener('click', function() {␍
+        saveBeliefs();␍
+      });␍
+      ␍
+      // زر إعادة التعيين␍
+      resetBtn.addEventListener('click', function() {␍
+        resetBeliefs();␍
+      });␍
+      ␍
+      // زر عرض النتائج␍
+      viewBtn.addEventListener('click', function() {␍
+        displayResults();␍
+      });␍
+      ␍
+      // وظيفة حفظ المعتقدات␍
+      function saveBeliefs() {␍
+        const belief1 = document.getElementById('belief1').value;␍
+        const belief2 = document.getElementById('belief2').value;␍
+        const belief3 = document.getElementById('belief3').value;␍
+        const belief4 = document.getElementById('belief4').value;␍
+        ␍
+        if (!belief1 || !belief2 || !belief3 || !belief4) {␍
+          showNotification('الرجاء ملء جميع الحقول قبل الحفظ', 'warning');␍
+          return;␍
+        }␍
+        ␍
+        const beliefsData = {␍
+          belief1,␍
+          belief2,␍
+          belief3,␍
+          belief4,␍
+          timestamp: new Date().toLocaleString('ar-EG')␍
+        };␍
+        ␍
+        localStorage.setItem('beliefsData', JSON.stringify(beliefsData));␍
+        showNotification('تم حفظ تأملاتك بنجاح!');␍
+        viewBtn.style.display = 'flex';␍
+      }␍
+      ␍
+      // وظيفة تحميل المعتقدات المحفوظة␍
+      function loadSavedBeliefs() {␍
+        const savedData = localStorage.getItem('beliefsData');␍
+        if (savedData) {␍
+          const beliefsData = JSON.parse(savedData);␍
+          document.getElementById('belief1').value = beliefsData.belief1;␍
+          document.getElementById('belief2').value = beliefsData.belief2;␍
+          document.getElementById('belief3').value = beliefsData.belief3;␍
+          document.getElementById('belief4').value = beliefsData.belief4;␍
+          viewBtn.style.display = 'flex';␍
+        }␍
+      }␍
+      ␍
+      // وظيفة إعادة تعيين الحقول␍
+      function resetBeliefs() {␍
+        document.getElementById('belief1').value = '';␍
+        document.getElementById('belief2').value = '';␍
+        document.getElementById('belief3').value = '';␍
+        document.getElementById('belief4').value = '';␍
+        localStorage.removeItem('beliefsData');␍
+        resultBox.style.display = 'none';␍
+        viewBtn.style.display = 'none';␍
+        showNotification('تم مسح جميع البيانات بنجاح');␍
+      }␍
+      ␍
+      // وظيفة عرض النتائج␍
+      function displayResults() {␍
+        const savedData = localStorage.getItem('beliefsData');␍
+        if (!savedData) {␍
+          showNotification('لا توجد بيانات لعرضها', 'warning');␍
+          return;␍
+        }␍
+        ␍
+        const beliefsData = JSON.parse(savedData);␍
+        ␍
+        resultContent.innerHTML = `␍
+          <div class="result-item">␍
+            <h4><i class="fas fa-user"></i> معتقداتك حول قدراتك الدراسية</h4>␍
+            <p>${beliefsData.belief1}</p>␍
+          </div>␍
+          <div class="result-item">␍
+            <h4><i class="fas fa-users"></i> توقعات الآخرين حول مسارك الدراسي</h4>␍
+            <p>${beliefsData.belief2}</p>␍
+          </div>␍
+          <div class="result-item">␍
+            <h4><i class="fas fa-exclamation-triangle"></i> المعتقدات المعيقة لتقدمك الدراسي</h4>␍
+            <p>${beliefsData.belief3}</p>␍
+          </div>␍
+          <div class="result-item">␍
+            <h4><i class="fas fa-bullseye"></i> المعتقدات الإيجابية التي ترغب في تطويرها</h4>␍
+            <p>${beliefsData.belief4}</p>␍
+          </div>␍
+          <div style="margin-top: 20px; font-style: italic; color: #666; text-align: center;">␍
+            <i class="fas fa-clock"></i> تم الحفظ بتاريخ: ${beliefsData.timestamp}␍
+          </div>␍
+        `;␍
+        ␍
+        resultBox.style.display = 'block';␍
+        resultBox.scrollIntoView({ behavior: 'smooth' });␍
+      }␍
+      ␍
+      // وظيفة عرض الإشعارات␍
+      function showNotification(message, type = 'success') {␍
+        notification.textContent = message;␍
+        notification.style.backgroundColor = type === 'success' ? 'var(--primary)' : 'var(--warning)';␍
+        notification.style.display = 'block';␍
+        ␍
+        setTimeout(() => {␍
+          notification.style.display = 'none';␍
+        }, 3000);␍
+      }␍
+    });␍
+  </script>␍
+</body>␍
 </html>
