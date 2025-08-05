@@ -1,0 +1,843 @@
+<!DOCTYPE html>␍
+<html lang="fr">␍
+<head>␍
+    <meta charset="UTF-8">␍
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">␍
+    <title>Mon guide d'orientation positive - La voie du succès</title>␍
+    <link rel="icon" type="image/x-icon" href="tnn.jpg">␍
+    <style>␍
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */␍
+␍
+/* Variables CSS pour la cohérence du thème */␍
+:root {␍
+  --primary-color: #2c5aa0;␍
+  --secondary-color: #e91e63;␍
+  --accent-color: #ff9800;␍
+  --text-color: #333;␍
+  --text-light: #666;␍
+  --background-color: #f8f9fa;␍
+  --white: #ffffff;␍
+  --border-color: #e0e0e0;␍
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);␍
+  --border-radius: 8px;␍
+  --transition: all 0.3s ease;␍
+}␍
+␍
+/* Reset et base */␍
+* {␍
+  margin: 0;␍
+  padding: 0;␍
+  box-sizing: border-box;␍
+}␍
+␍
+.text {␍
+  text-align: end;␍
+}␍
+␍
+.test {␍
+  display: flex;␍
+  flex-direction: row-reverse;␍
+}␍
+␍
+body {␍
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;␍
+  line-height: 1.6;␍
+  color: var(--text-color);␍
+  background-color: var(--background-color);␍
+  overflow-x: hidden; /* Éviter le défilement horizontal */␍
+}␍
+␍
+/* Header */␍
+.header {␍
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));␍
+  color: var(--white);␍
+  padding: 1rem 0;␍
+  box-shadow: var(--shadow);␍
+  position: sticky;␍
+  top: 0;␍
+  z-index: 1000;␍
+}␍
+␍
+.header-content {␍
+  max-width: 1200px;␍
+  margin: 0 auto;␍
+  padding: 0 2rem;␍
+  display: flex;␍
+  justify-content: space-between;␍
+  align-items: center;␍
+}␍
+␍
+.logo {␍
+  font-size: 1.8rem;␍
+  font-weight: bold;␍
+  text-decoration: none;␍
+  color: var(--white);␍
+  word-wrap: break-word; /* Permettre la coupure des mots longs */␍
+}␍
+␍
+.tagline {␍
+  font-size: 0.9rem;␍
+  opacity: 0.9;␍
+  margin-top: 0.2rem;␍
+}␍
+␍
+/* Navigation */␍
+.nav {␍
+  background-color: var(--primary-color);␍
+  padding: 0.5rem 0;␍
+}␍
+␍
+.nav-content {␍
+  max-width: 1200px;␍
+  margin: 0 auto;␍
+  padding: 0 2rem;␍
+}␍
+␍
+.nav-menu {␍
+  display: flex;␍
+  list-style: none;␍
+  gap: 2rem;␍
+  flex-wrap: wrap; /* Permettre le retour à la ligne */␍
+}␍
+␍
+.nav-item a {␍
+  color: var(--white);␍
+  text-decoration: none;␍
+  padding: 0.5rem 1rem;␍
+  border-radius: var(--border-radius);␍
+  transition: var(--transition);␍
+  white-space: nowrap; /* Éviter la coupure des liens */␍
+}␍
+␍
+.nav-item a:hover,␍
+.nav-item a.active {␍
+  background-color: rgba(255,255,255,0.2);␍
+}␍
+␍
+/* Container principal */␍
+.container {␍
+  max-width: 1200px;␍
+  margin: 0 auto;␍
+  padding: 2rem;␍
+  width: 100%; /* Assurer la largeur complète */␍
+}␍
+␍
+/* Sections */␍
+.section {␍
+  background: var(--white);␍
+  margin-bottom: 2rem;␍
+  padding: 2rem;␍
+  border-radius: var(--border-radius);␍
+  box-shadow: var(--shadow);␍
+  width: 100%; /* Assurer la largeur complète */␍
+}␍
+␍
+.section-title {␍
+  color: var(--primary-color);␍
+  font-size: 2rem;␍
+  margin-bottom: 1rem;␍
+  border-bottom: 3px solid var(--accent-color);␍
+  padding-bottom: 0.5rem;␍
+  word-wrap: break-word; /* Permettre la coupure des titres longs */␍
+}␍
+␍
+.section-subtitle {␍
+  color: var(--secondary-color);␍
+  font-size: 1.5rem;␍
+  margin: 1.5rem 0 1rem 0;␍
+}␍
+␍
+/* Grille pour les espaces */␍
+.spaces-grid {␍
+  display: grid;␍
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */␍
+  gap: 2rem;␍
+  margin: 2rem 0;␍
+  width: 100%;␍
+}␍
+␍
+.space-card {␍
+  background: var(--white);␍
+  padding: 2rem;␍
+  border-radius: var(--border-radius);␍
+  box-shadow: var(--shadow);␍
+  text-align: center;␍
+  transition: var(--transition);␍
+  border-top: 4px solid var(--primary-color);␍
+  width: 100%;␍
+  min-height: 200px; /* Hauteur minimale pour la cohérence */␍
+}␍
+␍
+.space-card:hover {␍
+  transform: translateY(-5px);␍
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);␍
+}␍
+␍
+.space-card h3 {␍
+  color: var(--primary-color);␍
+  margin-bottom: 1rem;␍
+  font-size: 1.3rem;␍
+  word-wrap: break-word;␍
+}␍
+␍
+.space-card p {␍
+  color: var(--text-light);␍
+  line-height: 1.6;␍
+  word-wrap: break-word;␍
+}␍
+␍
+/* Boutons */␍
+.btn {␍
+  display: inline-block;␍
+  padding: 0.8rem 2rem;␍
+  background-color: var(--primary-color);␍
+  color: var(--white);␍
+  text-decoration: none;␍
+  border-radius: var(--border-radius);␍
+  transition: var(--transition);␍
+  border: none;␍
+  cursor: pointer;␍
+  font-size: 1rem;␍
+  word-wrap: break-word;␍
+  text-align: center;␍
+}␍
+␍
+.btn:hover {␍
+  background-color: var(--secondary-color);␍
+  transform: translateY(-2px);␍
+}␍
+␍
+.btn-secondary {␍
+  background-color: var(--accent-color);␍
+}␍
+␍
+.btn-secondary:hover {␍
+  background-color: #f57c00;␍
+}␍
+␍
+/* Articles récents */␍
+.articles-grid {␍
+  display: grid;␍
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));␍
+  gap: 1.5rem;␍
+  margin: 2rem 0;␍
+  width: 100%;␍
+}␍
+␍
+.article-card {␍
+  background: var(--white);␍
+  border-radius: var(--border-radius);␍
+  overflow: hidden;␍
+  box-shadow: var(--shadow);␍
+  transition: var(--transition);␍
+  width: 100%;␍
+}␍
+␍
+.article-card:hover {␍
+  transform: translateY(-3px);␍
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);␍
+}␍
+␍
+.article-meta {␍
+  padding: 1rem;␍
+  background-color: var(--background-color);␍
+  font-size: 0.9rem;␍
+  color: var(--text-light);␍
+}␍
+␍
+.article-content {␍
+  padding: 1.5rem;␍
+}␍
+␍
+.article-title {␍
+  color: var(--primary-color);␍
+  margin-bottom: 0.5rem;␍
+  font-size: 1.2rem;␍
+  word-wrap: break-word;␍
+}␍
+␍
+/* Footer */␍
+.footer {␍
+  background-color: var(--primary-color);␍
+  color: var(--white);␍
+  text-align: center;␍
+  padding: 2rem 0;␍
+  margin-top: 3rem;␍
+}␍
+␍
+.footer-content {␍
+  max-width: 1200px;␍
+  margin: 0 auto;␍
+  padding: 0 2rem;␍
+}␍
+␍
+.social-links {␍
+  margin: 1rem 0;␍
+}␍
+␍
+.social-links a {␍
+  color: var(--white);␍
+  font-size: 1.5rem;␍
+  margin: 0 1rem;␍
+  transition: var(--transition);␍
+}␍
+␍
+.social-links a:hover {␍
+  color: var(--accent-color);␍
+}␍
+␍
+/* Responsive - Tablettes */␍
+@media (max-width: 1024px) {␍
+  .container {␍
+    padding: 1.5rem;␍
+  }␍
+  ␍
+  .section {␍
+    padding: 1.5rem;␍
+  }␍
+  ␍
+  .spaces-grid {␍
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));␍
+    gap: 1.5rem;␍
+  }␍
+  ␍
+  .nav-menu {␍
+    gap: 1rem;␍
+  }␍
+}␍
+␍
+/* Responsive - Mobiles */␍
+@media (max-width: 768px) {␍
+  .header-content {␍
+    flex-direction: column;␍
+    text-align: center;␍
+    padding: 0 1rem;␍
+  }␍
+  ␍
+  .test {␍
+    flex-direction: column;␍
+    align-items: center;␍
+  }␍
+  ␍
+  .nav-menu {␍
+    flex-direction: column;␍
+    gap: 0.5rem;␍
+    padding: 0 1rem;␍
+    justify-content: center !important;␍
+  }␍
+  ␍
+  .nav-item {␍
+    width: 100%;␍
+    text-align: center;␍
+  }␍
+  ␍
+  .nav-item a {␍
+    display: block;␍
+    width: 100%;␍
+    padding: 0.8rem 1rem;␍
+  }␍
+  ␍
+  .container {␍
+    padding: 1rem;␍
+  }␍
+  ␍
+  .section {␍
+    padding: 1.5rem;␍
+    margin-bottom: 1.5rem;␍
+  }␍
+  ␍
+  .spaces-grid {␍
+    grid-template-columns: 1fr;␍
+    gap: 1rem;␍
+  }␍
+␍
+  .articles-grid {␍
+    grid-template-columns: 1fr;␍
+    gap: 1rem;␍
+  }␍
+␍
+  .logo {␍
+    font-size: 1.4rem;␍
+    text-align: center;␍
+    line-height: 1.2;␍
+  }␍
+␍
+  .tagline {␍
+    font-size: 0.8rem;␍
+    text-align: center;␍
+  }␍
+␍
+  .section-title {␍
+    font-size: 1.6rem;␍
+    text-align: center;␍
+  }␍
+␍
+  .space-card, .article-card {␍
+    padding: 1.5rem;␍
+  }␍
+␍
+  .btn {␍
+    padding: 0.7rem 1.5rem;␍
+    font-size: 0.9rem;␍
+    width: auto;␍
+    min-width: 120px;␍
+  }␍
+  ␍
+  .text {␍
+    text-align: center;␍
+  }␍
+}␍
+␍
+/* Responsive - Très petits écrans */␍
+@media (max-width: 480px) {␍
+  .header-content {␍
+    padding: 0 0.5rem;␍
+  }␍
+  ␍
+  .nav-content {␍
+    padding: 0 0.5rem;␍
+  }␍
+  ␍
+  .container {␍
+    padding: 0.5rem;␍
+  }␍
+  ␍
+  .section {␍
+    padding: 1rem;␍
+    margin-bottom: 1rem;␍
+  }␍
+  ␍
+  .logo {␍
+    font-size: 1.2rem;␍
+  }␍
+  ␍
+  .section-title {␍
+    font-size: 1.4rem;␍
+  }␍
+  ␍
+  .space-card, .article-card {␍
+    padding: 1rem;␍
+  }␍
+  ␍
+  .btn {␍
+    padding: 0.6rem 1rem;␍
+    font-size: 0.85rem;␍
+  }␍
+  ␍
+  .spaces-grid, .articles-grid {␍
+    gap: 0.8rem;␍
+  }␍
+}␍
+␍
+/* Animations */␍
+@keyframes fadeInUp {␍
+  from {␍
+    opacity: 0;␍
+    transform: translateY(30px);␍
+  }␍
+  to {␍
+    opacity: 1;␍
+    transform: translateY(0);␍
+  }␍
+}␍
+␍
+.fade-in {␍
+  animation: fadeInUp 0.6s ease-out;␍
+}␍
+␍
+/* Utilitaires */␍
+.text-center { text-align: center; }␍
+.text-primary { color: var(--primary-color); }␍
+.text-secondary { color: var(--secondary-color); }␍
+.mb-2 { margin-bottom: 2rem; }␍
+.mt-2 { margin-top: 2rem; }␍
+␍
+/* Amélioration de la lisibilité sur mobile */␍
+@media (max-width: 768px) {␍
+  body {␍
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */␍
+  }␍
+  ␍
+  p {␍
+    line-height: 1.7; /* Améliorer l'espacement des lignes */␍
+    margin-bottom: 1rem;␍
+  }␍
+  ␍
+  h1, h2, h3 {␍
+    line-height: 1.3;␍
+    margin-bottom: 1rem;␍
+  }␍
+  ␍
+  /* Améliorer l'espacement tactile */␍
+  .nav-item a, .btn {␍
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */␍
+    display: flex;␍
+    align-items: center;␍
+    justify-content: center;␍
+  }␍
+}␍
+␍
+␍
+    </style>␍
+</head>␍
+<body>␍
+    <!-- Header -->␍
+    <header class="header">␍
+        <div class="header-content test">␍
+            <div>␍
+                <a href="index.html" class="logo">دليلي للتوجيه الإيجابي</a>␍
+                <div class="tagline">طريق النجاح    ␍
+                </div>␍
+            </div>␍
+        </div>␍
+    </header>␍
+␍
+    <!-- Navigation -->␍
+    <nav class="nav">␍
+        <div class="nav-content">␍
+            <ul class="nav-menu " style="justify-content: end;">␍
+                ␍
+                <li class="nav-item"><a href="espace-parent.html">فضاء الأولياء</a></li>␍
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li> ␍
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>␍
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>␍
+            </ul>␍
+        </div>␍
+    </nav>␍
+␍
+    <!-- Contenu principal -->␍
+    <main class="container">␍
+        <!-- Section d'accueil -->␍
+        <section class="section fade-in">␍
+            <h1 class="section-title text">مَرْحَبًا بِكُمْ فِي دَلِيلِي لِلْتَّوْجِيهِ الإِيجَابِيِّ </h1>␍
+            <p class="text">نحن هنا لمرافقتكم في رحلة التوجيه، سواء كنتم طالبًا أو معلمًا أو ولي أمر. هدفنا هو تزويدكم بالموارد والنصائح اللازمة لاتخاذ قرارات مستنيرة وبناء مستقبل واعد</p>␍
+        </section>␍
+␍
+        <!-- Nos Espaces Dédiés -->␍
+        <section class="section">␍
+            <h2 class="section-title text">مساحاتنا المُخصَّصة</h2>␍
+            <div class="spaces-grid">␍
+                <div class="space-card">␍
+                    <h3>فضاء التلميذ</h3>␍
+                    <p>اكتشف معلومات حول التخصصات الدراسية، المهن الواعدة، اختبارات التوجيه، ونصائح لتحقيق النجاح في مسيرتك الأكاديمية والمهنية.</p>␍
+                    <a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">الدخول إلى الفضاء</a>␍
+                </div>␍
+                <div class="space-card">␍
+                    <h3>فضاء الاستاذ</h3>␍
+                    <p>احصل على أدوات تربوية، موارد لدعم طلابك، ومعلومات حول أحدث الإصلاحات التعليمية.</p>␍
+                    <br>␍
+                    <a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/" class="btn mt-2">الدخول إلى الفضاء</a>␍
+                </div>␍
+                <div class="space-card">␍
+                    <h3>فضاء الأولياء </h3>␍
+                    <p>اكتشفوا أدلة إرشادية لدعم أبنائكم في اختياراتهم الدراسية، وفهم النظام التربوي، ومساعدتهم على تنمية قدراتهم الكامنة.</p>␍
+                    <br><a href="espace-parent.html" class="btn mt-2">الدخول إلى الفضاء</a>␍
+                </div>␍
+            </div>␍
+        </section>␍
+        <section class="section">␍
+            <h2 class="section-title text">مستجدات</h2>␍
+            <div class="spaces-grid">␍
+                <div class="space-card">␍
+                    <p>اخر المستجدات</p>␍
+                    <a href="#" class="btn mt-2">الدخول</a>␍
+                </div>␍
+            </div>␍
+        </section>␍
+        <!-- Derniers Articles -->␍
+        <section class="section">␍
+            <h2 class="section-title">Derniers Articles</h2>␍
+            <p class="mb-2">Restez informé grâce à nos articles récents sur l'orientation, l'éducation et le développement personnel. Nous abordons des sujets variés pour vous apporter des perspectives nouvelles et des conseils pratiques.</p>␍
+            ␍
+            <div class="articles-grid">␍
+                <article class="article-card">␍
+                    <div class="article-meta">␍
+                        <span>Publié le 15 janvier 2025</span>␍
+                    </div>␍
+                    <div class="article-content">␍
+                        <h3 class="article-title">منشور التوجيه المدرسي 2025</h3>␍
+                        <p>Découvrez les nouvelles directives pour l'orientation scolaire en 2025 et comment elles peuvent impacter votre parcours éducatif.</p>␍
+                        <a href="#" class="btn btn-secondary">Lire la suite</a>␍
+                    </div>␍
+                </article>␍
+                ␍
+                <article class="article-card">␍
+                    <div class="article-meta">␍
+                        <span>Publié le 10 janvier 2025</span>␍
+                    </div>␍
+                    <div class="article-content">␍
+                        <h3 class="article-title">Hello tout le monde!</h3>␍
+                        <p>Bienvenue sur notre nouveau site d'orientation positive. Découvrez comment nous pouvons vous aider dans votre parcours.</p>␍
+                        <a href="#" class="btn btn-secondary">Lire la suite</a>␍
+                    </div>␍
+                </article>␍
+            </div>␍
+        </section>␍
+        <section class="section">␍
+            ␍
+            <div class="spaces-grid">␍
+                <div class="article-card">␍
+                    <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/487171024_3994844650786566_7303326795383119388_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YeGVwbM3q5UQ7kNvwGJHpHR&_nc_oc=Adl8XE4TvPVonuhgfFFSsmYar2durBkHmlw3iNK7Ra_JY46twTfs_zNK92wNEOWNVRs&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=ECewJUu1Nm5Ys1b7sMolHw&oh=00_AfRvpn0zd9BbyhFbuX-EQKYv1VbGQNaZVB178PJxZT9LJQ&oe=6893F23E" alt="image">␍
+                    <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/487865541_4001486430122388_8026858138047571730_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6KmtRupEG80Q7kNvwECs34x&_nc_oc=AdnHnErM6aozL8Kf_DHOWJjroY3Q3gfdLCgbnFDXaaqM97rDLOT4D5IxEvXLvGZf3tk&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=Z9fUTpFymq-yIcT8rNAJFw&oh=00_AfS42AvjJj43YSTnBunO9k4yaqFUIKhYVFt7VoiLhpq1yw&oe=689405A0" alt="image">␍
+                    <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/489174824_4004300416507656_8198056085576793206_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0W2y1WRRrlwQ7kNvwHQ7yXJ&_nc_oc=Adlms8sPVMTTZhUwMfL6uHRVsl2vDjUKiBvAiVn8YZ4Hde7skSjqFw8ApkK34AsuBE0&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=iNW3RwraTYSlxZucVw-cKQ&oh=00_AfTqbYJyXtS0P2mH_HpQD8KZgpuKNZAFXPKArSCtL4IjQA&oe=6893FBE2" alt="image3">␍
+                    <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/489407415_4004447093159655_3511904162007843045_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hQGekLYtEWoQ7kNvwEFc7CZ&_nc_oc=AdmgBrj4P6G1WDU6oQAubuQcCi98UzuLhY39ZHGuYgr0IkxHus68PAzYl1z2EPMyof0&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=9XBHhmswvFtPX2INHPsayw&oh=00_AfQVgRLs4bYlsqDAWHegXjvTomhje6KXt5oePmnqIB9_rg&oe=689408FE" alt="image4">␍
+                    <img src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/503915757_4063540970583600_1164262557803531970_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wwBCES75rkYQ7kNvwHsaPeo&_nc_oc=AdkbsZDwLVvHHl6bIkfB5Ns42cSAKWmX6EsqqCbk30BDuIbMbaau_98gxx-M4HyMwFc&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=q_19R4GS0lahPsSFB5c-Zg&oh=00_AfTAY_tcMPGDDWrhViLcj7VLIhVcZQL33r4g_TaGNR41ew&oe=68941031" > ␍
+                </div>␍
+            </div>␍
+        </section>␍
+        ␍
+        <!-- Contact -->␍
+        <section class="section text-center">␍
+            <h2 class="section-title">Contactez-nous</h2>␍
+            <p>N'hésitez pas à nous contacter pour toute question ou suggestion. Votre avis est précieux pour nous aider à améliorer nos services et à mieux vous accompagner.</p>␍
+            <a href="#" class="btn mt-2">Nous contacter</a>␍
+        </section>␍
+    </main>␍
+␍
+    <!-- Footer -->␍
+    <footer class="footer">␍
+        <div class="footer-content">␍
+            <p>&copy; 2025 Mon guide d'orientation positive. Tous droits réservés.</p>␍
+            <div class="social-links">␍
+                <a href="#" aria-label="Facebook">📘</a>␍
+                <a href="#" aria-label="Twitter">🐦</a>␍
+                <a href="#" aria-label="LinkedIn">💼</a>␍
+                <a href="#" aria-label="YouTube">📺</a>␍
+            </div>␍
+        </div>␍
+    </footer>␍
+␍
+    <script>// JavaScript pour Mon guide d'orientation positive␍
+␍
+// Attendre que le DOM soit chargé␍
+document.addEventListener('DOMContentLoaded', function() {␍
+    ␍
+    // Animation d'apparition des éléments␍
+    const observerOptions = {␍
+        threshold: 0.1,␍
+        rootMargin: '0px 0px -50px 0px'␍
+    };␍
+␍
+    const observer = new IntersectionObserver(function(entries) {␍
+        entries.forEach(entry => {␍
+            if (entry.isIntersecting) {␍
+                entry.target.classList.add('fade-in');␍
+            }␍
+        });␍
+    }, observerOptions);␍
+␍
+    // Observer tous les éléments avec la classe 'section'␍
+    const sections = document.querySelectorAll('.section');␍
+    sections.forEach(section => {␍
+        observer.observe(section);␍
+    });␍
+␍
+    // Animation des cartes au survol␍
+    const cards = document.querySelectorAll('.space-card, .article-card');␍
+    cards.forEach(card => {␍
+        card.addEventListener('mouseenter', function() {␍
+            this.style.transform = 'translateY(-5px)';␍
+            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';␍
+        });␍
+        ␍
+        card.addEventListener('mouseleave', function() {␍
+            this.style.transform = 'translateY(0)';␍
+            this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';␍
+        });␍
+    });␍
+␍
+    ␍
+␍
+    // Navigation mobile (hamburger menu)␍
+    const navToggle = document.createElement('button');␍
+    navToggle.classList.add('nav-toggle');␍
+    navToggle.innerHTML = '☰';␍
+    navToggle.style.display = 'none';␍
+    ␍
+    const navContent = document.querySelector('.nav-content');␍
+    const navMenu = document.querySelector('.nav-menu');␍
+    ␍
+    if (navContent && navMenu) {␍
+        navContent.insertBefore(navToggle, navMenu);␍
+        ␍
+        navToggle.addEventListener('click', function() {␍
+            navMenu.classList.toggle('nav-menu-open');␍
+        });␍
+    }␍
+␍
+    // Smooth scrolling pour les liens internes␍
+    const internalLinks = document.querySelectorAll('a[href^="#"]');␍
+    internalLinks.forEach(link => {␍
+        link.addEventListener('click', function(e) {␍
+            e.preventDefault();␍
+            const targetId = this.getAttribute('href').substring(1);␍
+            const targetElement = document.getElementById(targetId);␍
+            ␍
+            if (targetElement) {␍
+                targetElement.scrollIntoView({␍
+                    behavior: 'smooth',␍
+                    block: 'start'␍
+                });␍
+            }␍
+        });␍
+    });␍
+␍
+    // Effet de typing pour le titre principal (optionnel)␍
+    const mainTitle = document.querySelector('.section-title');␍
+    if (mainTitle && mainTitle.textContent.includes('Bienvenue')) {␍
+        const text = mainTitle.textContent;␍
+        mainTitle.textContent = '';␍
+        let i = 0;␍
+        ␍
+        function typeWriter() {␍
+            if (i < text.length) {␍
+                mainTitle.textContent += text.charAt(i);␍
+                i++;␍
+                setTimeout(typeWriter, 50);␍
+            }␍
+        }␍
+        ␍
+        // Démarrer l'effet après un court délai␍
+        setTimeout(typeWriter, 500);␍
+    }␍
+␍
+    // Gestion des formulaires (si présents)␍
+    const forms = document.querySelectorAll('form');␍
+    forms.forEach(form => {␍
+        form.addEventListener('submit', function(e) {␍
+            e.preventDefault();␍
+            ␍
+            // Validation basique␍
+            const inputs = this.querySelectorAll('input[required], textarea[required]');␍
+            let isValid = true;␍
+            ␍
+            inputs.forEach(input => {␍
+                if (!input.value.trim()) {␍
+                    isValid = false;␍
+                    input.style.borderColor = '#e91e63';␍
+                } else {␍
+                    input.style.borderColor = '#e0e0e0';␍
+                }␍
+            });␍
+            ␍
+            if (isValid) {␍
+                // Simulation d'envoi␍
+                const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');␍
+                if (submitBtn) {␍
+                    const originalText = submitBtn.textContent;␍
+                    submitBtn.textContent = 'Envoi en cours...';␍
+                    submitBtn.disabled = true;␍
+                    ␍
+                    setTimeout(() => {␍
+                        submitBtn.textContent = 'Message envoyé !';␍
+                        setTimeout(() => {␍
+                            submitBtn.textContent = originalText;␍
+                            submitBtn.disabled = false;␍
+                            form.reset();␍
+                        }, 2000);␍
+                    }, 1000);␍
+                }␍
+            }␍
+        });␍
+    });␍
+␍
+    ␍
+    // Statistiques de visite (simulation)␍
+    const stats = {␍
+        visits: localStorage.getItem('visits') || 0,␍
+        lastVisit: localStorage.getItem('lastVisit') || new Date().toISOString()␍
+    };␍
+    ␍
+    stats.visits++;␍
+    localStorage.setItem('visits', stats.visits);␍
+    localStorage.setItem('lastVisit', new Date().toISOString());␍
+    ␍
+    console.log(`Bienvenue ! C'est votre visite n°${stats.visits}`);␍
+});␍
+␍
+// Fonctions utilitaires␍
+function showNotification(message, type = 'info') {␍
+    const notification = document.createElement('div');␍
+    notification.classList.add('notification', `notification-${type}`);␍
+    notification.textContent = message;␍
+    notification.style.cssText = `␍
+        position: fixed;␍
+        top: 20px;␍
+        left: 50%;␍
+        transform: translateX(-50%);␍
+        background: var(--primary-color);␍
+        color: white;␍
+        padding: 1rem 2rem;␍
+        border-radius: var(--border-radius);␍
+        z-index: 1002;␍
+        animation: slideDown 0.3s ease-out;␍
+    `;␍
+    ␍
+    document.body.appendChild(notification);␍
+    ␍
+    setTimeout(() => {␍
+        notification.style.animation = 'slideUp 0.3s ease-out';␍
+        setTimeout(() => {␍
+            document.body.removeChild(notification);␍
+        }, 300);␍
+    }, 3000);␍
+}␍
+␍
+// Ajout des styles CSS pour les animations␍
+const additionalStyles = `␍
+    @keyframes slideDown {␍
+        from { transform: translateX(-50%) translateY(-100%); }␍
+        to { transform: translateX(-50%) translateY(0); }␍
+    }␍
+    ␍
+    @keyframes slideUp {␍
+        from { transform: translateX(-50%) translateY(0); }␍
+        to { transform: translateX(-50%) translateY(-100%); }␍
+    }␍
+    ␍
+    .nav-toggle {␍
+        display: none;␍
+        background: none;␍
+        border: none;␍
+        color: white;␍
+        font-size: 1.5rem;␍
+        cursor: pointer;␍
+        padding: 0.5rem;␍
+    }␍
+    ␍
+    @media (max-width: 768px) {␍
+        .nav-toggle {␍
+            display: block;␍
+        }␍
+        ␍
+        .nav-menu {␍
+            display: none;␍
+            flex-direction: column;␍
+            position: absolute;␍
+            top: 100%;␍
+            left: 0;␍
+            right: 0;␍
+            background: var(--primary-color);␍
+            padding: 1rem;␍
+        }␍
+        ␍
+        .nav-menu-open {␍
+            display: flex;␍
+        }␍
+    }␍
+    ␍
+    .dark-theme {␍
+        --background-color: #1a1a1a;␍
+        --white: #2d2d2d;␍
+        --text-color: #e0e0e0;␍
+        --text-light: #b0b0b0;␍
+    }␍
+`;␍
+␍
+const styleSheet = document.createElement('style');␍
+styleSheet.textContent = additionalStyles;␍
+document.head.appendChild(styleSheet);␍
+</script>␍
+</body>␍
+</html>␍
+␍

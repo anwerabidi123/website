@@ -1,0 +1,1275 @@
+<!DOCTYPE html>␍
+<html lang="ar" dir="rtl">␍
+<head>␍
+  <meta charset="UTF-8" />␍
+  <meta name="viewport" content="width=device-width, initial-scale=1" />␍
+  <title>اللاوعي والتوجيه الدراسي والمهني</title>␍
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">␍
+  <style>␍
+    :root {␍
+      --primary: #8e44ad;␍
+      --primary-dark: #6c3483;␍
+      --secondary: #e67e22;␍
+      --secondary-dark: #9c581c;␍
+      --accent: #2ecc71;␍
+      --light-bg: #f9f9f9;␍
+      --card-bg: #fff;␍
+      --text: #222;␍
+      --text-light: #555;␍
+      --border: #ddd;␍
+      --success: #2ecc71;␍
+      --warning: #f39c12;␍
+      --heart-color: #e74c3c;␍
+      --unconscious: #8e44ad;␍
+    }␍
+    ␍
+    * {␍
+      box-sizing: border-box;␍
+      margin: 0;␍
+      padding: 0;␍
+    }␍
+    ␍
+    body {␍
+      font-family: 'Segoe UI', Tahoma, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;␍
+      max-width: 900px;␍
+      margin: 0 auto;␍
+      padding: 20px;␍
+      line-height: 1.8;␍
+      background: linear-gradient(135deg, #e0f7fa, #f9f9f9);␍
+      color: var(--text);␍
+      position: relative;␍
+      overflow-x: hidden;␍
+      text-align: right;␍
+      direction: rtl;␍
+    }␍
+    ␍
+    body::before {␍
+      content: "";␍
+      position: absolute;␍
+      top: 0;␍
+      left: 0;␍
+      right: 0;␍
+      height: 300px;␍
+      background: linear-gradient(to left, var(--unconscious), #9b59b6);␍
+      z-index: -1;␍
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);␍
+    }␍
+    ␍
+    .header {␍
+      text-align: center;␍
+      padding: 40px 20px 20px;␍
+      position: relative;␍
+      color: white;␍
+      margin-bottom: 30px;␍
+    }␍
+    ␍
+    h1 {␍
+      font-size: 2.8rem;␍
+      margin-bottom: 10px;␍
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);␍
+    }␍
+    ␍
+    h1 i.fa-brain {␍
+      color: #e74c3c;␍
+      text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);␍
+      animation: pulse 1.5s infinite;␍
+    }␍
+    ␍
+    h2 {␍
+      font-size: 1.8rem;␍
+      color: var(--primary-dark);␍
+      margin: 25px 0 15px;␍
+      position: relative;␍
+      display: inline-block;␍
+    }␍
+    ␍
+    h2::after {␍
+      content: "";␍
+      position: absolute;␍
+      bottom: -8px;␍
+      right: 0;␍
+      width: 60%;␍
+      height: 4px;␍
+      background: var(--accent);␍
+      border-radius: 2px;␍
+    }␍
+    ␍
+    h3 {␍
+      font-size: 1.5rem;␍
+      color: var(--unconscious);␍
+      margin: 20px 0 15px;␍
+    }␍
+    ␍
+    .container {␍
+      background: var(--card-bg);␍
+      border-radius: 16px;␍
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);␍
+      padding: 30px;␍
+      margin-bottom: 30px;␍
+      position: relative;␍
+      overflow: hidden;␍
+    }␍
+    ␍
+    .container::before {␍
+      content: "";␍
+      position: absolute;␍
+      top: 0;␍
+      right: 0;␍
+      width: 8px;␍
+      height: 100%;␍
+      background: linear-gradient(to bottom, var(--unconscious), #9b59b6);␍
+    }␍
+    ␍
+    blockquote {␍
+      font-style: italic;␍
+      color: var(--text-light);␍
+      border-right: 4px solid var(--unconscious);␍
+      margin: 1.5rem 0 2rem 0;␍
+      padding: 15px 20px;␍
+      background: rgba(142, 68, 173, 0.05);␍
+      border-radius: 8px 0 0 8px;␍
+      position: relative;␍
+      font-size: 1.1rem;␍
+      text-align: center;␍
+    }␍
+    ␍
+    blockquote::before {␍
+      content: """;␍
+      position: absolute;␍
+      top: -20px;␍
+      right: 10px;␍
+      font-size: 5rem;␍
+      color: rgba(142, 68, 173, 0.1);␍
+      font-family: Georgia, serif;␍
+      line-height: 1;␍
+    }␍
+    ␍
+    .author {␍
+      display: block;␍
+      text-align: left;␍
+      font-weight: 700;␍
+      color: var(--unconscious);␍
+      margin-top: 10px;␍
+      font-style: normal;␍
+    }␍
+    ␍
+    p {␍
+      margin: 1.2rem 0;␍
+      font-size: 1.05rem;␍
+    }␍
+    ␍
+    .section-title {␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      margin: 25px 0 15px;␍
+    }␍
+    ␍
+    .section-title i {␍
+      background: var(--unconscious);␍
+      color: white;␍
+      width: 40px;␍
+      height: 40px;␍
+      border-radius: 50%;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      font-size: 1.2rem;␍
+    }␍
+    ␍
+    .btn-container {␍
+      display: flex;␍
+      justify-content: center;␍
+      gap: 20px;␍
+      margin: 30px 0;␍
+    }␍
+    ␍
+    button {␍
+      padding: 14px 35px;␍
+      border: none;␍
+      border-radius: 50px;␍
+      font-size: 1.1rem;␍
+      font-weight: 700;␍
+      cursor: pointer;␍
+      transition: all 0.3s ease;␍
+      display: flex;␍
+      align-items: center;␍
+      gap: 10px;␍
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .btn-primary {␍
+      background: var(--unconscious);␍
+      color: white;␍
+    }␍
+    ␍
+    .btn-primary:hover {␍
+      background: #7d3c98;␍
+      transform: translateY(-3px);␍
+      box-shadow: 0 6px 12px rgba(125, 60, 152, 0.25);␍
+    }␍
+    ␍
+    .btn-secondary {␍
+      background: #f1f1f1;␍
+      color: var(--text);␍
+    }␍
+    ␍
+    .btn-secondary:hover {␍
+      background: #e0e0e0;␍
+      transform: translateY(-3px);␍
+    }␍
+    ␍
+    footer {␍
+      text-align: center;␍
+      padding: 20px;␍
+      color: var(--text-light);␍
+      font-size: 0.9rem;␍
+      margin-top: 30px;␍
+    }␍
+    ␍
+    .illustration {␍
+      text-align: center;␍
+      margin: 25px 0;␍
+    }␍
+    ␍
+    .illustration img {␍
+      width: 100%;␍
+      max-width: 500px;␍
+      border-radius: 10px;␍
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .brain-section {␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: space-between;␍
+      margin: 30px 0;␍
+      padding: 20px;␍
+      background: rgba(142, 68, 173, 0.05);␍
+      border-radius: 12px;␍
+      border-left: 4px solid var(--unconscious);␍
+      transition: transform 0.3s;␍
+    }␍
+    ␍
+    .brain-section:hover {␍
+      transform: translateY(-5px);␍
+    }␍
+    ␍
+    .brain-percentage {␍
+      font-size: 5rem;␍
+      font-weight: 700;␍
+      color: var(--unconscious);␍
+      text-align: center;␍
+      min-width: 200px;␍
+      animation: pulse 2s infinite;␍
+    }␍
+    ␍
+    .brain-info {␍
+      flex: 1;␍
+      padding: 0 20px;␍
+    }␍
+    ␍
+    .exercise-section {␍
+      background: rgba(231, 126, 34, 0.05);␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      margin: 30px 0;␍
+      border-left: 4px solid var(--secondary);␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+      transition: transform 0.3s;␍
+    }␍
+    ␍
+    .exercise-section:hover {␍
+      transform: translateY(-5px);␍
+    }␍
+    ␍
+    .exercise-step {␍
+      display: flex;␍
+      align-items: flex-start;␍
+      gap: 15px;␍
+      margin-bottom: 20px;␍
+      padding-bottom: 20px;␍
+      border-bottom: 1px dashed var(--border);␍
+    }␍
+    ␍
+    .exercise-step:last-child {␍
+      border-bottom: none;␍
+      margin-bottom: 0;␍
+      padding-bottom: 0;␍
+    }␍
+    ␍
+    .step-number {␍
+      background: var(--secondary);␍
+      color: white;␍
+      width: 35px;␍
+      height: 35px;␍
+      border-radius: 50%;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      font-weight: 700;␍
+      font-size: 1.2rem;␍
+      flex-shrink: 0;␍
+    }␍
+    ␍
+    .step-content {␍
+      flex: 1;␍
+    }␍
+    ␍
+    .timer-container {␍
+      text-align: center;␍
+      margin: 20px 0;␍
+      padding: 15px;␍
+      background: rgba(46, 204, 113, 0.1);␍
+      border-radius: 8px;␍
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);␍
+    }␍
+    ␍
+    .timer-display {␍
+      font-size: 3rem;␍
+      font-weight: 700;␍
+      color: var(--accent);␍
+      margin: 10px 0;␍
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .emotion-selector {␍
+      display: grid;␍
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));␍
+      gap: 10px;␍
+      margin: 20px 0;␍
+    }␍
+    ␍
+    .emotion-option {␍
+      padding: 10px;␍
+      border: 2px solid var(--border);␍
+      border-radius: 8px;␍
+      text-align: center;␍
+      cursor: pointer;␍
+      transition: all 0.3s;␍
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);␍
+    }␍
+    ␍
+    .emotion-option:hover {␍
+      border-color: var(--unconscious);␍
+      background: rgba(142, 68, 173, 0.05);␍
+      transform: translateY(-3px);␍
+    }␍
+    ␍
+    .emotion-option.selected {␍
+      border-color: var(--unconscious);␍
+      background: rgba(142, 68, 173, 0.1);␍
+      font-weight: 700;␍
+      box-shadow: 0 4px 8px rgba(142, 68, 173, 0.15);␍
+    }␍
+    ␍
+    .gesture-selector {␍
+      display: flex;␍
+      flex-wrap: wrap;␍
+      gap: 15px;␍
+      justify-content: center;␍
+      margin: 20px 0;␍
+    }␍
+    ␍
+    .gesture-option {␍
+      width: 80px;␍
+      height: 80px;␍
+      border: 2px solid var(--border);␍
+      border-radius: 50%;␍
+      display: flex;␍
+      align-items: center;␍
+      justify-content: center;␍
+      font-size: 1.5rem;␍
+      cursor: pointer;␍
+      transition: all 0.3s;␍
+      position: relative;␍
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);␍
+    }␍
+    ␍
+    .gesture-option:hover {␍
+      border-color: var(--unconscious);␍
+      background: rgba(142, 68, 173, 0.05);␍
+      transform: translateY(-5px);␍
+    }␍
+    ␍
+    .gesture-option.selected {␍
+      border-color: var(--unconscious);␍
+      background: rgba(142, 68, 173, 0.1);␍
+      transform: scale(1.1);␍
+      box-shadow: 0 5px 15px rgba(142, 68, 173, 0.2);␍
+    }␍
+    ␍
+    .gesture-label {␍
+      position: absolute;␍
+      bottom: -25px;␍
+      font-size: 0.8rem;␍
+      text-align: center;␍
+      width: 100%;␍
+      color: var(--text-light);␍
+    }␍
+    ␍
+    .visualization-box {␍
+      background: rgba(52, 152, 219, 0.1);␍
+      border-radius: 8px;␍
+      padding: 20px;␍
+      margin: 20px 0;␍
+      text-align: center;␍
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);␍
+      position: relative;␍
+      overflow: hidden;␍
+    }␍
+    ␍
+    .visualization-text {␍
+      font-style: italic;␍
+      line-height: 1.8;␍
+      margin: 15px 0;␍
+    }␍
+    ␍
+    .visualization-controls {␍
+      display: flex;␍
+      justify-content: center;␍
+      gap: 10px;␍
+      margin-top: 20px;␍
+    }␍
+    ␍
+    .timer-btn {␍
+      padding: 8px 20px;␍
+      border: none;␍
+      border-radius: 50px;␍
+      background: var(--accent);␍
+      color: white;␍
+      cursor: pointer;␍
+      font-weight: 600;␍
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);␍
+      transition: all 0.3s;␍
+    }␍
+    ␍
+    .timer-btn:hover {␍
+      background: #27ae60;␍
+      transform: translateY(-2px);␍
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);␍
+    }␍
+    ␍
+    .progress-bar-container {␍
+      width: 100%;␍
+      height: 10px;␍
+      background: #e0e0e0;␍
+      border-radius: 5px;␍
+      margin: 20px 0;␍
+      overflow: hidden;␍
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .progress-bar {␍
+      height: 100%;␍
+      background: var(--accent);␍
+      width: 0%;␍
+      transition: width 1s linear;␍
+    }␍
+    ␍
+    .career-section {␍
+      background: rgba(46, 204, 113, 0.1);␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      margin: 30px 0;␍
+      border-left: 4px solid var(--accent);␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+    }␍
+    ␍
+    .career-grid {␍
+      display: grid;␍
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));␍
+      gap: 20px;␍
+      margin-top: 20px;␍
+    }␍
+    ␍
+    .career-card {␍
+      background: white;␍
+      border-radius: 12px;␍
+      padding: 20px;␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+      border-top: 4px solid var(--unconscious);␍
+      transition: transform 0.3s;␍
+      text-align: center;␍
+    }␍
+    ␍
+    .career-card:hover {␍
+      transform: translateY(-5px);␍
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);␍
+    }␍
+    ␍
+    .career-card h4 {␍
+      color: var(--unconscious);␍
+      margin-bottom: 15px;␍
+    }␍
+    ␍
+    .career-card i {␍
+      font-size: 2.5rem;␍
+      color: var(--unconscious);␍
+      margin-bottom: 15px;␍
+      text-shadow: 0 2px 4px rgba(142, 68, 173, 0.2);␍
+    }␍
+    ␍
+    .interactive-section {␍
+      background: rgba(52, 152, 219, 0.1);␍
+      border-radius: 12px;␍
+      padding: 25px;␍
+      margin: 30px 0;␍
+      border-right: 4px solid var(--primary);␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+    }␍
+    ␍
+    .form-group {␍
+      margin-bottom: 20px;␍
+    }␍
+    ␍
+    label {␍
+      display: block;␍
+      margin-bottom: 8px;␍
+      font-weight: 600;␍
+      color: var(--unconscious);␍
+    }␍
+    ␍
+    textarea, input[type="text"], select {␍
+      width: 100%;␍
+      padding: 12px 15px;␍
+      font-size: 1rem;␍
+      border-radius: 8px;␍
+      border: 1px solid var(--border);␍
+      resize: vertical;␍
+      font-family: inherit;␍
+      transition: all 0.3s;␍
+      text-align: right;␍
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);␍
+    }␍
+    ␍
+    textarea:focus, input[type="text"]:focus, select:focus {␍
+      outline: none;␍
+      border-color: var(--unconscious);␍
+      box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);␍
+    }␍
+    ␍
+    .career-result {␍
+      background: white;␍
+      border-radius: 12px;␍
+      padding: 20px;␍
+      margin-top: 20px;␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);␍
+      display: none;␍
+      border-left: 4px solid var(--accent);␍
+      animation: fadeIn 0.5s ease-out;␍
+    }␍
+    ␍
+    .result-title {␍
+      color: var(--unconscious);␍
+      text-align: center;␍
+      margin-bottom: 15px;␍
+      position: relative;␍
+      padding-bottom: 10px;␍
+    }␍
+    ␍
+    .result-title::after {␍
+      content: "";␍
+      position: absolute;␍
+      bottom: 0;␍
+      left: 35%;␍
+      right: 35%;␍
+      height: 3px;␍
+      background: linear-gradient(to right, var(--unconscious), var(--accent));␍
+      border-radius: 2px;␍
+    }␍
+    ␍
+    .result-content {␍
+      line-height: 1.8;␍
+      padding: 10px;␍
+    }␍
+    ␍
+    .impact-section {␍
+      background: rgba(231, 126, 34, 0.1);␍
+      border-radius: 8px;␍
+      padding: 15px;␍
+      margin-top: 15px;␍
+      border-left: 3px solid var(--secondary);␍
+    }␍
+    ␍
+    .analyzing-overlay {␍
+      position: fixed;␍
+      top: 0;␍
+      left: 0;␍
+      right: 0;␍
+      bottom: 0;␍
+      background: rgba(0,0,0,0.7);␍
+      display: flex;␍
+      flex-direction: column;␍
+      justify-content: center;␍
+      align-items: center;␍
+      z-index: 1000;␍
+      color: white;␍
+      font-size: 1.2rem;␍
+      display: none;␍
+    }␍
+    ␍
+    .spinner {␍
+      width: 50px;␍
+      height: 50px;␍
+      border: 5px solid rgba(255,255,255,0.3);␍
+      border-radius: 50%;␍
+      border-top-color: var(--accent);␍
+      animation: spin 1s ease-in-out infinite;␍
+      margin-bottom: 20px;␍
+    }␍
+    ␍
+    .visualization-overlay {␍
+      position: fixed;␍
+      top: 0;␍
+      left: 0;␍
+      right: 0;␍
+      bottom: 0;␍
+      background: linear-gradient(135deg, #8e44ad, #3498db);␍
+      display: flex;␍
+      flex-direction: column;␍
+      justify-content: center;␍
+      align-items: center;␍
+      z-index: 1001;␍
+      color: white;␍
+      font-size: 1.5rem;␍
+      text-align: center;␍
+      padding: 20px;␍
+      display: none;␍
+    }␍
+    ␍
+    .visualization-overlay h3 {␍
+      color: white;␍
+      font-size: 2rem;␍
+      margin-bottom: 30px;␍
+      animation: pulse 2s infinite;␍
+    }␍
+    ␍
+    .visualization-overlay p {␍
+      max-width: 600px;␍
+      line-height: 2;␍
+      margin-bottom: 30px;␍
+    }␍
+    ␍
+    .visualization-timer {␍
+      font-size: 3rem;␍
+      font-weight: bold;␍
+      margin: 20px 0;␍
+    }␍
+    ␍
+    @media (max-width: 768px) {␍
+      body {␍
+        padding: 15px;␍
+      }␍
+      ␍
+      h1 {␍
+        font-size: 2.2rem;␍
+      }␍
+      ␍
+      .container {␍
+        padding: 20px;␍
+      }␍
+      ␍
+      .btn-container {␍
+        flex-direction: column;␍
+        gap: 15px;␍
+      }␍
+      ␍
+      button {␍
+        width: 100%;␍
+        justify-content: center;␍
+      }␍
+      ␍
+      .brain-section {␍
+        flex-direction: column;␍
+        text-align: center;␍
+      }␍
+      ␍
+      .brain-percentage {␍
+        margin-bottom: 20px;␍
+      }␍
+      ␍
+      .career-grid {␍
+        grid-template-columns: 1fr;␍
+      }␍
+      ␍
+      .emotion-selector {␍
+        grid-template-columns: repeat(2, 1fr);␍
+      }␍
+    }␍
+    ␍
+    @keyframes pulse {␍
+      0% { transform: scale(1); }␍
+      50% { transform: scale(1.05); }␍
+      100% { transform: scale(1); }␍
+    }␍
+    ␍
+    @keyframes fadeIn {␍
+      from { opacity: 0; transform: translateY(20px); }␍
+      to { opacity: 1; transform: translateY(0); }␍
+    }␍
+    ␍
+    @keyframes fadeOut {␍
+      from { opacity: 1; transform: translateY(0); }␍
+      to { opacity: 0; transform: translateY(20px); }␍
+    }␍
+    ␍
+    @keyframes spin {␍
+      to { transform: rotate(360deg); }␍
+    }␍
+    ␍
+    .notification {␍
+      position: fixed;␍
+      bottom: 20px;␍
+      right: 20px;␍
+      background-color: var(--unconscious);␍
+      color: white;␍
+      padding: 15px 25px;␍
+      border-radius: 8px;␍
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);␍
+      z-index: 1000;␍
+      font-weight: 600;␍
+      animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;␍
+      display: none;␍
+    }␍
+  </style>␍
+</head>␍
+<body>␍
+  <div class="header">␍
+    <h1><i class="fas fa-brain"></i> اللاوعي والتوجيه الدراسي والمهني</h1>␍
+  </div>␍
+␍
+  <div class="container">␍
+    <blockquote>␍
+      «اللاوعي هو القوة الخفية التي تشكل اختياراتك الدراسية والمهنية، فكيف يمكنك توجيهها لصالحك؟»␍
+    </blockquote>␍
+␍
+    <div class="brain-section">␍
+      <div class="brain-percentage">95%</div>␍
+      <div class="brain-info">␍
+        <p><strong>الرئيس الكبير:</strong> بعد سن الـ35، يوجه لاوعيك حياتك بنسبة 95%. هذه النسبة الضخمة تؤثر بشكل مباشر على اختياراتك الدراسية والمهنية.</p>␍
+        <p>اللاوعي هو خزان تجاربك ومعتقداتك منذ الطفولة، وهو الذي يوجه قراراتك بشكل تلقائي. في مجال التوجيه الدراسي، يمكن أن يكون اللاوعي حليفاً قوياً أو عائقاً كبيراً.</p>␍
+      </div>␍
+    </div>␍
+    ␍
+    <div class="illustration">␍
+      <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=600&h=300&q=80" alt="اللاوعي البشري">␍
+    </div>␍
+  </div>␍
+␍
+  <div class="container">␍
+    <div class="section-title">␍
+      <i class="fas fa-graduation-cap"></i>␍
+      <h2>اللاوعي والتوجيه الدراسي</h2>␍
+    </div>␍
+    ␍
+    <p>اللاوعي يؤثر على اختياراتك الدراسية والمهنية بعدة طرق أساسية:</p>␍
+    ␍
+    <div class="career-section">␍
+      <div class="career-grid">␍
+        <div class="career-card">␍
+          <i class="fas fa-lightbulb"></i>␍
+          <h4>الميول والاهتمامات</h4>␍
+          <p>ميولك الطبيعية التي تشعر بها تجاه مجالات معينة هي نتاج برامج لا واعية تشكلت عبر تجاربك</p>␍
+        </div>␍
+        ␍
+        <div class="career-card">␍
+          <i class="fas fa-lock"></i>␍
+          <h4>المخاوف والعقبات</h4>␍
+          <p>مخاوفك من بعض التخصصات قد تكون نابعة من ذكريات أو معتقدات لا واعية غير صحيحة</p>␍
+        </div>␍
+        ␍
+        <div class="career-card">␍
+          <i class="fas fa-bolt"></i>␍
+          <h4>الدوافع الخفية</h4>␍
+          <p>دوافعك الحقيقية لاختيار مسار معين قد تكون لا واعية وتحتاج للاكتشاف</p>␍
+        </div>␍
+      </div>␍
+      ␍
+      <div class="interactive-section">␍
+        <h3>اكتشف تأثير لاوعيك على توجيهك الدراسي</h3>␍
+        ␍
+        <div class="form-group">␍
+          <label>ما هو المجال الدراسي الذي تهتم به؟</label>␍
+          <select id="careerField">␍
+            <option value="">-- اختر مجالا دراسيا --</option>␍
+            <option value="science">العلوم والتكنولوجيا</option>␍
+            <option value="arts">الفنون والإعلام</option>␍
+            <option value="health">الصحة والطب</option>␍
+            <option value="business">الأعمال والإدارة</option>␍
+            <option value="education">التعليم والتربية</option>␍
+            <option value="engineering">الهندسة</option>␍
+            <option value="social">العلوم الاجتماعية</option>␍
+          </select>␍
+        </div>␍
+        ␍
+        <div class="form-group">␍
+          <label>ما الذي يجذبك في هذا المجال؟ (اختر ما ينطبق)</label>␍
+          <div>␍
+            <input type="checkbox" id="interest1" name="interest" value="passion">␍
+            <label for="interest1">شغف شخصي</label><br>␍
+            ␍
+            <input type="checkbox" id="interest2" name="interest" value="family">␍
+            <label for="interest2">تأثير العائلة</label><br>␍
+            ␍
+            <input type="checkbox" id="interest3" name="interest" value="success">␍
+            <label for="interest3">رؤية النجاح في هذا المجال</label><br>␍
+            ␍
+            <input type="checkbox" id="interest4" name="interest" value="skills">␍
+            <label for="interest4">ملاءمة المهارات</label>␍
+          </div>␍
+        </div>␍
+        ␍
+        <div class="form-group">␍
+          <label>ما هي المخاوف التي تراودك بخصوص هذا المسار؟</label>␍
+          <textarea id="careerFears" placeholder="أنا أخشى أن..."></textarea>␍
+        </div>␍
+        ␍
+        <div class="btn-container">␍
+          <button class="btn-primary" id="analyzeBtn">␍
+            <i class="fas fa-chart-pie"></i> حلل اختياراتي␍
+          </button>␍
+        </div>␍
+        ␍
+        <div class="career-result" id="careerResult">␍
+          <h4 class="result-title">تحليل تأثير اللاوعي على اختياراتك</h4>␍
+          <div class="result-content" id="resultContent"></div>␍
+        </div>␍
+      </div>␍
+    </div>␍
+  </div>␍
+␍
+  <div class="container">␍
+    <div class="section-title">␍
+      <i class="fas fa-tools"></i>␍
+      <h2>أدوات عملية لتوجيه اللاوعي</h2>␍
+    </div>␍
+    ␍
+    <p>استخدم هذه التقنيات لتوجيه لاوعيك نحو دعم مشروعك الدراسي والمهني:</p>␍
+    ␍
+    <div class="exercise-section">␍
+      <h3><i class="fas fa-anchor"></i> تقنية التثبيت للمشروع المهني</h3>␍
+      ␍
+      <div class="exercise-step">␍
+        <div class="step-number">1</div>␍
+        <div class="step-content">␍
+          <h4>اختر المشاعر التي تحتاجها</h4>␍
+          <p>اختر المشاعر التي ستساعدك في رحلتك الدراسية والمهنية:</p>␍
+          <div class="emotion-selector" id="careerEmotionSelector">␍
+            <div class="emotion-option" data-emotion="confidence">الثقة بالنفس</div>␍
+            <div class="emotion-option" data-emotion="motivation">الدافع</div>␍
+            <div class="emotion-option" data-emotion="focus">التركيز</div>␍
+            <div class="emotion-option" data-emotion="resilience">المرونة</div>␍
+          </div>␍
+        </div>␍
+      </div>␍
+      ␍
+      <div class="exercise-step">␍
+        <div class="step-number">2</div>␍
+        <div class="step-content">␍
+          <h4>ربط المشاعر بمشروعك</h4>␍
+          <p>تخيل نفسك تنجح في مشروعك الدراسي/المهني مع هذه المشاعر:</p>␍
+          <textarea id="careerVisualization" placeholder="أتخيل نفسي وأنا..."></textarea>␍
+        </div>␍
+      </div>␍
+      ␍
+      <div class="exercise-step">␍
+        <div class="step-number">3</div>␍
+        <div class="step-content">␍
+          <h4>اختر إيماءة التثبيت الجديدة</h4>␍
+          <p>اختر إيماءة تربطها بهذه الصورة الناجحة (تم تحديث الخيارات):</p>␍
+          <div class="gesture-selector" id="careerGestureSelector">␍
+            <div class="gesture-option">␍
+              ✋␍
+              <div class="gesture-label">كف مرفوع</div>␍
+            </div>␍
+            <div class="gesture-option">␍
+              🤝␍
+              <div class="gesture-label">مصافحة</div>␍
+            </div>␍
+            <div class="gesture-option">␍
+              👍␍
+              <div class="gesture-label">إبهام لأعلى</div>␍
+            </div>␍
+            <div class="gesture-option">␍
+              ✌️␍
+              <div class="gesture-label">علامة النصر</div>␍
+            </div>␍
+            <div class="gesture-option">␍
+              🤲␍
+              <div class="gesture-label">كفان مفتوحتان</div>␍
+            </div>␍
+          </div>␍
+        </div>␍
+      </div>␍
+      ␍
+      <div class="timer-container">␍
+        <h4>جلسة التثبيت للمستقبل المهني</h4>␍
+        <div class="progress-bar-container">␍
+          <div class="progress-bar" id="anchorProgress"></div>␍
+        </div>␍
+        <div class="timer-display" id="careerTimer">05:00</div>␍
+        <button class="btn-primary" id="startCareerAnchor">␍
+          <i class="fas fa-play"></i> ابدأ جلسة التثبيت␍
+        </button>␍
+      </div>␍
+    </div>␍
+    ␍
+    <div class="exercise-section">␍
+      <h3><i class="fas fa-eye"></i> تصور النجاح في مسارك الدراسي</h3>␍
+      ␍
+      <div class="visualization-box">␍
+        <h4>تمرين: تخيل نجاحك الدراسي</h4>␍
+        ␍
+        <div class="visualization-text">␍
+          <p>أغلق عينيك وتخيل نفسك بعد 5 سنوات:</p>␍
+          <p>- ما هو التخصص الذي تدرسه؟</p>␍
+          <p>- ما هي الإنجازات التي حققتها؟</p>␍
+          <p>- كيف تشعر وأنت تنجح في مسارك؟</p>␍
+          <p>- من هم الأشخاص حولك الذين يدعمونك؟</p>␍
+        </div>␍
+        ␍
+        <div class="visualization-controls">␍
+          <button class="timer-btn" id="startCareerVisualization">␍
+            <i class="fas fa-play"></i> ابدأ التخيل (5 دقائق)␍
+          </button>␍
+        </div>␍
+      </div>␍
+      ␍
+      <div class="form-group">␍
+        <label>اكتب ما تصورته من مشهد ناجح:</label>␍
+        <textarea id="careerSuccessScene" placeholder="لقد تخيلت نفسي..."></textarea>␍
+      </div>␍
+      ␍
+      <div class="btn-container">␍
+        <button class="btn-primary" id="saveVisualization">␍
+          <i class="fas fa-save"></i> احفظ تصوراتي␍
+        </button>␍
+      </div>␍
+    </div>␍
+  </div>␍
+  ␍
+  <div class="container">␍
+    <div class="section-title">␍
+      <i class="fas fa-road"></i>␍
+      <h2>خطوات عملية لتوجيه لاوعيك</h2>␍
+    </div>␍
+    ␍
+    <div class="career-section">␍
+      <div class="career-grid">␍
+        <div class="career-card">␍
+          <i class="fas fa-search"></i>␍
+          <h4>اكتشف معتقداتك</h4>␍
+          <p>ما هي المعتقدات اللاواعية التي تؤثر على خياراتك؟ اكتبها وحللها</p>␍
+        </div>␍
+        ␍
+        <div class="career-card">␍
+          <i class="fas fa-sync-alt"></i>␍
+          <h4>استبدل السلبية</h4>␍
+          <p>حوّل المعتقدات المعيقة إلى داعمة: "أستطيع النجاح في هذا المجال"</p>␍
+        </div>␍
+        ␍
+        <div class="career-card">␍
+          <i class="fas fa-brain"></i>␍
+          <h4>كرر التصور الإيجابي</h4>␍
+          <p>كرر تخيل نفسك ناجحاً في مسارك الدراسي حتى يصبح جزءاً من لاوعيك</p>␍
+        </div>␍
+      </div>␍
+      ␍
+      <div class="interactive-section">␍
+        <h3>صمم شعاراً لا واعياً لمسارك</h3>␍
+        ␍
+        <div class="form-group">␍
+          <label>ما هو الشعار الذي تريد برمجة لاوعيك عليه؟</label>␍
+          <input type="text" id="careerMotto" placeholder="مثال: أنا قادر على النجاح في...">␍
+        </div>␍
+        ␍
+        <div class="form-group">␍
+          <label>كيف ستذكر نفسك بهذا الشعار يومياً؟</label>␍
+          <select id="reminderMethod">␍
+            <option value="">-- اختر طريقة --</option>␍
+            <option value="morning">تذكير الصباح</option>␍
+            <option value="phone">تنبيه على الهاتف</option>␍
+            <option value="note">ملاحظة على المكتب</option>␍
+            <option value="gesture">إيماءة خاصة</option>␍
+          </select>␍
+        </div>␍
+        ␍
+        <div class="btn-container">␍
+          <button class="btn-primary" id="setMottoBtn">␍
+            <i class="fas fa-magic"></i> ثبت الشعار في لاوعيي␍
+          </button>␍
+        </div>␍
+      </div>␍
+    </div>␍
+  </div>␍
+  ␍
+  <footer>␍
+    <p>اللاوعي والتوجيه الدراسي والمهني - أداة لتوجيه مستقبلك</p>␍
+    <p>©  - تم تطويره   من قبل عبد الحميد العبيدي<i class="fas fa-heart" style="color: var(--heart-color);"></i></p>␍
+  </footer>␍
+␍
+  <div class="analyzing-overlay" id="analyzingOverlay">␍
+    <div class="spinner"></div>␍
+    <p>جاري تحليل اختياراتك الدراسية...</p>␍
+    <p>هذا قد يستغرق بضع ثوانٍ</p>␍
+  </div>␍
+  ␍
+  <div class="visualization-overlay" id="visualizationOverlay">␍
+    <h3><i class="fas fa-brain"></i> جلسة التصور الإيجابي</h3>␍
+    <p>تخيل نفسك ناجحاً في مسارك الدراسي والمهني بعد 5 سنوات...</p>␍
+    <p>ما هي الإنجازات التي حققتها؟ من هم الأشخاص حولك؟ كيف تشعر؟</p>␍
+    <div class="visualization-timer" id="visualizationTimer">05:00</div>␍
+    <button class="btn-primary" id="endVisualization">␍
+      <i class="fas fa-check"></i> انتهيت من التخيل␍
+    </button>␍
+  </div>␍
+  ␍
+  <div class="notification" id="notification">تم حفظ تأملاتك بنجاح!</div>␍
+␍
+  <script>␍
+    document.addEventListener('DOMContentLoaded', function() {␍
+      // تحليل الاختيار الدراسي␍
+      const analyzeBtn = document.getElementById('analyzeBtn');␍
+      const careerResult = document.getElementById('careerResult');␍
+      const resultContent = document.getElementById('resultContent');␍
+      const analyzingOverlay = document.getElementById('analyzingOverlay');␍
+      ␍
+      analyzeBtn.addEventListener('click', function() {␍
+        const careerField = document.getElementById('careerField').value;␍
+        if (!careerField) {␍
+          showNotification('الرجاء اختيار مجال دراسي أولاً', 'warning');␍
+          return;␍
+        }␍
+        ␍
+        // عرض شاشة التحليل␍
+        analyzingOverlay.style.display = 'flex';␍
+        ␍
+        // محاكاة عملية التحليل␍
+        setTimeout(() => {␍
+          const interests = [];␍
+          document.querySelectorAll('input[name="interest"]:checked').forEach(input => {␍
+            interests.push(input.nextElementSibling.textContent);␍
+          });␍
+          ␍
+          const fears = document.getElementById('careerFears').value;␍
+          ␍
+          // تحليل النتائج␍
+          let analysis = `<p><strong>المجال المختار:</strong> ${document.getElementById('careerField').options[document.getElementById('careerField').selectedIndex].text}</p>`;␍
+          ␍
+          analysis += `<p><strong>دوافعك:</strong> ${interests.join('، ') || 'لم تحدد دوافع واضحة'}</p>`;␍
+          ␍
+          if (fears) {␍
+            analysis += `<p><strong>مخاوفك:</strong> ${fears}</p>`;␍
+            analysis += `<div class="impact-section">␍
+              <p><i class="fas fa-lightbulb"></i> نصيحة: المخاوف التي ذكرتها قد تكون نابعة من معتقدات لا واعية. جرب تمارين التثبيت والتصور لتجاوز هذه المخاوف.</p>␍
+            </div>`;␍
+          }␍
+          ␍
+          if (interests.includes('تأثير العائلة')) {␍
+            analysis += `<div class="impact-section">␍
+              <p><i class="fas fa-lightbulb"></i> ملاحظة: تأثير العائلة قوي على اللاوعي. تأكد أن اختيارك يعبر عن رغباتك الحقيقية وليس تلبية لتوقعات الآخرين.</p>␍
+            </div>`;␍
+          }␍
+          ␍
+          // نصيحة إضافية بناءً على المجال المختار␍
+          if (careerField === 'science') {␍
+            analysis += `<div class="impact-section">␍
+              <p><i class="fas fa-star"></i> نصيحة إضافية: مجال العلوم والتكنولوجيا يتطلب فضولاً علمياً وتحديثاً مستمراً للمعرفة. تأكد من تطوير مهاراتك البحثية والعملية.</p>␍
+            </div>`;␍
+          } else if (careerField === 'arts') {␍
+            analysis += `<div class="impact-section">␍
+              <p><i class="fas fa-star"></i> نصيحة إضافية: المجالات الفنية تحتاج إلى شغف حقيقي وتفرد. طور مهاراتك العملية وابنِ معرضاً لأعمالك.</p>␍
+            </div>`;␍
+          }␍
+          ␍
+          resultContent.innerHTML = analysis;␍
+          careerResult.style.display = 'block';␍
+          careerResult.scrollIntoView({ behavior: 'smooth' });␍
+          analyzingOverlay.style.display = 'none';␍
+        }, 2000);␍
+      });␍
+      ␍
+      // اختيار المشاعر للإيماءة␍
+      const emotionOptions = document.querySelectorAll('#careerEmotionSelector .emotion-option');␍
+      emotionOptions.forEach(option => {␍
+        option.addEventListener('click', function() {␍
+          emotionOptions.forEach(opt => opt.classList.remove('selected'));␍
+          this.classList.add('selected');␍
+        });␍
+      });␍
+      ␍
+      // اختيار الإيماءة␍
+      const gestureOptions = document.querySelectorAll('#careerGestureSelector .gesture-option');␍
+      gestureOptions.forEach(option => {␍
+        option.addEventListener('click', function() {␍
+          gestureOptions.forEach(opt => opt.classList.remove('selected'));␍
+          this.classList.add('selected');␍
+        });␍
+      });␍
+      ␍
+      // مؤقت جلسة التثبيت␍
+      const careerTimer = document.getElementById('careerTimer');␍
+      const startCareerAnchor = document.getElementById('startCareerAnchor');␍
+      const anchorProgress = document.getElementById('anchorProgress');␍
+      let careerTimerInterval;␍
+      let careerSeconds = 300;␍
+      let isPaused = false;␍
+      ␍
+      function formatTime(secs) {␍
+        const minutes = Math.floor(secs / 60);␍
+        const seconds = secs % 60;␍
+        return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;␍
+      }␍
+      ␍
+      function updateCareerTimer() {␍
+        if (isPaused) return;␍
+        ␍
+        careerSeconds--;␍
+        careerTimer.textContent = formatTime(careerSeconds);␍
+        ␍
+        // تحديث شريط التقدم␍
+        const progress = ((300 - careerSeconds) / 300) * 100;␍
+        anchorProgress.style.width = `${progress}%`;␍
+        ␍
+        if (careerSeconds <= 0) {␍
+          clearInterval(careerTimerInterval);␍
+          careerTimer.textContent = "00:00";␍
+          playSuccessSound();␍
+          showNotification("تهانينا! لقد أكملت جلسة التثبيت بنجاح");␍
+          startCareerAnchor.innerHTML = '<i class="fas fa-redo"></i> ابدأ من جديد';␍
+          careerSeconds = 300;␍
+          anchorProgress.style.width = '0%';␍
+        }␍
+      }␍
+      ␍
+      startCareerAnchor.addEventListener('click', function() {␍
+        const selectedEmotion = document.querySelector('#careerEmotionSelector .selected');␍
+        const selectedGesture = document.querySelector('#careerGestureSelector .selected');␍
+        const visualization = document.getElementById('careerVisualization').value;␍
+        ␍
+        if (!selectedEmotion || !selectedGesture || !visualization) {␍
+          showNotification('الرجاء إكمال جميع خطوات التمرين أولاً', 'warning');␍
+          return;␍
+        }␍
+        ␍
+        if (careerTimerInterval) {␍
+          // تبديل حالة الإيقاف المؤقت␍
+          isPaused = !isPaused;␍
+          if (isPaused) {␍
+            startCareerAnchor.innerHTML = '<i class="fas fa-play"></i> استئناف الجلسة';␍
+          } else {␍
+            startCareerAnchor.innerHTML = '<i class="fas fa-pause"></i> إيقاف الجلسة';␍
+          }␍
+        } else {␍
+          // بدء الجلسة الجديدة␍
+          careerTimerInterval = setInterval(updateCareerTimer, 1000);␍
+          startCareerAnchor.innerHTML = '<i class="fas fa-pause"></i> إيقاف الجلسة';␍
+          isPaused = false;␍
+        }␍
+      });␍
+      ␍
+      // بدء التصور المهني␍
+      const startCareerVisualization = document.getElementById('startCareerVisualization');␍
+      const visualizationOverlay = document.getElementById('visualizationOverlay');␍
+      const visualizationTimer = document.getElementById('visualizationTimer');␍
+      const endVisualizationBtn = document.getElementById('endVisualization');␍
+      let visualizationInterval;␍
+      let visSeconds = 300;␍
+      ␍
+      startCareerVisualization.addEventListener('click', function() {␍
+        visualizationOverlay.style.display = 'flex';␍
+        visSeconds = 300;␍
+        visualizationTimer.textContent = formatTime(visSeconds);␍
+        ␍
+        visualizationInterval = setInterval(() => {␍
+          visSeconds--;␍
+          visualizationTimer.textContent = formatTime(visSeconds);␍
+          ␍
+          if (visSeconds <= 0) {␍
+            clearInterval(visualizationInterval);␍
+            playSuccessSound();␍
+            visualizationOverlay.style.display = 'none';␍
+          }␍
+        }, 1000);␍
+      });␍
+      ␍
+      endVisualizationBtn.addEventListener('click', function() {␍
+        clearInterval(visualizationInterval);␍
+        playSuccessSound();␍
+        visualizationOverlay.style.display = 'none';␍
+        showNotification('تهانينا! لقد أكملت جلسة التصور بنجاح');␍
+      });␍
+      ␍
+      // حفظ التصورات␍
+      const saveVisualization = document.getElementById('saveVisualization');␍
+      saveVisualization.addEventListener('click', function() {␍
+        const scene = document.getElementById('careerSuccessScene').value;␍
+        if (!scene) {␍
+          showNotification('الرجاء كتابة ما تصورته أولاً', 'warning');␍
+          return;␍
+        }␍
+        ␍
+        localStorage.setItem('careerVisualization', scene);␍
+        showNotification('تم حفظ تصوراتك بنجاح! يمكنك مراجعتها لاحقاً');␍
+      });␍
+      ␍
+      // تعيين شعار المسار␍
+      const setMottoBtn = document.getElementById('setMottoBtn');␍
+      setMottoBtn.addEventListener('click', function() {␍
+        const motto = document.getElementById('careerMotto').value;␍
+        const method = document.getElementById('reminderMethod').value;␍
+        ␍
+        if (!motto || !method) {␍
+          showNotification('الرجاء إكمال جميع الحقول', 'warning');␍
+          return;␍
+        }␍
+        ␍
+        localStorage.setItem('careerMotto', motto);␍
+        localStorage.setItem('reminderMethod', method);␍
+        ␍
+        showNotification(`تم تثبيت الشعار "${motto}" في لاوعيك!`);␍
+      });␍
+      ␍
+      // وظيفة عرض الإشعارات␍
+      const notification = document.getElementById('notification');␍
+      function showNotification(message, type = 'success') {␍
+        notification.textContent = message;␍
+        notification.style.backgroundColor = type === 'success' ? 'var(--unconscious)' : 'var(--warning)';␍
+        notification.style.display = 'block';␍
+        notification.style.animation = 'none';␍
+        void notification.offsetWidth; // إعادة التدفق␍
+        notification.style.animation = 'fadeIn 0.3s, fadeOut 0.3s 2.7s';␍
+        ␍
+        setTimeout(() => {␍
+          notification.style.display = 'none';␍
+        }, 3000);␍
+      }␍
+      ␍
+      // محاكاة صوت النجاح␍
+      function playSuccessSound() {␍
+        try {␍
+          // محاكاة صوت باستخدام Web Audio API␍
+          const context = new (window.AudioContext || window.webkitAudioContext)();␍
+          const oscillator = context.createOscillator();␍
+          const gainNode = context.createGain();␍
+          ␍
+          oscillator.connect(gainNode);␍
+          gainNode.connect(context.destination);␍
+          ␍
+          oscillator.type = 'sine';␍
+          oscillator.frequency.value = 523.25; // C5␍
+          ␍
+          gainNode.gain.setValueAtTime(0.5, context.currentTime);␍
+          gainNode.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.5);␍
+          ␍
+          oscillator.start();␍
+          oscillator.stop(context.currentTime + 0.5);␍
+        } catch (e) {␍
+          console.log('Web Audio API not supported');␍
+        }␍
+      }␍
+    });␍
+  </script>␍
+</body>␍
+</html>
