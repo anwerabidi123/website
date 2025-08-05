@@ -508,23 +508,26 @@ body {
 <main class="container">
 <section class="section">
 
-    <h1>الاختبار الشامل للثقة بالنفس</h1>
+    <h1 class="section-title">الاختبار الشامل للثقة بالنفس</h1>
 
-    <div class="container">
-        <form id="confidenceTest">
-            <div class="questions-container">
-                <!-- الأسئلة يتم إنشاؤها ديناميكيًا -->
-            </div>
+    <div class="section-content">
+        <div class="container">
+            <form id="confidenceTest">
+                <div class="questions-container">
+                    <!-- الأسئلة يتم إنشاؤها ديناميكيًا -->
+                </div>
 
-            <div class="captcha">
-                <p>الرجاء إدخال الرمز التالي: <strong id="captchaCode"></strong></p>
-                <input type="text" id="captchaInput" placeholder="أدخل الرمز هنا">
-            </div>
+                <div class="captcha text-center">
+                    <p>الرجاء إدخال الرمز التالي: <strong id="captchaCode"></strong></p>
+                    <input type="text" id="captchaInput" placeholder="أدخل الرمز هنا">
+                </div>
 
-            <button type="button" onclick="calculateScore()">تحليل النتائج</button>
-        </form>
+                <div class="text-center mt-2">
+                    <button type="button" class="btn" onclick="calculateScore()">تحليل النتائج</button>
+                </div>
+            </form>
 
-        <div class="result" id="result">
+            <div class="result" id="result">
             <h2>التقرير التفصيلي</h2>
 
             <div class="strength-meter">

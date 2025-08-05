@@ -147,6 +147,20 @@ body {
   margin: 1.5rem 0 1rem 0;
 }
 
+.section-content {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 /* Grille pour les espaces */
 .spaces-grid {
   display: grid;
@@ -507,24 +521,26 @@ body {
     <!-- Contenu principal -->
 <main class="container">
 <section class="section">
-    <h1>اختبار الذكاءات المتعددة</h1>
-    <form id="testForm">
-        <!-- Les sections seront générées dynamiquement par JavaScript -->
-    </form>
+    <h1 class="section-title">اختبار الذكاءات المتعددة</h1>
+    <div class="section-content">
+        <form id="testForm">
+            <!-- Les sections seront générées dynamiquement par JavaScript -->
+        </form>
 
-    <!-- Section CAPTCHA -->
-    <div class="captcha">
-        <p>الرجاء حل هذا الـ CAPTCHA للمتابعة:</p>
-        <p id="captchaQuestion"></p>
-        <input type="text" id="captchaInput" placeholder="إجابتك" required>
-        <small id="captchaError" style="color: red; display: none;">إجابة خاطئة. الرجاء المحاولة مرة أخرى.</small>
-    </div>
+        <!-- Section CAPTCHA -->
+        <div class="captcha text-center">
+            <p>الرجاء حل هذا الـ CAPTCHA للمتابعة:</p>
+            <p id="captchaQuestion"></p>
+            <input type="text" id="captchaInput" placeholder="إجابتك" required>
+            <small id="captchaError" style="color: red; display: none;">إجابة خاطئة. الرجاء المحاولة مرة أخرى.</small>
+        </div>
 
-    <div class="buttons">
-        <button onclick="verifierCaptcha()">حساب النتائج</button>
-        <button onclick="reinitialiserFormulaire()">إعادة تعيين</button>
+        <div class="btn-group">
+            <button class="btn" onclick="verifierCaptcha()">حساب النتائج</button>
+            <button class="btn btn-secondary" onclick="reinitialiserFormulaire()">إعادة تعيين</button>
+        </div>
+        <div id="resultats" class="mt-2"></div>
     </div>
-    <div id="resultats"></div>
 
     <script>
         // Données du test avec vos affirmations

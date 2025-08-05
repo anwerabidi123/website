@@ -529,8 +529,8 @@ body {
         <div class="btn-group">
             <button class="btn" onclick="exportAsPDF()"><i class="fas fa-file-pdf"></i> تصدير PDF</button>
             <button class="btn" onclick="exportAsHTML()"><i class="fas fa-code"></i> تصدير HTML</button>
-            <button class="btn" onclick="saveData()"><i class="fas fa-save"></i> حفظ محلي</button>
-            <button class="btn" onclick="loadData()"><i class="fas fa-file-import"></i> استعادة بيانات</button>
+            <button class="btn btn-secondary" onclick="saveData()"><i class="fas fa-save"></i> حفظ محلي</button>
+            <button class="btn btn-secondary" onclick="loadData()"><i class="fas fa-file-import"></i> استعادة بيانات</button>
         </div>
     </div>
 
@@ -856,7 +856,7 @@ body {
                     </tbody>
                 </table>
 
-                <button class="add-row-btn" onclick="addProfessionRow()"><i class="fas fa-plus"></i> إضافة مهنة جديدة</button>
+                <button class="btn" onclick="addProfessionRow()"><i class="fas fa-plus"></i> إضافة مهنة جديدة</button>
 
                 <div class="form-group">
                     <label for="rencontres">لقاءات ملهمة (متخصصون قابلتهم)</label>
@@ -929,7 +929,7 @@ body {
                     </tbody>
                 </table>
 
-                <button class="add-row-btn" onclick="addSubjectRow()"><i class="fas fa-plus"></i> إضافة مادة جديدة</button>
+                <button class="btn" onclick="addSubjectRow()"><i class="fas fa-plus"></i> إضافة مادة جديدة</button>
 
                 <div class="form-group" style="margin-top: 25px;">
                     <label for="subjectAnalysis">تحليل المواد الدراسية</label>
@@ -1027,7 +1027,7 @@ body {
                     </tbody>
                 </table>
 
-                <button class="add-row-btn" onclick="addResultRow()"><i class="fas fa-plus"></i> إضافة مادة جديدة</button>
+                <button class="btn" onclick="addResultRow()"><i class="fas fa-plus"></i> إضافة مادة جديدة</button>
 
                 <div class="form-group">
                     <label for="commentaires">ملاحظات الأساتذة الهامة</label>
@@ -1080,7 +1080,7 @@ body {
                     </tbody>
                 </table>
 
-                <button class="add-row-btn" onclick="addFollowupRow()"><i class="fas fa-plus"></i> إضافة حدث جديد</button>
+                <button class="btn" onclick="addFollowupRow()"><i class="fas fa-plus"></i> إضافة حدث جديد</button>
 
                 <h3 style="margin: 25px 0 15px; color: var(--secondary);">تقييم ذاتي</h3>
 
@@ -1132,7 +1132,7 @@ body {
             <div class="action-buttons">
                 <div class="btn-group">
                     <button class="btn" onclick="saveData()"><i class="fas fa-save"></i> حفظ المحفظة</button>
-                    <button class="btn btn-outline" onclick="clearData()"><i class="fas fa-trash-alt"></i> مسح المحفظة</button>
+                    <button class="btn btn-secondary" onclick="clearData()"><i class="fas fa-trash-alt"></i> مسح المحفظة</button>
                 </div>
                 <button class="btn" onclick="showExportOptions()"><i class="fas fa-share-alt"></i> مشاركة وتصدير</button>
             </div>
