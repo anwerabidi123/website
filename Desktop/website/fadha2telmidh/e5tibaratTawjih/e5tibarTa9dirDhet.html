@@ -1,539 +1,1220 @@
-<!DOCTYPE html>␍
-<html lang="ar" dir="rtl">␍
-<head>␍
-    <meta charset="UTF-8">␍
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">␍
-    <title>اختبار تقدير الذات</title>␍
-    <style>␍
-        body {␍
-            font-family: Arial, sans-serif;␍
-            background-color: #f4f4f4;␍
-            color: #333;␍
-            padding: 20px;␍
-        }␍
-        h1 {␍
-            text-align: center;␍
-            color: #6EDC5F; /* Green Raspberry */␍
-        }␍
-        h2 {␍
-            color: #6EDC5F; /* Green Raspberry */␍
-            margin-top: 30px;␍
-            display: none; /* Masquer les catégories pendant le test */␍
-        }␍
-        .question {␍
-            margin-bottom: 20px;␍
-        }␍
-        .question p {␍
-            font-weight: bold;␍
-        }␍
-        .options {␍
-            margin-left: 20px;␍
-        }␍
-        .options label {␍
-            display: block;␍
-            margin-bottom: 10px;␍
-        }␍
-        button {␍
-            display: block;␍
-            margin: 20px auto;␍
-            padding: 10px 20px;␍
-            background-color: #6EDC5F; /* Green Raspberry */␍
-            color: white;␍
-            border: none;␍
-            border-radius: 5px;␍
-            cursor: pointer;␍
-            font-size: 1.1em;␍
-        }␍
-        button:hover {␍
-            background-color: #5BCB4F; /* Une nuance plus foncée de Green Raspberry */␍
-        }␍
-        #result {␍
-            text-align: center;␍
-            font-size: 1.2em;␍
-            margin-top: 20px;␍
-            padding: 15px;␍
-            background-color: #B2F2BB; /* Mint */␍
-            border-radius: 5px;␍
-            border: 2px solid #6EDC5F; /* Green Raspberry */␍
-        }␍
-        .category-result {␍
-            margin-top: 20px;␍
-            padding: 10px;␍
-            background-color: #fff;␍
-            border-radius: 5px;␍
-            border: 2px solid #6EDC5F; /* Green Raspberry */␍
-        }␍
-        .category-result h3 {␍
-            color: #6EDC5F; /* Green Raspberry */␍
-        }␍
-        .category-result p {␍
-            margin: 10px 0;␍
-        }␍
-    </style>␍
-</head>␍
-<body>␍
-␍
-    <h1>اختبار تقدير الذات</h1>␍
-␍
-    <form id="selfEsteemTest">␍
-        <!-- الوعي الذاتي -->␍
-        <h2>الوعي الذاتي</h2>␍
-        <div class="question">␍
-            <p>1. أقوم بأنشطة تعبر عن أفكاري ووجهة نظري.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q1" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q1" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q1" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>2. أستطيع استخدام إمكاناتي في أداء المهام التي تحقق أهدافي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q2" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q2" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q2" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>3. أشعر بالثقة عند أدائي لأي مهمة.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q3" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q3" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q3" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>4. أعي جوانب القوة والضعف في شخصيتي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q4" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q4" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q4" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>5. أفهم حقيقة مشاعري في المواقف المختلفة.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q5" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q5" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q5" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>6. أستطيع التحكم في انفعالاتي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q6" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q6" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q6" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>7. يتسم أدائي بكفاءة عالية عند القيام بنشاط ما.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q7" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q7" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q7" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-␍
-        <!-- احترام الذات -->␍
-        <h2>احترام الذات</h2>␍
-        <div class="question">␍
-            <p>8. أمتلك القدرة على تطوير أدائي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q8" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q8" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q8" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>9. أفتخر بنفسي وأقدرها.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q9" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q9" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q9" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>10. يمكنني بسهولة التعبير عن آرائي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q10" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q10" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q10" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>11. أحترم ذاتي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q11" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q11" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q11" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>12. أتسم بالاستقلالية.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q12" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q12" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q12" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>13. أجد نفسي جديرة بما أقوم به من أعمال.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q13" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q13" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q13" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>14. أفعل ما أراه صحيحًا حتى لو لم يعجب الآخرين.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q14" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q14" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q14" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-␍
-        <!-- قبول الذات -->␍
-        <h2>قبول الذات</h2>␍
-        <div class="question">␍
-            <p>15. أتقبل ذاتي كما هي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q15" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q15" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q15" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>16. أحظى باهتمام ورضا والدي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q16" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q16" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q16" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>17. أهتم بمظهري الخارجي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q17" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q17" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q17" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>18. أحتاج للتدعيم والتشجيع من أسرتي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q18" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q18" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q18" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>19. أقول الصدق مهما كلفني ذلك.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q19" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q19" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q19" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>20. مشاعري تتسق مع سلوكي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q20" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q20" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q20" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>21. أعرف مواطن الضعف في نفسي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q21" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q21" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q21" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-␍
-        <!-- إدارة الذات -->␍
-        <h2>إدارة الذات</h2>␍
-        <div class="question">␍
-            <p>22. أبذل مجهودًا لفهم الأمور من حولي وكيفية التعامل معها.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q22" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q22" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q22" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>23. أثق في نفسي عند أداء المهام المطلوبة مني.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q23" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q23" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q23" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>24. أقارن بين جهودي وتوقعاتي المستقبلية بناءً على خبرتي في أي موقف.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q24" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q24" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q24" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>25. أعزو نجاحي في أداء أي مهمة إلى قدراتي وجهدي المبذول فيها.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q25" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q25" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q25" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>26. أحرص على بذل مزيد من الجهد للتفوق على زملائي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q26" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q26" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q26" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>27. أطمح للتفوق.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q27" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q27" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q27" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>28. أكافئ نفسي عند أدائي لمهام صعبة.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q28" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q28" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q28" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-␍
-        <!-- الكفاءة الذاتية -->␍
-        <h2>الكفاءة الذاتية</h2>␍
-        <div class="question">␍
-            <p>29. أقدم حلولًا للمشكلات التي تواجهني بطرق إبداعية.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q29" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q29" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q29" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>30. أثق في أدائي العقلي وقدرتي على التفكير.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q30" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q30" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q30" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>31. لدي القدرة على الأداء الناجح وتحقيق الهدف.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q31" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q31" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q31" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>32. أبذل كل جهدي وطاقاتي للوصول للنجاح.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q32" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q32" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q32" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>33. لدي القدرة على التأثير في الآخرين.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q33" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q33" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q33" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>34. أتعلم من أخطائي ولا أكررها.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q34" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q34" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q34" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>35. أتميز بالمثابرة والعمل الجاد.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q35" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q35" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q35" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-␍
-        <!-- الرضا الذاتي -->␍
-        <h2>الرضا الذاتي</h2>␍
-        <div class="question">␍
-            <p>36. أشعر برضا ذاتي مقارنة بقبول الآخرين لي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q36" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q36" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q36" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>37. أنا راض عن ذاتي عندما أفكر فيما حققته من إنجاز.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q37" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q37" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q37" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>38. أنا راض عندما يحمل زملائي عني أفكارًا إيجابية.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q38" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q38" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q38" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>39. أقنع بما لدي من قدرات وأتطلع للأفضل.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q39" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q39" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q39" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>40. أكون مسرورًا عند التقدير والاستحسان.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q40" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q40" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q40" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>41. أنا متوافق مع نفسي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q41" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q41" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q41" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-        <div class="question">␍
-            <p>42. أنا راض عن أسرتي وعن أصحابي.</p>␍
-            <div class="options">␍
-                <label><input type="radio" name="q42" value="1"> نادرًا</label>␍
-                <label><input type="radio" name="q42" value="2"> أحيانًا</label>␍
-                <label><input type="radio" name="q42" value="3"> دائمًا</label>␍
-            </div>␍
-        </div>␍
-␍
-        <button type="button" onclick="calculateScore()">احسب النتيجة</button>␍
-    </form>␍
-␍
-    <div id="result"></div>␍
-␍
-    <script>␍
-        function calculateScore() {␍
-            let totalScore = 0;␍
-            const categories = {␍
-                "الوعي الذاتي": {␍
-                    start: 1,␍
-                    end: 7,␍
-                    score: 0,␍
-                    definition: "الوعي الذاتي هو فهمك لذاتك، مشاعرك، نقاط قوتك وضعفك، وكيفية تفاعلك مع الآخرين.",␍
-                    advice: "لتعزيز وعيك الذاتي، خصص وقتًا للتأمل اليومي، واكتب يومياتك، واطلب تعليقات من الآخرين."␍
-                },␍
-                "احترام الذات": {␍
-                    start: 8,␍
-                    end: 14,␍
-                    score: 0,␍
-                    definition: "احترام الذات هو تقديرك لقيمتك الشخصية وقدراتك.",␍
-                    advice: "لتعزيز احترامك لذاتك، ركز على إنجازاتك، وتجنب المقارنة بالآخرين، ومارس الحديث الإيجابي مع نفسك."␍
-                },␍
-                "قبول الذات": {␍
-                    start: 15,␍
-                    end: 21,␍
-                    score: 0,␍
-                    definition: "قبول الذات هو تقبلك لنفسك كما هي، مع نقاط قوتك وضعفك.",␍
-                    advice: "لتعزيز قبولك لذاتك، تعلم أن تسامح نفسك على الأخطاء، واقبل أن الكمال غير ممكن، وكن لطيفًا مع نفسك."␍
-                },␍
-                "إدارة الذات": {␍
-                    start: 22,␍
-                    end: 28,␍
-                    score: 0,␍
-                    definition: "إدارة الذات هي قدرتك على تنظيم مشاعرك وأفكارك وسلوكياتك لتحقيق أهدافك.",␍
-                    advice: "لتعزيز إدارتك لذاتك، ضع أهدافًا واقعية، وخطط لوقتك، ومارس تقنيات إدارة الضغوط."␍
-                },␍
-                "الكفاءة الذاتية": {␍
-                    start: 29,␍
-                    end: 35,␍
-                    score: 0,␍
-                    definition: "الكفاءة الذاتية هي ثقتك في قدرتك على إنجاز المهام وتحقيق النجاح.",␍
-                    advice: "لتعزيز كفاءتك الذاتية، قسّم المهام الكبيرة إلى خطوات صغيرة، واحتفل بالإنجازات الصغيرة، واطلب الدعم عند الحاجة."␍
-                },␍
-                "الرضا الذاتي": {␍
-                    start: 36,␍
-                    end: 42,␍
-                    score: 0,␍
-                    definition: "الرضا الذاتي هو شعورك بالرضا عن حياتك وإنجازاتك.",␍
-                    advice: "لتعزيز رضاك الذاتي، ركز على الجوانب الإيجابية في حياتك، ومارس الامتنان، وابحث عن التوازن بين العمل والراحة."␍
-                }␍
-            };␍
-␍
-            // حساب النقاط لكل فئة␍
-            for (const [category, data] of Object.entries(categories)) {␍
-                for (let i = data.start; i <= data.end; i++) {␍
-                    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);␍
-                    if (selectedOption) {␍
-                        categories[category].score += parseInt(selectedOption.value);␍
-                    }␍
-                }␍
-                totalScore += categories[category].score;␍
-            }␍
-␍
-            // تحديد المستوى العام␍
-            let level = '';␍
-            let affirmation = '';␍
-␍
-            if (totalScore >= 100) {␍
-                level = "عالي جدًا";␍
-                affirmation = "أنت تتمتع بتقدير ذاتي عالي جدًا! هذا رائع، استمر في تعزيز ثقتك بنفسك.";␍
-            } else if (totalScore >= 70) {␍
-                level = "عالي";␍
-                affirmation = "تقديرك لذاتك في المستوى العالي. يمكنك العمل على تحسينه أكثر من خلال التركيز على نقاط قوتك.";␍
-            } else if (totalScore >= 50) {␍
-                level = "متوسط";␍
-                affirmation = "تقديرك لذاتك في المستوى المتوسط. يمكنك العمل على تحسينه من خلال تحديد إنجازاتك الصغيرة والتركيز على الإيجابيات.";␍
-            } else {␍
-                level = "منخفض";␍
-                affirmation = "تقديرك لذاتك منخفض. لا تقلق، يمكنك البدء في تعزيز ثقتك بنفسك من خلال تحديد إنجازاتك الصغيرة والتركيز على الإيجابيات.";␍
-            }␍
-␍
-            // عرض النتائج␍
-            const resultDiv = document.getElementById('result');␍
-            let resultsHTML = `␍
-                <p>النتيجة الكلية: ${totalScore}</p>␍
-                <p>مستوى تقدير الذات: <strong>${level}</strong></p>␍
-                <p>${affirmation}</p>␍
-            `;␍
-␍
-            // عرض النتائج لكل فئة␍
-            for (const [category, data] of Object.entries(categories)) {␍
-                resultsHTML += `␍
-                    <div class="category-result">␍
-                        <h3>${category}</h3>␍
-                        <p><strong>التعريف:</strong> ${data.definition}</p>␍
-                        <p><strong>النتيجة:</strong> ${data.score}</p>␍
-                        <p><strong>نصيحة:</strong> ${data.advice}</p>␍
-                    </div>␍
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon guide d'orientation positive - La voie du succès</title>
+    <link rel="icon" type="image/x-icon" href="../tnn.jpg">
+    <style>
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
+
+/* Variables CSS pour la cohérence du thème */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #e91e63;
+  --accent-color: #ff9800;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: end;
+}
+
+.test {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  word-wrap: break-word; /* Permettre la coupure des mots longs */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 0.5rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap; /* Permettre le retour à la ligne */
+}
+
+.nav-item a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  white-space: nowrap; /* Éviter la coupure des liens */
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%; /* Assurer la largeur complète */
+}
+
+/* Sections */
+.section {
+  background: var(--white);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%; /* Assurer la largeur complète */
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  word-wrap: break-word; /* Permettre la coupure des titres longs */
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* Grille pour les espaces */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.space-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-color);
+  width: 100%;
+  min-height: 200px; /* Hauteur minimale pour la cohérence */
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.space-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.space-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00;
+}
+
+/* Articles récents */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.article-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-meta {
+  padding: 1rem;
+  background-color: var(--background-color);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive - Tablettes */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .spaces-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+/* Responsive - Mobiles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .test {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    justify-content: center !important;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .space-card, .article-card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+  }
+
+  .text {
+    text-align: center;
+  }
+}
+
+/* Responsive - Très petits écrans */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+
+  .nav-content {
+    padding: 0 0.5rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .space-card, .article-card {
+    padding: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .spaces-grid, .articles-grid {
+    gap: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */
+  }
+
+  p {
+    line-height: 1.7; /* Améliorer l'espacement des lignes */
+    margin-bottom: 1rem;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  /* Améliorer l'espacement tactile */
+  .nav-item a, .btn {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content test">
+            <div>
+                <a href="../index.html" class="logo">دليلي للتوجيه الإيجابي</a>
+                <div class="tagline">طريق النجاح
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu " style="justify-content: end;">
+
+                <li class="nav-item"><a href="../espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+<main class="container">
+<section class="section">
+
+    <h1>اختبار تقدير الذات</h1>
+
+    <form id="selfEsteemTest">
+        <!-- الوعي الذاتي -->
+        <h2>الوعي الذاتي</h2>
+        <div class="question">
+            <p>1. أقوم بأنشطة تعبر عن أفكاري ووجهة نظري.</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="1"> نادرًا</label>
+                <label><input type="radio" name="q1" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q1" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. أستطيع استخدام إمكاناتي في أداء المهام التي تحقق أهدافي.</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="1"> نادرًا</label>
+                <label><input type="radio" name="q2" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q2" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>3. أشعر بالثقة عند أدائي لأي مهمة.</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="1"> نادرًا</label>
+                <label><input type="radio" name="q3" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q3" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>4. أعي جوانب القوة والضعف في شخصيتي.</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="1"> نادرًا</label>
+                <label><input type="radio" name="q4" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q4" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>5. أفهم حقيقة مشاعري في المواقف المختلفة.</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="1"> نادرًا</label>
+                <label><input type="radio" name="q5" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q5" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>6. أستطيع التحكم في انفعالاتي.</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="1"> نادرًا</label>
+                <label><input type="radio" name="q6" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q6" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>7. يتسم أدائي بكفاءة عالية عند القيام بنشاط ما.</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="1"> نادرًا</label>
+                <label><input type="radio" name="q7" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q7" value="3"> دائمًا</label>
+            </div>
+        </div>
+
+        <!-- احترام الذات -->
+        <h2>احترام الذات</h2>
+        <div class="question">
+            <p>8. أمتلك القدرة على تطوير أدائي.</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="1"> نادرًا</label>
+                <label><input type="radio" name="q8" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q8" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>9. أفتخر بنفسي وأقدرها.</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="1"> نادرًا</label>
+                <label><input type="radio" name="q9" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q9" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>10. يمكنني بسهولة التعبير عن آرائي.</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="1"> نادرًا</label>
+                <label><input type="radio" name="q10" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q10" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>11. أحترم ذاتي.</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="1"> نادرًا</label>
+                <label><input type="radio" name="q11" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q11" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>12. أتسم بالاستقلالية.</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="1"> نادرًا</label>
+                <label><input type="radio" name="q12" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q12" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>13. أجد نفسي جديرة بما أقوم به من أعمال.</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="1"> نادرًا</label>
+                <label><input type="radio" name="q13" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q13" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>14. أفعل ما أراه صحيحًا حتى لو لم يعجب الآخرين.</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="1"> نادرًا</label>
+                <label><input type="radio" name="q14" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q14" value="3"> دائمًا</label>
+            </div>
+        </div>
+
+        <!-- قبول الذات -->
+        <h2>قبول الذات</h2>
+        <div class="question">
+            <p>15. أتقبل ذاتي كما هي.</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="1"> نادرًا</label>
+                <label><input type="radio" name="q15" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q15" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>16. أحظى باهتمام ورضا والدي.</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="1"> نادرًا</label>
+                <label><input type="radio" name="q16" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q16" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>17. أهتم بمظهري الخارجي.</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="1"> نادرًا</label>
+                <label><input type="radio" name="q17" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q17" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>18. أحتاج للتدعيم والتشجيع من أسرتي.</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="1"> نادرًا</label>
+                <label><input type="radio" name="q18" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q18" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>19. أقول الصدق مهما كلفني ذلك.</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="1"> نادرًا</label>
+                <label><input type="radio" name="q19" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q19" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>20. مشاعري تتسق مع سلوكي.</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="1"> نادرًا</label>
+                <label><input type="radio" name="q20" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q20" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>21. أعرف مواطن الضعف في نفسي.</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="1"> نادرًا</label>
+                <label><input type="radio" name="q21" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q21" value="3"> دائمًا</label>
+            </div>
+        </div>
+
+        <!-- إدارة الذات -->
+        <h2>إدارة الذات</h2>
+        <div class="question">
+            <p>22. أبذل مجهودًا لفهم الأمور من حولي وكيفية التعامل معها.</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="1"> نادرًا</label>
+                <label><input type="radio" name="q22" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q22" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>23. أثق في نفسي عند أداء المهام المطلوبة مني.</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="1"> نادرًا</label>
+                <label><input type="radio" name="q23" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q23" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>24. أقارن بين جهودي وتوقعاتي المستقبلية بناءً على خبرتي في أي موقف.</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="1"> نادرًا</label>
+                <label><input type="radio" name="q24" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q24" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>25. أعزو نجاحي في أداء أي مهمة إلى قدراتي وجهدي المبذول فيها.</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="1"> نادرًا</label>
+                <label><input type="radio" name="q25" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q25" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>26. أحرص على بذل مزيد من الجهد للتفوق على زملائي.</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="1"> نادرًا</label>
+                <label><input type="radio" name="q26" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q26" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>27. أطمح للتفوق.</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="1"> نادرًا</label>
+                <label><input type="radio" name="q27" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q27" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>28. أكافئ نفسي عند أدائي لمهام صعبة.</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="1"> نادرًا</label>
+                <label><input type="radio" name="q28" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q28" value="3"> دائمًا</label>
+            </div>
+        </div>
+
+        <!-- الكفاءة الذاتية -->
+        <h2>الكفاءة الذاتية</h2>
+        <div class="question">
+            <p>29. أقدم حلولًا للمشكلات التي تواجهني بطرق إبداعية.</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="1"> نادرًا</label>
+                <label><input type="radio" name="q29" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q29" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>30. أثق في أدائي العقلي وقدرتي على التفكير.</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="1"> نادرًا</label>
+                <label><input type="radio" name="q30" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q30" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>31. لدي القدرة على الأداء الناجح وتحقيق الهدف.</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="1"> نادرًا</label>
+                <label><input type="radio" name="q31" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q31" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>32. أبذل كل جهدي وطاقاتي للوصول للنجاح.</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="1"> نادرًا</label>
+                <label><input type="radio" name="q32" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q32" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>33. لدي القدرة على التأثير في الآخرين.</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="1"> نادرًا</label>
+                <label><input type="radio" name="q33" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q33" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>34. أتعلم من أخطائي ولا أكررها.</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="1"> نادرًا</label>
+                <label><input type="radio" name="q34" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q34" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>35. أتميز بالمثابرة والعمل الجاد.</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="1"> نادرًا</label>
+                <label><input type="radio" name="q35" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q35" value="3"> دائمًا</label>
+            </div>
+        </div>
+
+        <!-- الرضا الذاتي -->
+        <h2>الرضا الذاتي</h2>
+        <div class="question">
+            <p>36. أشعر برضا ذاتي مقارنة بقبول الآخرين لي.</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="1"> نادرًا</label>
+                <label><input type="radio" name="q36" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q36" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>37. أنا راض عن ذاتي عندما أفكر فيما حققته من إنجاز.</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="1"> نادرًا</label>
+                <label><input type="radio" name="q37" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q37" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>38. أنا راض عندما يحمل زملائي عني أفكارًا إيجابية.</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="1"> نادرًا</label>
+                <label><input type="radio" name="q38" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q38" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>39. أقنع بما لدي من قدرات وأتطلع للأفضل.</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="1"> نادرًا</label>
+                <label><input type="radio" name="q39" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q39" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>40. أكون مسرورًا عند التقدير والاستحسان.</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="1"> نادرًا</label>
+                <label><input type="radio" name="q40" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q40" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>41. أنا متوافق مع نفسي.</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="1"> نادرًا</label>
+                <label><input type="radio" name="q41" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q41" value="3"> دائمًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>42. أنا راض عن أسرتي وعن أصحابي.</p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="1"> نادرًا</label>
+                <label><input type="radio" name="q42" value="2"> أحيانًا</label>
+                <label><input type="radio" name="q42" value="3"> دائمًا</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="calculateScore()">احسب النتيجة</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateScore() {
+            let totalScore = 0;
+            const categories = {
+                "الوعي الذاتي": {
+                    start: 1,
+                    end: 7,
+                    score: 0,
+                    definition: "الوعي الذاتي هو فهمك لذاتك، مشاعرك، نقاط قوتك وضعفك، وكيفية تفاعلك مع الآخرين.",
+                    advice: "لتعزيز وعيك الذاتي، خصص وقتًا للتأمل اليومي، واكتب يومياتك، واطلب تعليقات من الآخرين."
+                },
+                "احترام الذات": {
+                    start: 8,
+                    end: 14,
+                    score: 0,
+                    definition: "احترام الذات هو تقديرك لقيمتك الشخصية وقدراتك.",
+                    advice: "لتعزيز احترامك لذاتك، ركز على إنجازاتك، وتجنب المقارنة بالآخرين، ومارس الحديث الإيجابي مع نفسك."
+                },
+                "قبول الذات": {
+                    start: 15,
+                    end: 21,
+                    score: 0,
+                    definition: "قبول الذات هو تقبلك لنفسك كما هي، مع نقاط قوتك وضعفك.",
+                    advice: "لتعزيز قبولك لذاتك، تعلم أن تسامح نفسك على الأخطاء، واقبل أن الكمال غير ممكن، وكن لطيفًا مع نفسك."
+                },
+                "إدارة الذات": {
+                    start: 22,
+                    end: 28,
+                    score: 0,
+                    definition: "إدارة الذات هي قدرتك على تنظيم مشاعرك وأفكارك وسلوكياتك لتحقيق أهدافك.",
+                    advice: "لتعزيز إدارتك لذاتك، ضع أهدافًا واقعية، وخطط لوقتك، ومارس تقنيات إدارة الضغوط."
+                },
+                "الكفاءة الذاتية": {
+                    start: 29,
+                    end: 35,
+                    score: 0,
+                    definition: "الكفاءة الذاتية هي ثقتك في قدرتك على إنجاز المهام وتحقيق النجاح.",
+                    advice: "لتعزيز كفاءتك الذاتية، قسّم المهام الكبيرة إلى خطوات صغيرة، واحتفل بالإنجازات الصغيرة، واطلب الدعم عند الحاجة."
+                },
+                "الرضا الذاتي": {
+                    start: 36,
+                    end: 42,
+                    score: 0,
+                    definition: "الرضا الذاتي هو شعورك بالرضا عن حياتك وإنجازاتك.",
+                    advice: "لتعزيز رضاك الذاتي، ركز على الجوانب الإيجابية في حياتك، ومارس الامتنان، وابحث عن التوازن بين العمل والراحة."
+                }
+            };
+
+            // حساب النقاط لكل فئة
+            for (const [category, data] of Object.entries(categories)) {
+                for (let i = data.start; i <= data.end; i++) {
+                    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                    if (selectedOption) {
+                        categories[category].score += parseInt(selectedOption.value);
+                    }
+                }
+                totalScore += categories[category].score;
+            }
+
+            // تحديد المستوى العام
+            let level = '';
+            let affirmation = '';
+
+            if (totalScore >= 100) {
+                level = "عالي جدًا";
+                affirmation = "أنت تتمتع بتقدير ذاتي عالي جدًا! هذا رائع، استمر في تعزيز ثقتك بنفسك.";
+            } else if (totalScore >= 70) {
+                level = "عالي";
+                affirmation = "تقديرك لذاتك في المستوى العالي. يمكنك العمل على تحسينه أكثر من خلال التركيز على نقاط قوتك.";
+            } else if (totalScore >= 50) {
+                level = "متوسط";
+                affirmation = "تقديرك لذاتك في المستوى المتوسط. يمكنك العمل على تحسينه من خلال تحديد إنجازاتك الصغيرة والتركيز على الإيجابيات.";
+            } else {
+                level = "منخفض";
+                affirmation = "تقديرك لذاتك منخفض. لا تقلق، يمكنك البدء في تعزيز ثقتك بنفسك من خلال تحديد إنجازاتك الصغيرة والتركيز على الإيجابيات.";
+            }
+
+            // عرض النتائج
+            const resultDiv = document.getElementById('result');
+            let resultsHTML = `
+                <p>النتيجة الكلية: ${totalScore}</p>
+                <p>مستوى تقدير الذات: <strong>${level}</strong></p>
+                <p>${affirmation}</p>
+            `;
+
+            // عرض النتائج لكل فئة
+            for (const [category, data] of Object.entries(categories)) {
+                resultsHTML += `
+                    <div class="category-result">
+                        <h3>${category}</h3>
+                        <p><strong>التعريف:</strong> ${data.definition}</p>
+                        <p><strong>النتيجة:</strong> ${data.score}</p>
+                        <p><strong>نصيحة:</strong> ${data.advice}</p>
+                    </div>
                 `;
             }
 
             resultDiv.innerHTML = resultsHTML;
         }
     </script>
+</section>
+</main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Mon guide d'orientation positive. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>// JavaScript pour Mon guide d'orientation positive
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Animation d'apparition des éléments
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observer tous les éléments avec la classe 'section'
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Animation des cartes au survol
+    const cards = document.querySelectorAll('.space-card, .article-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        });
+    });
+
+
+
+    // Navigation mobile (hamburger menu)
+    const navToggle = document.createElement('button');
+    navToggle.classList.add('nav-toggle');
+    navToggle.innerHTML = '☰';
+    navToggle.style.display = 'none';
+
+    const navContent = document.querySelector('.nav-content');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (navContent && navMenu) {
+        navContent.insertBefore(navToggle, navMenu);
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('nav-menu-open');
+        });
+    }
+
+    // Smooth scrolling pour les liens internes
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Effet de typing pour le titre principal (optionnel)
+    const mainTitle = document.querySelector('.section-title');
+    if (mainTitle && mainTitle.textContent.includes('Bienvenue')) {
+        const text = mainTitle.textContent;
+        mainTitle.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                mainTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Démarrer l'effet après un court délai
+        setTimeout(typeWriter, 500);
+    }
+
+    // Gestion des formulaires (si présents)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validation basique
+            const inputs = this.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#e91e63';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+
+            if (isValid) {
+                // Simulation d'envoi
+                const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
+                if (submitBtn) {
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Envoi en cours...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Message envoyé !';
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            form.reset();
+                        }, 2000);
+                    }, 1000);
+                }
+            }
+        });
+    });
+
+
+    // Statistiques de visite (simulation)
+    const stats = {
+        visits: localStorage.getItem('visits') || 0,
+        lastVisit: localStorage.getItem('lastVisit') || new Date().toISOString()
+    };
+
+    stats.visits++;
+    localStorage.setItem('visits', stats.visits);
+    localStorage.setItem('lastVisit', new Date().toISOString());
+
+    console.log(`Bienvenue ! C'est votre visite n°${stats.visits}`);
+});
+
+// Fonctions utilitaires
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.classList.add('notification', `notification-${type}`);
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        z-index: 1002;
+        animation: slideDown 0.3s ease-out;
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.animation = 'slideUp 0.3s ease-out';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Ajout des styles CSS pour les animations
+const additionalStyles = `
+    @keyframes slideDown {
+        from { transform: translateX(-50%) translateY(-100%); }
+        to { transform: translateX(-50%) translateY(0); }
+    }
+
+    @keyframes slideUp {
+        from { transform: translateX(-50%) translateY(0); }
+        to { transform: translateX(-50%) translateY(-100%); }
+    }
+
+    .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .nav-toggle {
+            display: block;
+        }
+
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--primary-color);
+            padding: 1rem;
+        }
+
+        .nav-menu-open {
+            display: flex;
+        }
+    }
+
+    .dark-theme {
+        --background-color: #1a1a1a;
+        --white: #2d2d2d;
+        --text-color: #e0e0e0;
+        --text-light: #b0b0b0;
+    }
+`;
+
+const styleSheet = document.createElement('style');
+styleSheet.textContent = additionalStyles;
+document.head.appendChild(styleSheet);
+</script>
 </body>
 </html>
