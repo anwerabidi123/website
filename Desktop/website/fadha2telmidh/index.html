@@ -53,6 +53,8 @@ body {
   color: var(--white);
   padding: 1rem 0;
   box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
@@ -234,6 +236,12 @@ body {
 .article-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-card .article-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .article-meta {
@@ -496,7 +504,7 @@ body {
             <ul class="nav-menu " style="justify-content: end;">
 
                 <li class="nav-item"><a href="espace-parent.html">فضاء الأولياء</a></li>
-                <li class="nav-item"><a href="fadha2-telmidh.html">فضاء التلميذ</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
                  <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>
             </ul>
@@ -575,11 +583,11 @@ body {
 
             <div class="spaces-grid">
                 <div class="article-card">
-                    <img src="image1.jpg" alt="image">
-                    <img src="image2.jpg" alt="image">
-                    <img src="image3.jpg" alt="image3">
-                    <img src="image4.jpg" alt="image4">
-                    <img src="image5.jpg" >
+                    <img class="article-img" src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/487171024_3994844650786566_7303326795383119388_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YeGVwbM3q5UQ7kNvwGJHpHR&_nc_oc=Adl8XE4TvPVonuhgfFFSsmYar2durBkHmlw3iNK7Ra_JY46twTfs_zNK92wNEOWNVRs&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=ECewJUu1Nm5Ys1b7sMolHw&oh=00_AfRvpn0zd9BbyhFbuX-EQKYv1VbGQNaZVB178PJxZT9LJQ&oe=6893F23E" alt="image">
+                    <img class="article-img" src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/487865541_4001486430122388_8026858138047571730_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6KmtRupEG80Q7kNvwECs34x&_nc_oc=AdnHnErM6aozL8Kf_DHOWJjroY3Q3gfdLCgbnFDXaaqM97rDLOT4D5IxEvXLvGZf3tk&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=Z9fUTpFymq-yIcT8rNAJFw&oh=00_AfS42AvjJj43YSTnBunO9k4yaqFUIKhYVFt7VoiLhpq1yw&oe=689405A0" alt="image">
+                    <img class="article-img" src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/489174824_4004300416507656_8198056085576793206_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=0W2y1WRRrlwQ7kNvwHQ7yXJ&_nc_oc=Adlms8sPVMTTZhUwMfL6uHRVsl2vDjUKiBvAiVn8YZ4Hde7skSjqFw8ApkK34AsuBE0&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=iNW3RwraTYSlxZucVw-cKQ&oh=00_AfTqbYJyXtS0P2mH_HpQD8KZgpuKNZAFXPKArSCtL4IjQA&oe=6893FBE2" alt="image3">
+                    <img class="article-img" src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/489407415_4004447093159655_3511904162007843045_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=hQGekLYtEWoQ7kNvwEFc7CZ&_nc_oc=AdmgBrj4P6G1WDU6oQAubuQcCi98UzuLhY39ZHGuYgr0IkxHus68PAzYl1z2EPMyof0&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=9XBHhmswvFtPX2INHPsayw&oh=00_AfQVgRLs4bYlsqDAWHegXjvTomhje6KXt5oePmnqIB9_rg&oe=689408FE" alt="image4">
+                    <img class="article-img" src="https://scontent.fnbe1-2.fna.fbcdn.net/v/t39.30808-6/503915757_4063540970583600_1164262557803531970_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=wwBCES75rkYQ7kNvwHsaPeo&_nc_oc=AdkbsZDwLVvHHl6bIkfB5Ns42cSAKWmX6EsqqCbk30BDuIbMbaau_98gxx-M4HyMwFc&_nc_zt=23&_nc_ht=scontent.fnbe1-2.fna&_nc_gid=q_19R4GS0lahPsSFB5c-Zg&oh=00_AfTAY_tcMPGDDWrhViLcj7VLIhVcZQL33r4g_TaGNR41ew&oe=68941031" >
                 </div>
             </div>
         </section>
