@@ -1,848 +1,1346 @@
-<!DOCTYPE html>␍
-<html lang="ar" dir="rtl">␍
-<head>␍
-    <meta charset="UTF-8">␍
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">␍
-    <title>اكتشف مناطق تميزك وعبقريتك</title>␍
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">␍
-    <style>␍
-        /* Les styles restent identiques */␍
-        :root {␍
-            --primary: #4a6fa5;␍
-            --secondary: #6b5b95;␍
-            --accent: #e76f51;␍
-            --light: #f8f9fa;␍
-            --dark: #212529;␍
-            --success: #2a9d8f;␍
-            --warning: #e9c46a;␍
-            --dark-blue: #2c3e50;␍
-            --light-blue: #3498db;␍
-        }␍
-        ␍
-        * {␍
-            margin: 0;␍
-            padding: 0;␍
-            box-sizing: border-box;␍
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;␍
-        }␍
-        ␍
-        body {␍
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);␍
-            color: var(--dark);␍
-            line-height: 1.6;␍
-            min-height: 100vh;␍
-            padding-bottom: 40px;␍
-        }␍
-        ␍
-        .container {␍
-            max-width: 1200px;␍
-            margin: 0 auto;␍
-            padding: 20px;␍
-        }␍
-        ␍
-        header {␍
-            text-align: center;␍
-            padding: 40px 20px;␍
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');␍
-            background-size: cover;␍
-            color: white;␍
-            border-radius: 15px;␍
-            margin-bottom: 30px;␍
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);␍
-            position: relative;␍
-            overflow: hidden;␍
-        }␍
-        ␍
-        header::before {␍
-            content: "";␍
-            position: absolute;␍
-            top: 0;␍
-            left: 0;␍
-            width: 100%;␍
-            height: 100%;␍
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.1"/></svg>');␍
-            background-size: 120px;␍
-        }␍
-        ␍
-        h1 {␍
-            font-size: 2.8rem;␍
-            margin-bottom: 20px;␍
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);␍
-            position: relative;␍
-        }␍
-        ␍
-        .quote {␍
-            font-style: italic;␍
-            font-size: 1.3rem;␍
-            margin: 30px auto;␍
-            padding: 20px;␍
-            background: rgba(255, 255, 255, 0.15);␍
-            border-radius: 10px;␍
-            max-width: 800px;␍
-            position: relative;␍
-            backdrop-filter: blur(5px);␍
-        }␍
-        ␍
-        .quote-author {␍
-            display: block;␍
-            text-align: left;␍
-            font-weight: bold;␍
-            margin-top: 10px;␍
-            font-size: 1.1rem;␍
-        }␍
-        ␍
-        .intro {␍
-            background: white;␍
-            padding: 30px;␍
-            border-radius: 15px;␍
-            margin-bottom: 30px;␍
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);␍
-            position: relative;␍
-            overflow: hidden;␍
-            border-left: 5px solid var(--accent);␍
-        }␍
-        ␍
-        .intro p {␍
-            margin-bottom: 15px;␍
-            font-size: 1.1rem;␍
-            position: relative;␍
-            z-index: 2;␍
-        }␍
-        ␍
-        .intro::before {␍
-            content: "";␍
-            position: absolute;␍
-            top: 0;␍
-            right: 0;␍
-            width: 150px;␍
-            height: 150px;␍
-            background: linear-gradient(135deg, rgba(231, 111, 81, 0.1) 0%, rgba(231, 111, 81, 0.05) 100%);␍
-            border-radius: 0 0 0 100%;␍
-        }␍
-        ␍
-        .zones-section {␍
-            display: flex;␍
-            flex-wrap: wrap;␍
-            gap: 30px;␍
-            margin-bottom: 40px;␍
-        }␍
-        ␍
-        .zones-pyramid {␍
-            flex: 1;␍
-            min-width: 300px;␍
-            display: flex;␍
-            flex-direction: column;␍
-            align-items: center;␍
-        }␍
-        ␍
-        .pyramid {␍
-            width: 100%;␍
-            max-width: 300px;␍
-            margin: 20px 0;␍
-            perspective: 1000px;␍
-        }␍
-        ␍
-        .pyramid-level {␍
-            padding: 20px;␍
-            text-align: center;␍
-            color: white;␍
-            margin: 8px 0;␍
-            border-radius: 8px;␍
-            font-weight: bold;␍
-            transition: all 0.4s ease;␍
-            transform-style: preserve-3d;␍
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);␍
-            cursor: pointer;␍
-            position: relative;␍
-            overflow: hidden;␍
-        }␍
-        ␍
-        .pyramid-level:hover {␍
-            transform: translateY(-5px) scale(1.03);␍
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);␍
-        }␍
-        ␍
-        .pyramid-level::after {␍
-            content: "";␍
-            position: absolute;␍
-            top: 0;␍
-            left: 0;␍
-            width: 100%;␍
-            height: 100%;␍
-            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));␍
-            pointer-events: none;␍
-        }␍
-        ␍
-        .genius { background: linear-gradient(135deg, #e76f51, #f4a261); }␍
-        .excellence { background: linear-gradient(135deg, #2a9d8f, #48bf91); }␍
-        .competence { background: linear-gradient(135deg, #4a6fa5, #6b5b95); }␍
-        .incompetence { background: linear-gradient(135deg, #6b5b95, #8a6b9e); }␍
-        ␍
-        .zones-description {␍
-            flex: 2;␍
-            min-width: 300px;␍
-            background: white;␍
-            padding: 25px;␍
-            border-radius: 15px;␍
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);␍
-            position: relative;␍
-        }␍
-        ␍
-        .zones-description h3 {␍
-            color: var(--primary);␍
-            margin-bottom: 15px;␍
-            font-size: 1.5rem;␍
-        }␍
-        ␍
-        .zones-description p {␍
-            margin-bottom: 15px;␍
-            padding-left: 15px;␍
-            border-left: 3px solid #f0f0f0;␍
-        }␍
-        ␍
-        .indices-section {␍
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);␍
-            padding: 30px;␍
-            border-radius: 15px;␍
-            margin-bottom: 40px;␍
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);␍
-            position: relative;␍
-            overflow: hidden;␍
-        }␍
-        ␍
-        .indices-section::before {␍
-            content: "";␍
-            position: absolute;␍
-            top: -50px;␍
-            right: -50px;␍
-            width: 150px;␍
-            height: 150px;␍
-            background: rgba(255, 255, 255, 0.2);␍
-            border-radius: 50%;␍
-        }␍
-        ␍
-        .indices-grid {␍
-            display: grid;␍
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));␍
-            gap: 25px;␍
-            margin-top: 20px;␍
-            position: relative;␍
-            z-index: 2;␍
-        }␍
-        ␍
-        .index-card {␍
-            background: white;␍
-            padding: 25px;␍
-            border-radius: 10px;␍
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);␍
-            transition: all 0.3s ease;␍
-            position: relative;␍
-            overflow: hidden;␍
-            border-top: 3px solid var(--accent);␍
-        }␍
-        ␍
-        .index-card:hover {␍
-            transform: translateY(-10px);␍
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);␍
-        }␍
-        ␍
-        .index-card i {␍
-            font-size: 2.5rem;␍
-            color: var(--accent);␍
-            margin-bottom: 15px;␍
-            background: rgba(231, 111, 81, 0.1);␍
-            width: 70px;␍
-            height: 70px;␍
-            display: flex;␍
-            align-items: center;␍
-            justify-content: center;␍
-            border-radius: 50%;␍
-        }␍
-        ␍
-        .interactive-section {␍
-            background: white;␍
-            padding: 30px;␍
-            border-radius: 15px;␍
-            margin-bottom: 40px;␍
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);␍
-            position: relative;␍
-        }␍
-        ␍
-        .questionnaire {␍
-            display: grid;␍
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));␍
-            gap: 25px;␍
-            margin: 30px 0;␍
-        }␍
-        ␍
-        .question-card {␍
-            background: #f8f9fa;␍
-            padding: 20px;␍
-            border-radius: 10px;␍
-            border-left: 4px solid var(--primary);␍
-            transition: all 0.3s ease;␍
-            box-shadow: 0 3px 8px rgba(0,0,0,0.05);␍
-        }␍
-        ␍
-        .question-card:hover {␍
-            transform: translateY(-3px);␍
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);␍
-        }␍
-        ␍
-        textarea {␍
-            width: 100%;␍
-            padding: 15px;␍
-            margin-top: 10px;␍
-            border: 1px solid #ddd;␍
-            border-radius: 8px;␍
-            resize: vertical;␍
-            min-height: 120px;␍
-            font-size: 1rem;␍
-            transition: all 0.3s ease;␍
-        }␍
-        ␍
-        textarea:focus {␍
-            outline: none;␍
-            border-color: var(--accent);␍
-            box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.2);␍
-        }␍
-        ␍
-        .selected-responses {␍
-            margin-top: 30px;␍
-            padding: 25px;␍
-            background: #e8f4f8;␍
-            border-radius: 10px;␍
-            border-left: 4px solid var(--success);␍
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.03);␍
-        }␍
-        ␍
-        .hours-section {␍
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);␍
-            padding: 30px;␍
-            border-radius: 15px;␍
-            margin-bottom: 40px;␍
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);␍
-            position: relative;␍
-        }␍
-        ␍
-        .calculator {␍
-            background: white;␍
-            padding: 25px;␍
-            border-radius: 10px;␍
-            margin-top: 20px;␍
-            max-width: 500px;␍
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);␍
-        }␍
-        ␍
-        .form-group {␍
-            margin-bottom: 20px;␍
-        }␍
-        ␍
-        label {␍
-            display: block;␍
-            margin-bottom: 8px;␍
-            font-weight: 500;␍
-            color: var(--dark-blue);␍
-        }␍
-        ␍
-        input {␍
-            width: 100%;␍
-            padding: 14px;␍
-            border: 1px solid #ddd;␍
-            border-radius: 8px;␍
-            font-size: 1rem;␍
-            transition: all 0.3s ease;␍
-        }␍
-        ␍
-        input:focus {␍
-            outline: none;␍
-            border-color: var(--accent);␍
-            box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.2);␍
-        }␍
-        ␍
-        .btn {␍
-            background: var(--primary);␍
-            color: white;␍
-            border: none;␍
-            padding: 14px 28px;␍
-            border-radius: 8px;␍
-            cursor: pointer;␍
-            font-size: 1rem;␍
-            font-weight: 600;␍
-            transition: all 0.3s ease;␍
-            display: inline-flex;␍
-            align-items: center;␍
-            gap: 8px;␍
-            box-shadow: 0 4px 8px rgba(74, 111, 165, 0.3);␍
-        }␍
-        ␍
-        .btn:hover {␍
-            background: #3a5a80;␍
-            transform: translateY(-2px);␍
-            box-shadow: 0 6px 12px rgba(74, 111, 165, 0.4);␍
-        }␍
-        ␍
-        .btn:active {␍
-            transform: translateY(1px);␍
-            box-shadow: 0 2px 4px rgba(74, 111, 165, 0.3);␍
-        }␍
-        ␍
-        .btn-accent {␍
-            background: var(--accent);␍
-            box-shadow: 0 4px 8px rgba(231, 111, 81, 0.3);␍
-        }␍
-        ␍
-        .btn-accent:hover {␍
-            background: #d45a3d;␍
-            box-shadow: 0 6px 12px rgba(231, 111, 81, 0.4);␍
-        }␍
-        ␍
-        .result {␍
-            margin-top: 20px;␍
-            padding: 20px;␍
-            background: #e8f4f8;␍
-            border-radius: 8px;␍
-            font-size: 1.1rem;␍
-            border-left: 4px solid var(--success);␍
-        }␍
-        ␍
-        .highlight {␍
-            background: var(--warning);␍
-            padding: 3px 8px;␍
-            border-radius: 4px;␍
-            font-weight: 600;␍
-        }␍
-        ␍
-        .progress-container {␍
-            margin-top: 20px;␍
-            height: 20px;␍
-            background: #e0e0e0;␍
-            border-radius: 10px;␍
-            overflow: hidden;␍
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);␍
-        }␍
-        ␍
-        .progress-bar {␍
-            height: 100%;␍
-            background: linear-gradient(90deg, var(--success), var(--light-blue));␍
-            border-radius: 10px;␍
-            transition: width 0.5s ease;␍
-        }␍
-        ␍
-        footer {␍
-            text-align: center;␍
-            padding: 20px;␍
-            color: var(--dark);␍
-            font-size: 0.9rem;␍
-            background: white;␍
-            border-radius: 15px;␍
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);␍
-        }␍
-        ␍
-        .section-title {␍
-            position: relative;␍
-            margin-bottom: 30px;␍
-            padding-bottom: 15px;␍
-            color: var(--dark-blue);␍
-            font-size: 2rem;␍
-        }␍
-        ␍
-        .section-title::after {␍
-            content: '';␍
-            position: absolute;␍
-            bottom: 0;␍
-            right: 0;␍
-            width: 100px;␍
-            height: 5px;␍
-            background: var(--accent);␍
-            border-radius: 3px;␍
-        }␍
-        ␍
-        .action-buttons {␍
-            display: flex;␍
-            gap: 15px;␍
-            margin-top: 20px;␍
-            flex-wrap: wrap;␍
-        }␍
-        ␍
-        .save-message {␍
-            margin-top: 15px;␍
-            padding: 10px;␍
-            background: rgba(42, 157, 143, 0.1);␍
-            border-radius: 8px;␍
-            color: var(--success);␍
-            font-weight: 500;␍
-            display: none;␍
-        }␍
-        ␍
-        @media (max-width: 768px) {␍
-            h1 {␍
-                font-size: 2.2rem;␍
-            }␍
-            ␍
-            .quote {␍
-                font-size: 1.1rem;␍
-            }␍
-            ␍
-            .zones-pyramid, .zones-description {␍
-                flex: 100%;␍
-            }␍
-            ␍
-            .pyramid {␍
-                max-width: 100%;␍
-            }␍
-            ␍
-            .section-title {␍
-                font-size: 1.8rem;␍
-            }␍
-        }␍
-        ␍
-        @media (max-width: 480px) {␍
-            h1 {␍
-                font-size: 1.8rem;␍
-            }␍
-            ␍
-            .container {␍
-                padding: 10px;␍
-            }␍
-            ␍
-            header, .intro, .zones-description, .indices-section, .interactive-section, .hours-section {␍
-                padding: 20px 15px;␍
-            }␍
-            ␍
-            .section-title {␍
-                font-size: 1.5rem;␍
-            }␍
-        }␍
-    </style>␍
-</head>␍
-<body>␍
-    <div class="container">␍
-        <header>␍
-            <h1><i class="fas fa-star"></i> مناطق التميز والعبقرية</h1>␍
-            <div class="quote">␍
-                « ليس هناك من ولد تحت نجم سيئ، بل هناك فقط من لا يعرفون قراءة السماء »␍
-                <span class="quote-author">- الدالاي لاما</span>␍
-            </div>␍
-        </header>␍
-        ␍
-        <section class="intro">␍
-            <p>يصعب على الشباب معرفة المجالات التي يمكنهم التفوق فيها، لأن إتقان المهارات وتطوير الخبرة يتطلب وقتًا طويلاً: الكثير من التدريب والممارسة والتجارب، وغالباً سنوات من التكوين!</p>␍
-            <p><strong>لكننا جميعاً نمتلك مناطق تميز وعبقرية حتى لو لم تكتشفها بعد!</strong></p>␍
-        </section>␍
-        ␍
-        <section class="zones-section">␍
-            <div class="zones-pyramid">␍
-                <h2 class="section-title">المناطق الأربع للكفاءات</h2>␍
-                <div class="pyramid">␍
-                    <div class="pyramid-level genius">␍
-                        <h3>منطقة "العبقرية"</h3>␍
-                        <p>بصمتك الفريدة</p>␍
-                    </div>␍
-                    <div class="pyramid-level excellence">␍
-                        <h3>منطقة التميز</h3>␍
-                        <p>تتميز بوضوح</p>␍
-                    </div>␍
-                    <div class="pyramid-level competence">␍
-                        <h3>منطقة الكفاءة</h3>␍
-                        <p>تؤدي العمل بشكل صحيح</p>␍
-                    </div>␍
-                    <div class="pyramid-level incompetence">␍
-                        <h3>منطقة عدم الكفاءة</h3>␍
-                        <p>الأكبر لدى الجميع</p>␍
-                    </div>␍
-                </div>␍
-            </div>␍
-            ␍
-            <div class="zones-description">␍
-                <h3>وصف المناطق</h3>␍
-                <p><strong>منطقة "العبقرية"</strong>: أنت الوحيد الذي يؤدي العمل بهذه الطريقة، إنها بصمتك الخاصة. هنا تكون متصلاً بما يجعلك فريداً، تعبر عن إمكاناتك الكاملة - والآخرون يعترفون بهذه الموهبة. أنت تقدم قيمة مضافة فريدة للعالم.</p>␍
-                ␍
-                <p><strong>منطقة التميز</strong>: تمثل جميع الأنشطة التي تؤديها بشكل أفضل بكثير من الآخرين. تبرز بوضوح عن الآخرين بمهاراتك ومعرفتك وسلوكك. أنت تقدم قيمة مضافة مهنية حقيقية.</p>␍
-                ␍
-                <p><strong>منطقة الكفاءة</strong>: تمثل جميع الأنشطة التي تؤديها بشكل صحيح، ولكن يمكن لشخص آخر أن يؤديها بنفس جودتك.</p>␍
-                ␍
-                <p><strong>منطقة عدم الكفاءة</strong>: (نعم، أيضاً!) تمثل جميع الأنشطة التي لا تعرف كيفية القيام بها أو التي تؤديها بشكل سيء - هذه المنطقة هي الأكبر لدى الجميع!</p>␍
-            </div>␍
-        </section>␍
-        ␍
-        <section class="indices-section">␍
-            <h2 class="section-title">ثلاثة مؤشرات للتعرف على مناطق عبقرتك</h2>␍
-            <div class="indices-grid">␍
-                <div class="index-card">␍
-                    <i class="fas fa-seedling"></i>␍
-                    <h3>طبيعي وتلقائي</h3>␍
-                    <p>قد تكون هكذا بطبيعتك (مبدع، لاعب، منصت، باحث، متواصل، إلخ). كل شيء طبيعي جداً لدرجة أنك قد تعتقد أنك لا تمتلك أي موهبة!</p>␍
-                </div>␍
-                ␍
-                <div class="index-card">␍
-                    <i class="fas fa-hourglass-half"></i>␍
-                    <h3>التدفق والتركيز</h3>␍
-                    <p>عندما تقوم به، تفقد الإحساس بالوقت. تكون منغمساً تماماً. يسمى هذا "التدفق".</p>␍
-                </div>␍
-                ␍
-                <div class="index-card">␍
-                    <i class="fas fa-heart"></i>␍
-                    <h3>الشغف والمثابرة</h3>␍
-                    <p>تحب هذا النشاط، تقضي وقتاً فيه (أو ترغب في ذلك) وتتعلم، تقبل التحديات والأخطاء لأنها طبيعية، تريد التقدم.</p>␍
-                </div>␍
-            </div>␍
-        </section>␍
-        ␍
-        <section class="interactive-section">␍
-            <h2 class="section-title">اكتشف مناطق تميزك وعبقريتك</h2>␍
-            <p><strong>لا تكتفِ بالبقاء في منطقة كفاءتك... انطلق لاكتشاف مناطق تميزك و"عبقريتك"!</strong></p>␍
-            ␍
-            <div class="questionnaire">␍
-                <div class="question-card">␍
-                    <h3><i class="fas fa-trophy"></i> 1. الأنشطة التي تبرز فيها</h3>␍
-                    <p>هل هناك أنشطة تكون فيها أفضل من الآخرين؟</p>␍
-                    <textarea id="q1" placeholder="اكتب إجاباتك هنا..."></textarea>␍
-                </div>␍
-                ␍
-                <div class="question-card">␍
-                    <h3><i class="fas fa-bolt"></i> 2. المهارات الطبيعية</h3>␍
-                    <p>هل لديك مهارات طبيعية؟ (مثل التواصل، الاستماع، الإبداع، إضحاك الآخرين...)</p>␍
-                    <textarea id="q2" placeholder="اكتب إجاباتك هنا..."></textarea>␍
-                </div>␍
-                ␍
-                <div class="question-card">␍
-                    <h3><i class="fas fa-clock"></i> 3. الأنشطة التي تفقد فيها الإحساس بالوقت</h3>␍
-                    <p>ما هي الأنشطة التي يمكنك القيام بها لساعات دون أن تشعر بمرور الوقت؟</p>␍
-                    <textarea id="q3" placeholder="اكتب إجاباتك هنا..."></textarea>␍
-                </div>␍
-                ␍
-                <div class="question-card">␍
-                    <h3><i class="fas fa-fire"></i> 4. المجالات التي تشغفك</h3>␍
-                    <p>ما هي المواضيع التي تهمك كثيراً؟</p>␍
-                    <textarea id="q4" placeholder="اكتب إجاباتك هنا..."></textarea>␍
-                </div>␍
-            </div>␍
-            ␍
-            <p>خذ وقتك للإجابة على هذه الأسئلة الأربعة. ثم اختر الإجابات التي تتردد في داخلك (4 كحد أقصى) وانسخها أدناه:</p>␍
-            ␍
-            <div class="selected-responses">␍
-                <h3><i class="fas fa-star"></i> مناطق تميزي/عبقريتي</h3>␍
-                <textarea id="selected-answers" placeholder="انسخ هنا الإجابات التي تعني لك أكثر..."></textarea>␍
-                <p><em>إذا لم يكن لديك إجابة، فهذا طبيعي تماماً أيضاً!</em></p>␍
-                ␍
-                <div class="action-buttons">␍
-                    <button class="btn" id="save-answers">␍
-                        <i class="fas fa-save"></i> حفظ إجاباتي␍
-                    </button>␍
-                    <button class="btn btn-accent" id="clear-answers">␍
-                        <i class="fas fa-trash-alt"></i> مسح إجاباتي␍
-                    </button>␍
-                </div>␍
-                ␍
-                <div class="save-message" id="save-message">␍
-                    تم حفظ إجاباتك بنجاح!␍
-                </div>␍
-            </div>␍
-        </section>␍
-        ␍
-        <section class="hours-section">␍
-            <h2 class="section-title">قاعدة الـ 10,000 ساعة</h2>␍
-            <p>كشفت أبحاث البروفيسور أندرس إريكسون أنه لا يوجد عباقرة "طبيعيون"، بل عمل دؤوب وراء كل موهبة (وحوالي 10,000 ساعة من التدريب لتصبح خبيراً عالمياً في أي مجال).</p>␍
-            ␍
-            <div class="calculator">␍
-                <h3>حاسبة ساعات الممارسة</h3>␍
-                <div class="form-group">␍
-                    <label for="hoursPerWeek"><i class="fas fa-clock"></i> ساعات الممارسة أسبوعياً:</label>␍
-                    <input type="number" id="hoursPerWeek" min="1" max="100" value="10">␍
-                </div>␍
-                ␍
-                <div class="form-group">␍
-                    <label for="daysPerWeek"><i class="fas fa-calendar"></i> أيام الممارسة أسبوعياً:</label>␍
-                    <input type="number" id="daysPerWeek" min="1" max="7" value="5">␍
-                </div>␍
-                ␍
-                <button class="btn btn-accent" id="calculateBtn">␍
-                    <i class="fas fa-calculator"></i> احسب الوقت اللازم␍
-                </button>␍
-                ␍
-                <div class="result" id="result">␍
-                    <p>أدخل قيمك واضغط على "احسب"</p>␍
-                </div>␍
-                ␍
-                <div class="progress-container">␍
-                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>␍
-                </div>␍
-                ␍
-                <div class="action-buttons">␍
-                    <button class="btn" id="save-calculation">␍
-                        <i class="fas fa-save"></i> حفظ النتيجة␍
-                    </button>␍
-                </div>␍
-            </div>␍
-            ␍
-            <div style="margin-top: 30px;">␍
-                <p><strong>مثال:</strong> 3 ساعات تدريب أسبوعياً لمدة 15 سنة = 2,340 ساعة خبرة.</p>␍
-                <p>10,000 ساعة تساوي تقريباً:</p>␍
-                <ul>␍
-                    <li><span class="highlight">5 سنوات بدوام كامل</span> (39 ساعة/أسبوع)</li>␍
-                    <li><span class="highlight">10 سنوات بنصف دوام</span> (20 ساعة/أسبوع)</li>␍
-                </ul>␍
-            </div>␍
-        </section>␍
-        ␍
-        <footer>␍
-            <p>اكتشف مواهبك وطور إمكاناتك الفريدة!</p>␍
-            <p><i class="fas fa-copyright"></i> 2023 - صفحة مستوحاة من أعمال أندرس إريكسون</p>␍
-        </footer>␍
-    </div>␍
-    ␍
-    <script>␍
-        document.addEventListener('DOMContentLoaded', function() {␍
-            // تحمير الإجابات المحفوظة␍
-            loadSavedData();␍
-            ␍
-            // حفظ إجابات الاستبيان␍
-            document.getElementById('save-answers').addEventListener('click', saveAnswers);␍
-            ␍
-            // مسح الإجابات␍
-            document.getElementById('clear-answers').addEventListener('click', clearAnswers);␍
-            ␍
-            // حساب الساعات␍
-            document.getElementById('calculateBtn').addEventListener('click', calculateHours);␍
-            ␍
-            // حفظ الحساب␍
-            document.getElementById('save-calculation').addEventListener('click', saveCalculation);␍
-            ␍
-            // دالة لحفظ الإجابات␍
-            function saveAnswers() {␍
-                const answers = {␍
-                    q1: document.getElementById('q1').value,␍
-                    q2: document.getElementById('q2').value,␍
-                    q3: document.getElementById('q3').value,␍
-                    q4: document.getElementById('q4').value,␍
-                    selected: document.getElementById('selected-answers').value␍
-                };␍
-                ␍
-                localStorage.setItem('userAnswers', JSON.stringify(answers));␍
-                ␍
-                // عرض رسالة التأكيد␍
-                const saveMessage = document.getElementById('save-message');␍
-                saveMessage.style.display = 'block';␍
-                saveMessage.textContent = 'تم حفظ إجاباتك بنجاح!';␍
-                ␍
-                // إخفاء الرسالة بعد 3 ثوان␍
-                setTimeout(() => {␍
-                    saveMessage.style.display = 'none';␍
-                }, 3000);␍
-            }␍
-            ␍
-            // دالة لتحمير البيانات المحفوظة␍
-            function loadSavedData() {␍
-                const savedAnswers = localStorage.getItem('userAnswers');␍
-                if (savedAnswers) {␍
-                    const answers = JSON.parse(savedAnswers);␍
-                    document.getElementById('q1').value = answers.q1 || '';␍
-                    document.getElementById('q2').value = answers.q2 || '';␍
-                    document.getElementById('q3').value = answers.q3 || '';␍
-                    document.getElementById('q4').value = answers.q4 || '';␍
-                    document.getElementById('selected-answers').value = answers.selected || '';␍
-                }␍
-                ␍
-                const savedCalculation = localStorage.getItem('hoursCalculation');␍
-                if (savedCalculation) {␍
-                    document.getElementById('result').innerHTML = savedCalculation;␍
-                }␍
-            }␍
-            ␍
-            // دالة لمسح الإجابات␍
-            function clearAnswers() {␍
-                if (confirm('هل أنت متأكد أنك تريد مسح جميع إجاباتك؟')) {␍
-                    document.getElementById('q1').value = '';␍
-                    document.getElementById('q2').value = '';␍
-                    document.getElementById('q3').value = '';␍
-                    document.getElementById('q4').value = '';␍
-                    document.getElementById('selected-answers').value = '';␍
-                    localStorage.removeItem('userAnswers');␍
-                    ␍
-                    const saveMessage = document.getElementById('save-message');␍
-                    saveMessage.style.display = 'block';␍
-                    saveMessage.textContent = 'تم مسح إجاباتك بنجاح!';␍
-                    saveMessage.style.background = 'rgba(231, 111, 81, 0.1)';␍
-                    saveMessage.style.color = 'var(--accent)';␍
-                    ␍
-                    setTimeout(() => {␍
-                        saveMessage.style.display = 'none';␍
-                    }, 3000);␍
-                }␍
-            }␍
-            ␍
-            // دالة لحساب الساعات␍
-            function calculateHours() {␍
-                const hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value);␍
-                const daysPerWeek = parseFloat(document.getElementById('daysPerWeek').value);␍
-                ␍
-                if (!hoursPerWeek || !daysPerWeek || hoursPerWeek <= 0 || daysPerWeek <= 0) {␍
-                    document.getElementById('result').innerHTML = '<p style="color: var(--accent);">الرجاء إدخال قيم صحيحة وإيجابية</p>';␍
-                    return;␍
-                }␍
-                ␍
-                const hoursPerDay = hoursPerWeek / daysPerWeek;␍
-                const totalHours = 10000;␍
-                const weeksNeeded = totalHours / hoursPerWeek;␍
-                const yearsNeeded = (weeksNeeded / 52).toFixed(1);␍
-                const monthsNeeded = (weeksNeeded / 4.345).toFixed(1);␍
-                ␍
-                // حساب نسبة التقدم␍
-                const currentHours = 0;␍
-                const progressPercent = (currentHours / totalHours) * 100;␍
-                ␍
-                let resultHTML = `␍
-                    <p>بمعدل <span class="highlight">${hoursPerWeek} ساعات</span> أسبوعياً:</p>␍
-                    <p>➤ للوصول إلى 10,000 ساعة: <span class="highlight">${yearsNeeded} سنوات</span> (حوالي ${Math.round(weeksNeeded)} أسبوع)</p>␍
-                    <p>➤ يمثل هذا حوالي <span class="highlight">${hoursPerDay.toFixed(1)} ساعات</span> يومياً، ${daysPerWeek} أيام في الأسبوع</p>␍
-                    <p><em>ابدأ رحلتك نحو التميز اليوم!</em></p>␍
-                `;␍
-                ␍
-                document.getElementById('result').innerHTML = resultHTML;␍
-                document.getElementById('progress-bar').style.width = `${progressPercent}%`;␍
-            }␍
-            ␍
-            // دالة لحفظ الحساب␍
-            function saveCalculation() {␍
-                const calculationResult = document.getElementById('result').innerHTML;␍
-                localStorage.setItem('hoursCalculation', calculationResult);␍
-                ␍
-                const saveMessage = document.getElementById('save-message');␍
-                saveMessage.style.display = 'block';␍
-                saveMessage.textContent = 'تم حفظ حسابك!';␍
-                ␍
-                setTimeout(() => {␍
-                    saveMessage.style.display = 'none';␍
-                }, 3000);␍
-            }␍
-            ␍
-            // تحريك البطاقات␍
-            const cards = document.querySelectorAll('.index-card, .question-card');␍
-            cards.forEach((card, index) => {␍
-                card.style.opacity = '0';␍
-                card.style.transform = 'translateY(20px)';␍
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';␍
-                ␍
-                setTimeout(() => {␍
-                    card.style.opacity = '1';␍
-                    card.style.transform = 'translateY(0)';␍
-                }, 200 * index);␍
-            });␍
-            ␍
-            // تحريك مستويات الهرم␍
-            const pyramidLevels = document.querySelectorAll('.pyramid-level');␍
-            pyramidLevels.forEach((level, index) => {␍
-                level.style.opacity = '0';␍
-                level.style.transform = 'translateY(20px)';␍
-                level.style.transition = 'opacity 0.5s ease, transform 0.5s ease';␍
-                ␍
-                setTimeout(() => {␍
-                    level.style.opacity = '1';␍
-                    level.style.transform = 'translateY(0)';␍
-                }, 300 * index);␍
-            });␍
-        });␍
-    </script>␍
-</body>␍
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اكتشف مناطق تميزك وعبقريتك</title>
+    <link rel="icon" type="image/x-icon" href="../tnn.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
+
+/* Variables CSS pour la cohérence du thème */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #e91e63;
+  --accent-color: #ff9800;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: end;
+}
+
+.test {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  word-wrap: break-word; /* Permettre la coupure des mots longs */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 0.5rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap; /* Permettre le retour à la ligne */
+}
+
+.nav-item a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  white-space: nowrap; /* Éviter la coupure des liens */
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%; /* Assurer la largeur complète */
+}
+
+/* Sections */
+.section {
+  background: var(--white);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%; /* Assurer la largeur complète */
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  word-wrap: break-word; /* Permettre la coupure des titres longs */
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* Grille pour les espaces */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.space-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-color);
+  width: 100%;
+  min-height: 200px; /* Hauteur minimale pour la cohérence */
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.space-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.space-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00;
+}
+
+/* Articles récents */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.article-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-meta {
+  padding: 1rem;
+  background-color: var(--background-color);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive - Tablettes */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .spaces-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+/* Responsive - Mobiles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .test {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    justify-content: center !important;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .space-card, .article-card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+  }
+
+  .text {
+    text-align: center;
+  }
+}
+
+/* Responsive - Très petits écrans */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+
+  .nav-content {
+    padding: 0 0.5rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .space-card, .article-card {
+    padding: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .spaces-grid, .articles-grid {
+    gap: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */
+  }
+
+  p {
+    line-height: 1.7; /* Améliorer l'espacement des lignes */
+    margin-bottom: 1rem;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  /* Améliorer l'espacement tactile */
+  .nav-item a, .btn {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+    </style>
+    <style>
+        /* Les styles restent identiques */
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #6b5b95;
+            --accent: #e76f51;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #2a9d8f;
+            --warning: #e9c46a;
+            --dark-blue: #2c3e50;
+            --light-blue: #3498db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');
+            background-size: cover;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+            background-size: 120px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            max-width: 800px;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .quote-author {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid var(--accent);
+        }
+
+        .intro p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(231, 111, 81, 0.1) 0%, rgba(231, 111, 81, 0.05) 100%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .zones-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .zones-pyramid {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pyramid {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px 0;
+            perspective: 1000px;
+        }
+
+        .pyramid-level {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin: 8px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pyramid-level:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .pyramid-level::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+            pointer-events: none;
+        }
+
+        .genius { background: linear-gradient(135deg, #e76f51, #f4a261); }
+        .excellence { background: linear-gradient(135deg, #2a9d8f, #48bf91); }
+        .competence { background: linear-gradient(135deg, #4a6fa5, #6b5b95); }
+        .incompetence { background: linear-gradient(135deg, #6b5b95, #8a6b9e); }
+
+        .zones-description {
+            flex: 2;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .zones-description h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .zones-description p {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #f0f0f0;
+        }
+
+        .indices-section {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .indices-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+
+        .indices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .index-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid var(--accent);
+        }
+
+        .index-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .index-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            background: rgba(231, 111, 81, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .interactive-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .questionnaire {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 120px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.2);
+        }
+
+        .selected-responses {
+            margin-top: 30px;
+            padding: 25px;
+            background: #e8f4f8;
+            border-radius: 10px;
+            border-left: 4px solid var(--success);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.03);
+        }
+
+        .hours-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .calculator {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 111, 81, 0.2);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(74, 111, 165, 0.3);
+        }
+
+        .btn:hover {
+            background: #3a5a80;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(74, 111, 165, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(74, 111, 165, 0.3);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            box-shadow: 0 4px 8px rgba(231, 111, 81, 0.3);
+        }
+
+        .btn-accent:hover {
+            background: #d45a3d;
+            box-shadow: 0 6px 12px rgba(231, 111, 81, 0.4);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--success);
+        }
+
+        .highlight {
+            background: var(--warning);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success), var(--light-blue));
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--dark);
+            font-size: 0.9rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            color: var(--dark-blue);
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .save-message {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(42, 157, 143, 0.1);
+            border-radius: 8px;
+            color: var(--success);
+            font-weight: 500;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .quote {
+                font-size: 1.1rem;
+            }
+
+            .zones-pyramid, .zones-description {
+                flex: 100%;
+            }
+
+            .pyramid {
+                max-width: 100%;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            header, .intro, .zones-description, .indices-section, .interactive-section, .hours-section {
+                padding: 20px 15px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content test">
+            <div>
+                <a href="../index.html" class="logo">دليلي للتوجيه الإيجابي</a>
+                <div class="tagline">طريق النجاح
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu " style="justify-content: end;">
+
+                <li class="nav-item"><a href="../espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/" class="active">الصفحة الرئيسية</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-star"></i> مناطق التميز والعبقرية</h1>
+            <div class="quote">
+                « ليس هناك من ولد تحت نجم سيئ، بل هناك فقط من لا يعرفون قراءة السماء »
+                <span class="quote-author">- الدالاي لاما</span>
+            </div>
+        </header>
+
+        <section class="intro">
+            <p>يصعب على الشباب معرفة المجالات التي يمكنهم التفوق فيها، لأن إتقان المهارات وتطوير الخبرة يتطلب وقتًا طويلاً: الكثير من التدريب والممارسة والتجارب، وغالباً سنوات من التكوين!</p>
+            <p><strong>لكننا جميعاً نمتلك مناطق تميز وعبقرية حتى لو لم تكتشفها بعد!</strong></p>
+        </section>
+
+        <section class="zones-section">
+            <div class="zones-pyramid">
+                <h2 class="section-title">المناطق الأربع للكفاءات</h2>
+                <div class="pyramid">
+                    <div class="pyramid-level genius">
+                        <h3>منطقة "العبقرية"</h3>
+                        <p>بصمتك الفريدة</p>
+                    </div>
+                    <div class="pyramid-level excellence">
+                        <h3>منطقة التميز</h3>
+                        <p>تتميز بوضوح</p>
+                    </div>
+                    <div class="pyramid-level competence">
+                        <h3>منطقة الكفاءة</h3>
+                        <p>تؤدي العمل بشكل صحيح</p>
+                    </div>
+                    <div class="pyramid-level incompetence">
+                        <h3>منطقة عدم الكفاءة</h3>
+                        <p>الأكبر لدى الجميع</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="zones-description">
+                <h3>وصف المناطق</h3>
+                <p><strong>منطقة "العبقرية"</strong>: أنت الوحيد الذي يؤدي العمل بهذه الطريقة، إنها بصمتك الخاصة. هنا تكون متصلاً بما يجعلك فريداً، تعبر عن إمكاناتك الكاملة - والآخرون يعترفون بهذه الموهبة. أنت تقدم قيمة مضافة فريدة للعالم.</p>
+
+                <p><strong>منطقة التميز</strong>: تمثل جميع الأنشطة التي تؤديها بشكل أفضل بكثير من الآخرين. تبرز بوضوح عن الآخرين بمهاراتك ومعرفتك وسلوكك. أنت تقدم قيمة مضافة مهنية حقيقية.</p>
+
+                <p><strong>منطقة الكفاءة</strong>: تمثل جميع الأنشطة التي تؤديها بشكل صحيح، ولكن يمكن لشخص آخر أن يؤديها بنفس جودتك.</p>
+
+                <p><strong>منطقة عدم الكفاءة</strong>: (نعم، أيضاً!) تمثل جميع الأنشطة التي لا تعرف كيفية القيام بها أو التي تؤديها بشكل سيء - هذه المنطقة هي الأكبر لدى الجميع!</p>
+            </div>
+        </section>
+
+        <section class="indices-section">
+            <h2 class="section-title">ثلاثة مؤشرات للتعرف على مناطق عبقرتك</h2>
+            <div class="indices-grid">
+                <div class="index-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>طبيعي وتلقائي</h3>
+                    <p>قد تكون هكذا بطبيعتك (مبدع، لاعب، منصت، باحث، متواصل، إلخ). كل شيء طبيعي جداً لدرجة أنك قد تعتقد أنك لا تمتلك أي موهبة!</p>
+                </div>
+
+                <div class="index-card">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>التدفق والتركيز</h3>
+                    <p>عندما تقوم به، تفقد الإحساس بالوقت. تكون منغمساً تماماً. يسمى هذا "التدفق".</p>
+                </div>
+
+                <div class="index-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>الشغف والمثابرة</h3>
+                    <p>تحب هذا النشاط، تقضي وقتاً فيه (أو ترغب في ذلك) وتتعلم، تقبل التحديات والأخطاء لأنها طبيعية، تريد التقدم.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <h2 class="section-title">اكتشف مناطق تميزك وعبقريتك</h2>
+            <p><strong>لا تكتفِ بالبقاء في منطقة كفاءتك... انطلق لاكتشاف مناطق تميزك و"عبقريتك"!</strong></p>
+
+            <div class="questionnaire">
+                <div class="question-card">
+                    <h3><i class="fas fa-trophy"></i> 1. الأنشطة التي تبرز فيها</h3>
+                    <p>هل هناك أنشطة تكون فيها أفضل من الآخرين؟</p>
+                    <textarea id="q1" placeholder="اكتب إجاباتك هنا..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <h3><i class="fas fa-bolt"></i> 2. المهارات الطبيعية</h3>
+                    <p>هل لديك مهارات طبيعية؟ (مثل التواصل، الاستماع، الإبداع، إضحاك الآخرين...)</p>
+                    <textarea id="q2" placeholder="اكتب إجاباتك هنا..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <h3><i class="fas fa-clock"></i> 3. الأنشطة التي تفقد فيها الإحساس بالوقت</h3>
+                    <p>ما هي الأنشطة التي يمكنك القيام بها لساعات دون أن تشعر بمرور الوقت؟</p>
+                    <textarea id="q3" placeholder="اكتب إجاباتك هنا..."></textarea>
+                </div>
+
+                <div class="question-card">
+                    <h3><i class="fas fa-fire"></i> 4. المجالات التي تشغفك</h3>
+                    <p>ما هي المواضيع التي تهمك كثيراً؟</p>
+                    <textarea id="q4" placeholder="اكتب إجاباتك هنا..."></textarea>
+                </div>
+            </div>
+
+            <p>خذ وقتك للإجابة على هذه الأسئلة الأربعة. ثم اختر الإجابات التي تتردد في داخلك (4 كحد أقصى) وانسخها أدناه:</p>
+
+            <div class="selected-responses">
+                <h3><i class="fas fa-star"></i> مناطق تميزي/عبقريتي</h3>
+                <textarea id="selected-answers" placeholder="انسخ هنا الإجابات التي تعني لك أكثر..."></textarea>
+                <p><em>إذا لم يكن لديك إجابة، فهذا طبيعي تماماً أيضاً!</em></p>
+
+                <div class="action-buttons">
+                    <button class="btn" id="save-answers">
+                        <i class="fas fa-save"></i> حفظ إجاباتي
+                    </button>
+                    <button class="btn btn-accent" id="clear-answers">
+                        <i class="fas fa-trash-alt"></i> مسح إجاباتي
+                    </button>
+                </div>
+
+                <div class="save-message" id="save-message">
+                    تم حفظ إجاباتك بنجاح!
+                </div>
+            </div>
+        </section>
+
+        <section class="hours-section">
+            <h2 class="section-title">قاعدة الـ 10,000 ساعة</h2>
+            <p>كشفت أبحاث البروفيسور أندرس إريكسون أنه لا يوجد عباقرة "طبيعيون"، بل عمل دؤوب وراء كل موهبة (وحوالي 10,000 ساعة من التدريب لتصبح خبيراً عالمياً في أي مجال).</p>
+
+            <div class="calculator">
+                <h3>حاسبة ساعات الممارسة</h3>
+                <div class="form-group">
+                    <label for="hoursPerWeek"><i class="fas fa-clock"></i> ساعات الممارسة أسبوعياً:</label>
+                    <input type="number" id="hoursPerWeek" min="1" max="100" value="10">
+                </div>
+
+                <div class="form-group">
+                    <label for="daysPerWeek"><i class="fas fa-calendar"></i> أيام الممارسة أسبوعياً:</label>
+                    <input type="number" id="daysPerWeek" min="1" max="7" value="5">
+                </div>
+
+                <button class="btn btn-accent" id="calculateBtn">
+                    <i class="fas fa-calculator"></i> احسب الوقت اللازم
+                </button>
+
+                <div class="result" id="result">
+                    <p>أدخل قيمك واضغط على "احسب"</p>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn" id="save-calculation">
+                        <i class="fas fa-save"></i> حفظ النتيجة
+                    </button>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <p><strong>مثال:</strong> 3 ساعات تدريب أسبوعياً لمدة 15 سنة = 2,340 ساعة خبرة.</p>
+                <p>10,000 ساعة تساوي تقريباً:</p>
+                <ul>
+                    <li><span class="highlight">5 سنوات بدوام كامل</span> (39 ساعة/أسبوع)</li>
+                    <li><span class="highlight">10 سنوات بنصف دوام</span> (20 ساعة/أسبوع)</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>اكتشف مواهبك وطور إمكاناتك الفريدة!</p>
+            <p><i class="fas fa-copyright"></i> 2023 - صفحة مستوحاة من أعمال أندرس إريكسون</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحمير الإجابات المحفوظة
+            loadSavedData();
+
+            // حفظ إجابات الاستبيان
+            document.getElementById('save-answers').addEventListener('click', saveAnswers);
+
+            // مسح الإجابات
+            document.getElementById('clear-answers').addEventListener('click', clearAnswers);
+
+            // حساب الساعات
+            document.getElementById('calculateBtn').addEventListener('click', calculateHours);
+
+            // حفظ الحساب
+            document.getElementById('save-calculation').addEventListener('click', saveCalculation);
+
+            // دالة لحفظ الإجابات
+            function saveAnswers() {
+                const answers = {
+                    q1: document.getElementById('q1').value,
+                    q2: document.getElementById('q2').value,
+                    q3: document.getElementById('q3').value,
+                    q4: document.getElementById('q4').value,
+                    selected: document.getElementById('selected-answers').value
+                };
+
+                localStorage.setItem('userAnswers', JSON.stringify(answers));
+
+                // عرض رسالة التأكيد
+                const saveMessage = document.getElementById('save-message');
+                saveMessage.style.display = 'block';
+                saveMessage.textContent = 'تم حفظ إجاباتك بنجاح!';
+
+                // إخفاء الرسالة بعد 3 ثوان
+                setTimeout(() => {
+                    saveMessage.style.display = 'none';
+                }, 3000);
+            }
+
+            // دالة لتحمير البيانات المحفوظة
+            function loadSavedData() {
+                const savedAnswers = localStorage.getItem('userAnswers');
+                if (savedAnswers) {
+                    const answers = JSON.parse(savedAnswers);
+                    document.getElementById('q1').value = answers.q1 || '';
+                    document.getElementById('q2').value = answers.q2 || '';
+                    document.getElementById('q3').value = answers.q3 || '';
+                    document.getElementById('q4').value = answers.q4 || '';
+                    document.getElementById('selected-answers').value = answers.selected || '';
+                }
+
+                const savedCalculation = localStorage.getItem('hoursCalculation');
+                if (savedCalculation) {
+                    document.getElementById('result').innerHTML = savedCalculation;
+                }
+            }
+
+            // دالة لمسح الإجابات
+            function clearAnswers() {
+                if (confirm('هل أنت متأكد أنك تريد مسح جميع إجاباتك؟')) {
+                    document.getElementById('q1').value = '';
+                    document.getElementById('q2').value = '';
+                    document.getElementById('q3').value = '';
+                    document.getElementById('q4').value = '';
+                    document.getElementById('selected-answers').value = '';
+                    localStorage.removeItem('userAnswers');
+
+                    const saveMessage = document.getElementById('save-message');
+                    saveMessage.style.display = 'block';
+                    saveMessage.textContent = 'تم مسح إجاباتك بنجاح!';
+                    saveMessage.style.background = 'rgba(231, 111, 81, 0.1)';
+                    saveMessage.style.color = 'var(--accent)';
+
+                    setTimeout(() => {
+                        saveMessage.style.display = 'none';
+                    }, 3000);
+                }
+            }
+
+            // دالة لحساب الساعات
+            function calculateHours() {
+                const hoursPerWeek = parseFloat(document.getElementById('hoursPerWeek').value);
+                const daysPerWeek = parseFloat(document.getElementById('daysPerWeek').value);
+
+                if (!hoursPerWeek || !daysPerWeek || hoursPerWeek <= 0 || daysPerWeek <= 0) {
+                    document.getElementById('result').innerHTML = '<p style="color: var(--accent);">الرجاء إدخال قيم صحيحة وإيجابية</p>';
+                    return;
+                }
+
+                const hoursPerDay = hoursPerWeek / daysPerWeek;
+                const totalHours = 10000;
+                const weeksNeeded = totalHours / hoursPerWeek;
+                const yearsNeeded = (weeksNeeded / 52).toFixed(1);
+                const monthsNeeded = (weeksNeeded / 4.345).toFixed(1);
+
+                // حساب نسبة التقدم
+                const currentHours = 0;
+                const progressPercent = (currentHours / totalHours) * 100;
+
+                let resultHTML = `
+                    <p>بمعدل <span class="highlight">${hoursPerWeek} ساعات</span> أسبوعياً:</p>
+                    <p>➤ للوصول إلى 10,000 ساعة: <span class="highlight">${yearsNeeded} سنوات</span> (حوالي ${Math.round(weeksNeeded)} أسبوع)</p>
+                    <p>➤ يمثل هذا حوالي <span class="highlight">${hoursPerDay.toFixed(1)} ساعات</span> يومياً، ${daysPerWeek} أيام في الأسبوع</p>
+                    <p><em>ابدأ رحلتك نحو التميز اليوم!</em></p>
+                `;
+
+                document.getElementById('result').innerHTML = resultHTML;
+                document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            }
+
+            // دالة لحفظ الحساب
+            function saveCalculation() {
+                const calculationResult = document.getElementById('result').innerHTML;
+                localStorage.setItem('hoursCalculation', calculationResult);
+
+                const saveMessage = document.getElementById('save-message');
+                saveMessage.style.display = 'block';
+                saveMessage.textContent = 'تم حفظ حسابك!';
+
+                setTimeout(() => {
+                    saveMessage.style.display = 'none';
+                }, 3000);
+            }
+
+            // تحريك البطاقات
+            const cards = document.querySelectorAll('.index-card, .question-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+
+            // تحريك مستويات الهرم
+            const pyramidLevels = document.querySelectorAll('.pyramid-level');
+            pyramidLevels.forEach((level, index) => {
+                level.style.opacity = '0';
+                level.style.transform = 'translateY(20px)';
+                level.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+                setTimeout(() => {
+                    level.style.opacity = '1';
+                    level.style.transform = 'translateY(0)';
+                }, 300 * index);
+            });
+        });
+    </script>
+</body>
 </html>
