@@ -1,0 +1,680 @@
+<!DOCTYPE html>␍
+<html lang="ar" dir="rtl">␍
+<head>␍
+    <meta charset="UTF-8">␍
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">␍
+    <title>ورشات تفاعلية </title>␍
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">␍
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">␍
+    <style>␍
+        :root {␍
+            --primary: #87CEEB; /* أزرق سماوي */␍
+            --secondary: #3d5a80; /* أزرق داكن */␍
+            --light: #f5f9ff; /* خلفية فاتحة جدًا */␍
+            --text-dark: #2d3748;␍
+            --success: #4CAF50;␍
+            --warning: #FF9800;␍
+            --purple: #9c27b0;␍
+            --teal: #009688;␍
+            --gold: #FFD700;␍
+            --deep-blue: #1e3a8a;␍
+            --pink: #e91e63;␍
+        }␍
+        ␍
+        * {␍
+            margin: 0;␍
+            padding: 0;␍
+            box-sizing: border-box;␍
+        }␍
+        ␍
+        body {␍
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;␍
+            background: var(--light);␍
+            color: var(--text-dark);␍
+            min-height: 100vh;␍
+            display: flex;␍
+            justify-content: center;␍
+            align-items: center;␍
+            padding: 20px;␍
+            background-image: linear-gradient(135deg, rgba(135, 206, 235, 0.08) 0%, rgba(245, 249, 255, 1) 100%);␍
+        }␍
+        ␍
+        .container {␍
+            max-width: 1200px;␍
+            width: 100%;␍
+            margin: 0 auto;␍
+        }␍
+        ␍
+        .header-card {␍
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary) 100%);␍
+            border-radius: 24px;␍
+            padding: 50px 30px;␍
+            text-align: center;␍
+            position: relative;␍
+            overflow: hidden;␍
+            box-shadow: 0 10px 30px rgba(135, 206, 235, 0.3);␍
+            margin-bottom: 30px;␍
+            animation: gradient-shift 12s infinite alternate;␍
+        }␍
+        ␍
+        @keyframes gradient-shift {␍
+            0% { background-position: 0% 50%; }␍
+            100% { background-position: 100% 50%; }␍
+        }␍
+        ␍
+        .header-card::before {␍
+            content: "";␍
+            position: absolute;␍
+            top: -50%;␍
+            left: -50%;␍
+            width: 200%;␍
+            height: 200%;␍
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);␍
+            transform: rotate(30deg);␍
+            animation: rotate-bg 20s linear infinite;␍
+        }␍
+        ␍
+        @keyframes rotate-bg {␍
+            0% { transform: rotate(0deg); }␍
+            100% { transform: rotate(360deg); }␍
+        }␍
+        ␍
+        h1 {␍
+            font-size: 2.8rem;␍
+            color: white;␍
+            margin-bottom: 15px;␍
+            text-shadow: 0 2px 10px rgba(0,0,0,0.15);␍
+            position: relative;␍
+            z-index: 2;␍
+            font-weight: 700;␍
+            animation: text-pulse 3s infinite alternate;␍
+        }␍
+        ␍
+        @keyframes text-pulse {␍
+            0% { transform: scale(1); }␍
+            100% { transform: scale(1.02); }␍
+        }␍
+        ␍
+        .subtitle {␍
+            font-size: 1.4rem;␍
+            color: rgba(255, 255, 255, 0.95);␍
+            max-width: 800px;␍
+            margin: 0 auto;␍
+            font-weight: 600;␍
+            position: relative;␍
+            z-index: 2;␍
+            line-height: 1.6;␍
+        }␍
+        ␍
+        .intro-text {␍
+            background: white;␍
+            border-radius: 18px;␍
+            padding: 30px;␍
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);␍
+            margin-bottom: 40px;␍
+            text-align: center;␍
+            font-size: 1.1rem;␍
+            line-height: 1.9;␍
+            max-width: 800px;␍
+            margin: 0 auto 40px;␍
+            position: relative;␍
+            overflow: hidden;␍
+            border: 1px solid rgba(135, 206, 235, 0.2);␍
+        }␍
+        ␍
+        .intro-text::after {␍
+            content: "";␍
+            position: absolute;␍
+            top: 0;␍
+            left: 0;␍
+            width: 100%;␍
+            height: 5px;␍
+            background: linear-gradient(90deg, var(--gold), var(--purple), var(--teal), var(--warning), var(--secondary));␍
+            animation: border-animation 8s linear infinite;␍
+        }␍
+        ␍
+        @keyframes border-animation {␍
+            0% { background-position: 0% 0%; }␍
+            100% { background-position: 200% 0%; }␍
+        }␍
+        ␍
+        .tests-container {␍
+            display: grid;␍
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));␍
+            gap: 30px;␍
+            margin-bottom: 50px;␍
+        }␍
+        ␍
+        .test-card {␍
+            background: white;␍
+            border-radius: 18px;␍
+            padding: 30px;␍
+            text-align: center;␍
+            transition: all 0.4s ease;␍
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);␍
+            position: relative;␍
+            overflow: hidden;␍
+            display: flex;␍
+            flex-direction: column;␍
+            height: 100%;␍
+            border: 1px solid rgba(0, 0, 0, 0.05);␍
+        }␍
+        ␍
+        .test-card::before {␍
+            content: "";␍
+            position: absolute;␍
+            top: 0;␍
+            left: 0;␍
+            width: 100%;␍
+            height: 5px;␍
+        }␍
+        ␍
+        .test-card:nth-child(1)::before { background: var(--gold); }␍
+        .test-card:nth-child(2)::before { background: var(--purple); }␍
+        .test-card:nth-child(3)::before { background: var(--teal); }␍
+        .test-card:nth-child(4)::before { background: var(--warning); }␍
+        .test-card:nth-child(5)::before { background: var(--secondary); }␍
+        ␍
+        .test-card:hover {␍
+            transform: translateY(-10px);␍
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);␍
+        }␍
+        ␍
+        .test-icon {␍
+            margin-bottom: 25px;␍
+            height: 120px;␍
+            display: flex;␍
+            align-items: center;␍
+            justify-content: center;␍
+            position: relative;␍
+        }␍
+        ␍
+        .icon-container {␍
+            position: relative;␍
+            width: 100px;␍
+            height: 100px;␍
+            display: flex;␍
+            align-items: center;␍
+            justify-content: center;␍
+        }␍
+        ␍
+        .icon-bg {␍
+            position: absolute;␍
+            width: 100%;␍
+            height: 100%;␍
+            border-radius: 50%;␍
+            opacity: 0.15;␍
+            z-index: 1;␍
+        }␍
+        ␍
+        .test-card:nth-child(1) .icon-bg { background: var(--gold); }␍
+        .test-card:nth-child(2) .icon-bg { background: var(--purple); }␍
+        .test-card:nth-child(3) .icon-bg { background: var(--teal); }␍
+        .test-card:nth-child(4) .icon-bg { background: var(--warning); }␍
+        .test-card:nth-child(5) .icon-bg { background: var(--secondary); }␍
+        ␍
+        .icon-main {␍
+            font-size: 3rem;␍
+            z-index: 2;␍
+            transition: all 0.3s ease;␍
+        }␍
+        ␍
+        .test-card:nth-child(1) .icon-main { color: var(--gold); }␍
+        .test-card:nth-child(2) .icon-main { color: var(--purple); }␍
+        .test-card:nth-child(3) .icon-main { color: var(--teal); }␍
+        .test-card:nth-child(4) .icon-main { color: var(--warning); }␍
+        .test-card:nth-child(5) .icon-main { color: var(--secondary); }␍
+        ␍
+        .test-card:hover .icon-main {␍
+            transform: scale(1.2);␍
+        }␍
+        ␍
+        .test-title {␍
+            font-size: 1.7rem;␍
+            margin-bottom: 20px;␍
+            color: var(--text-dark);␍
+            font-weight: 700;␍
+        }␍
+        ␍
+        .test-description {␍
+            color: var(--text-dark);␍
+            line-height: 1.9;␍
+            margin-bottom: 30px;␍
+            flex-grow: 1;␍
+            font-size: 1.05rem;␍
+        }␍
+        ␍
+        .test-link {␍
+            display: inline-block;␍
+            padding: 14px 30px;␍
+            background: var(--primary);␍
+            color: white;␍
+            text-decoration: none;␍
+            border-radius: 50px;␍
+            font-weight: 600;␍
+            font-size: 1.1rem;␍
+            transition: all 0.3s ease;␍
+            cursor: pointer;␍
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.4);␍
+            width: 100%;␍
+            max-width: 250px;␍
+            margin: 0 auto;␍
+            position: relative;␍
+            overflow: hidden;␍
+            z-index: 1;␍
+        }␍
+        ␍
+        .test-link::before {␍
+            content: "";␍
+            position: absolute;␍
+            top: 0;␍
+            left: 0;␍
+            width: 0;␍
+            height: 100%;␍
+            background: rgba(255, 255, 255, 0.2);␍
+            transition: width 0.5s ease;␍
+            z-index: -1;␍
+        }␍
+        ␍
+        .test-link:hover::before {␍
+            width: 100%;␍
+        }␍
+        ␍
+        .test-link:hover {␍
+            transform: scale(1.05);␍
+            box-shadow: 0 8px 20px rgba(61, 90, 128, 0.3);␍
+        }␍
+        ␍
+        .test-card:nth-child(1) .test-link { background: var(--gold); color: #333; }␍
+        .test-card:nth-child(2) .test-link { background: var(--purple); }␍
+        .test-card:nth-child(3) .test-link { background: var(--teal); }␍
+        .test-card:nth-child(4) .test-link { background: var(--warning); }␍
+        .test-card:nth-child(5) .test-link { background: var(--secondary); }␍
+        ␍
+        .test-card:nth-child(1) .test-link:hover { background: #e6c200; }␍
+        .test-card:nth-child(2) .test-link:hover { background: #7b1fa2; }␍
+        .test-card:nth-child(3) .test-link:hover { background: #00796b; }␍
+        .test-card:nth-child(4) .test-link:hover { background: #e68a00; }␍
+        .test-card:nth-child(5) .test-link:hover { background: #2d4466; }␍
+        ␍
+        .features {␍
+            background: white;␍
+            border-radius: 18px;␍
+            padding: 40px;␍
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);␍
+            margin: 50px 0;␍
+        }␍
+        ␍
+        .features h2 {␍
+            text-align: center;␍
+            color: var(--secondary);␍
+            margin-bottom: 40px;␍
+            font-size: 2rem;␍
+            font-weight: 700;␍
+        }␍
+        ␍
+        .features-grid {␍
+            display: grid;␍
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));␍
+            gap: 25px;␍
+        }␍
+        ␍
+        .feature {␍
+            text-align: center;␍
+            padding: 25px;␍
+            border-radius: 15px;␍
+            background: rgba(135, 206, 235, 0.08);␍
+            transition: all 0.3s ease;␍
+            position: relative;␍
+            overflow: hidden;␍
+        }␍
+        ␍
+        .feature:hover {␍
+            transform: translateY(-5px);␍
+            background: rgba(135, 206, 235, 0.15);␍
+        }␍
+        ␍
+        .feature i {␍
+            font-size: 2.5rem;␍
+            color: var(--primary);␍
+            margin-bottom: 20px;␍
+            transition: transform 0.3s ease;␍
+        }␍
+        ␍
+        .feature:hover i {␍
+            transform: rotate(10deg) scale(1.1);␍
+        }␍
+        ␍
+        .feature h3 {␍
+            color: var(--secondary);␍
+            margin-bottom: 15px;␍
+            font-weight: 700;␍
+        }␍
+        ␍
+        footer {␍
+            text-align: center;␍
+            margin-top: 50px;␍
+            padding: 30px;␍
+            color: var(--text-dark);␍
+            background: white;␍
+            border-radius: 18px;␍
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);␍
+            font-size: 1.1rem;␍
+            background: linear-gradient(to right, white, var(--light), white;␍
+        }␍
+        ␍
+        .notification {␍
+            position: fixed;␍
+            top: 20px;␍
+            left: 20px;␍
+            background: var(--success);␍
+            color: white;␍
+            padding: 15px 25px;␍
+            border-radius: 50px;␍
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);␍
+            z-index: 1000;␍
+            transform: translateX(-200%);␍
+            transition: transform 0.4s ease;␍
+            display: flex;␍
+            align-items: center;␍
+        }␍
+        ␍
+        .notification.show {␍
+            transform: translateX(0);␍
+        }␍
+        ␍
+        .notification i {␍
+            margin-left: 10px;␍
+            font-size: 1.2rem;␍
+        }␍
+        ␍
+        .loading-indicator {␍
+            position: fixed;␍
+            top: 0;␍
+            left: 0;␍
+            width: 100%;␍
+            height: 4px;␍
+            background: rgba(255,255,255,0.3);␍
+            z-index: 1001;␍
+            display: none;␍
+        }␍
+        ␍
+        .loading-indicator .bar {␍
+            height: 100%;␍
+            width: 0%;␍
+            background: var(--primary);␍
+            transition: width 0.4s ease;␍
+        }␍
+        ␍
+        .interactive-badge {␍
+            position: absolute;␍
+            top: 20px;␍
+            left: 20px;␍
+            background: rgba(255, 255, 255, 0.2);␍
+            padding: 8px 15px;␍
+            border-radius: 20px;␍
+            font-size: 0.9rem;␍
+            font-weight: 500;␍
+            z-index: 3;␍
+            animation: badge-pulse 2s infinite alternate;␍
+        }␍
+        ␍
+        @keyframes badge-pulse {␍
+            0% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0.4); }␍
+            100% { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.6); }␍
+        }␍
+        ␍
+        @media (max-width: 768px) {␍
+            h1 {␍
+                font-size: 2.2rem;␍
+            }␍
+            ␍
+            .subtitle {␍
+                font-size: 1.1rem;␍
+            }␍
+            ␍
+            .tests-container {␍
+                grid-template-columns: 1fr;␍
+                gap: 20px;␍
+            }␍
+            ␍
+            .test-card {␍
+                padding: 25px;␍
+            }␍
+            ␍
+            .interactive-badge {␍
+                top: 10px;␍
+                left: 10px;␍
+                font-size: 0.8rem;␍
+            }␍
+        }␍
+        ␍
+        @media (max-width: 480px) {␍
+            h1 {␍
+                font-size: 1.8rem;␍
+            }␍
+            ␍
+            .header-card {␍
+                padding: 40px 20px;␍
+            }␍
+            ␍
+            .intro-text {␍
+                padding: 20px;␍
+            }␍
+            ␍
+            .test-icon {␍
+                height: 100px;␍
+            }␍
+            ␍
+            .icon-container {␍
+                width: 80px;␍
+                height: 80px;␍
+            }␍
+        }␍
+    </style>␍
+</head>␍
+<body>␍
+    <div class="loading-indicator">␍
+        <div class="bar"></div>␍
+    </div>␍
+    ␍
+    <div class="container">␍
+        <div class="header-card">␍
+            <div class="interactive-badge">ورشات تفاعلية</div>␍
+            <h1>ورشات تفاعلية لاكتشاف الذات</h1>␍
+            <p class="subtitle">رحلة تفاعلية لاكتشاف نقاط قوتك وإمكاناتك الكامنة</p>␍
+        </div>␍
+        ␍
+        <div class="intro-text">␍
+            <p>انضم إلى ورشاتنا التفاعلية التي صممت بعناية لمساعدتك على اكتشاف جوانب شخصيتك وتطوير مهاراتك. اختر ورشة لتبدأ رحلة النمو الشخصي والمهني.</p>␍
+        </div>␍
+        ␍
+        <div class="tests-container">␍
+            <!-- Workshop 1: الصفات ونقاط قوة الشخصية -->␍
+            <div class="test-card">␍
+                <div class="test-icon">␍
+                    <div class="icon-container">␍
+                        <div class="icon-bg"></div>␍
+                        <i class="fas fa-gem icon-main"></i>␍
+                    </div>␍
+                </div>␍
+                <h2 class="test-title">الصفات ونقاط قوة الشخصية</h2>␍
+                <p class="test-description">␍
+                    اكتشف المواهب الفريدة والقدرات المميزة التي تمتلكها. تعرف على نقاط قوتك الطبيعية وكيفية توظيفها لتحقيق النجاح في مسارك المهني والشخصي.␍
+                </p>␍
+                <a href="https://orientationpositive.tn/wp/%d8%a7%d9%84%d8%b5%d9%81%d8%a7%d8%aa/" class="test-link">␍
+                    <i class="fas fa-play-circle" style="margin-left: 8px;"></i>␍
+                    ابدأ الورشة␍
+                </a>␍
+            </div>␍
+            ␍
+            <!-- Workshop 2: المعتقدات -->␍
+            <div class="test-card">␍
+                <div class="test-icon">␍
+                    <div class="icon-container">␍
+                        <div class="icon-bg"></div>␍
+                        <i class="fas fa-atom icon-main"></i>␍
+                    </div>␍
+                </div>␍
+                <h2 class="test-title">المعتقدات</h2>␍
+                <p class="test-description">␍
+                    استكشف نظام معتقداتك وكيف يؤثر على قراراتك وتصرفاتك. تعلم كيفية تحويل المعتقدات المحدودة إلى دافع قوي لتحقيق أهدافك وطموحاتك.␍
+                </p>␍
+                <a href="https://orientationpositive.tn/wp/%d8%a7%d9%84%d9%85%d8%b9%d8%aa%d9%82%d8%af%d8%a7%d8%aa/" class="test-link">␍
+                    <i class="fas fa-play-circle" style="margin-left: 8px;"></i>␍
+                    ابدأ الورشة␍
+                </a>␍
+            </div>␍
+            ␍
+            <!-- Workshop 3: العقل الباطن -->␍
+            <div class="test-card">␍
+                <div class="test-icon">␍
+                    <div class="icon-container">␍
+                        <div class="icon-bg"></div>␍
+                        <i class="fas fa-moon icon-main"></i>␍
+                    </div>␍
+                </div>␍
+                <h2 class="test-title">العقل الباطن</h2>␍
+                <p class="test-description">␍
+                    تعرف على القوة الخفية لعقلك الباطن وكيفية برمجته لتحقيق أهدافك. اكتشف تقنيات فعالة لتغيير الأنماط الذهنية وخلق واقع جديد.␍
+                </p>␍
+                <a href="https://orientationpositive.tn/wp/%d8%a7%d9%84%d8%a7%d9%88%d8%b9%d9%8a-_%d9%88%d8%a7%d9%84%d8%aa%d9%88%d8%ac%d9%8a%d9%87-_%d8%a7%d9%84%d9%85%d8%af%d8%b1%d8%b3%d9%8a/" class="test-link">␍
+                    <i class="fas fa-play-circle" style="margin-left: 8px;"></i>␍
+                    ابدأ الورشة␍
+                </a>␍
+            </div>␍
+            ␍
+            <!-- Workshop 4: التميز -->␍
+            <div class="test-card">␍
+                <div class="test-icon">␍
+                    <div class="icon-container">␍
+                        <div class="icon-bg"></div>␍
+                        <i class="fas fa-rocket icon-main"></i>␍
+                    </div>␍
+                </div>␍
+                <h2 class="test-title">التميز</h2>␍
+                <p class="test-description">␍
+                    انطلق نحو التميز واكتشف ما يميزك عن الآخرين. تعلم استراتيجيات التميز المهني والشخصي وكيفية تحويل قدراتك إلى إنجازات ملموسة.␍
+                </p>␍
+                <a href="https://orientationpositive.tn/wp/elementor-1944/" class="test-link">␍
+                    <i class="fas fa-play-circle" style="margin-left: 8px;"></i>␍
+                    ابدأ الورشة␍
+                </a>␍
+            </div>␍
+            ␍
+            <!-- Workshop 5: الكفايات -->␍
+            <div class="test-card">␍
+                <div class="test-icon">␍
+                    <div class="icon-container">␍
+                        <div class="icon-bg"></div>␍
+                        <i class="fas fa-puzzle-piece icon-main"></i>␍
+                    </div>␍
+                </div>␍
+                <h2 class="test-title">الكفايات</h2>␍
+                <p class="test-description">␍
+                    قم بتقييم كفاءاتك الحالية وتحديد المجالات التي تحتاج إلى تطوير. اكتشف كيفية بناء مجموعة مهارات متكاملة تمكنك من التميز في سوق العمل.␍
+                </p>␍
+                <a href="https://orientationpositive.tn/wp/%d8%a7%d9%84%d9%83%d9%81%d8%a7%d9%8a%d8%a7%d8%aa/" class="test-link">␍
+                    <i class="fas fa-play-circle" style="margin-left: 8px;"></i>␍
+                    ابدأ الورشة␍
+                </a>␍
+            </div>␍
+        </div>␍
+        ␍
+        <div class="features">␍
+            <h2>مزايا ورشاتنا التفاعلية</h2>␍
+            <div class="features-grid">␍
+                <div class="feature">␍
+                    <i class="fas fa-brain"></i>␍
+                    <h3>اكتشاف عميق للذات</h3>␍
+                    <p>فهم أعمق لشخصيتك ودوافعك وإمكاناتك الكامنة</p>␍
+                </div>␍
+                ␍
+                <div class="feature">␍
+                    <i class="fas fa-chart-line"></i>␍
+                    <h3>تطوير شخصي ومهني</h3>␍
+                    <p>تحسين مهاراتك وزيادة فرص نجاحك المهني</p>␍
+                </div>␍
+                ␍
+                <div class="feature">␍
+                    <i class="fas fa-lightbulb"></i>␍
+                    <h3>رؤية واضحة للمستقبل</h3>␍
+                    <p>تحديد أهداف واضحة ووضع خطط لتحقيقها</p>␍
+                </div>␍
+                ␍
+                <div class="feature">␍
+                    <i class="fas fa-hands-helping"></i>␍
+                    <h3>دعم وتوجيه مستمر</h3>␍
+                    <p>مرافقتك في رحلة نموك وتطورك الشخصي</p>␍
+                </div>␍
+            </div>␍
+        </div>␍
+        ␍
+        <footer>␍
+            ␍
+            ␍
+        </footer>␍
+    </div>␍
+    ␍
+    <div class="notification">␍
+        ␍
+        <i class="fas fa-arrow-right"></i>␍
+    </div>␍
+    ␍
+    <script>␍
+        // Animation au chargement de la page␍
+        document.addEventListener('DOMContentLoaded', function() {␍
+            // Animation des cartes de test␍
+            const testCards = document.querySelectorAll('.test-card');␍
+            testCards.forEach((card, index) => {␍
+                setTimeout(() => {␍
+                    card.style.opacity = '0';␍
+                    card.style.transform = 'translateY(20px)';␍
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';␍
+                    ␍
+                    setTimeout(() => {␍
+                        card.style.opacity = '1';␍
+                        card.style.transform = 'translateY(0)';␍
+                    }, 100);␍
+                }, index * 150);␍
+            });␍
+            ␍
+            // Gestion des clics sur les liens␍
+            const links = document.querySelectorAll('.test-link');␍
+            links.forEach(link => {␍
+                link.addEventListener('click', function(e) {␍
+                    const card = this.closest('.test-card');␍
+                    ␍
+                    // Animation de clic␍
+                    card.style.transform = 'scale(0.98)';␍
+                    card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';␍
+                    ␍
+                    // Afficher la notification␍
+                    const notification = document.querySelector('.notification');␍
+                    notification.classList.add('show');␍
+                    ␍
+                    // Afficher l'indicateur de chargement␍
+                    const loadingIndicator = document.querySelector('.loading-indicator');␍
+                    const loadingBar = document.querySelector('.loading-indicator .bar');␍
+                    loadingIndicator.style.display = 'block';␍
+                    loadingBar.style.width = '70%';␍
+                    ␍
+                    // Animation de la barre de progression␍
+                    setTimeout(() => {␍
+                        loadingBar.style.width = '100%';␍
+                    }, 300);␍
+                    ␍
+                    // Réinitialiser après un court délai pour permettre les animations␍
+                    setTimeout(() => {␍
+                        notification.classList.remove('show');␍
+                        loadingIndicator.style.display = 'none';␍
+                        loadingBar.style.width = '0%';␍
+                        card.style.transform = '';␍
+                        card.style.boxShadow = '';␍
+                    }, 800);
+                });␍
+            });␍
+        });␍
+    </script>␍
+</body>␍
+</html>
