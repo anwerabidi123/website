@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Théorie RIASEC - John Holland</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
+
+/* Variables CSS pour la cohérence du thème */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #e91e63;
+  --accent-color: #ff9800;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: end;
+}
+
+.test {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  word-wrap: break-word; /* Permettre la coupure des mots longs */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 0.5rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap; /* Permettre le retour à la ligne */
+}
+
+
+.nav-item a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  white-space: nowrap; /* Éviter la coupure des liens */
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%; /* Assurer la largeur complète */
+}
+
+/* Sections */
+.section {
+  background: var(--white);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%; /* Assurer la largeur complète */
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  word-wrap: break-word; /* Permettre la coupure des titres longs */
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* Grille pour les espaces */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.space-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-color);
+  width: 100%;
+  min-height: 200px; /* Hauteur minimale pour la cohérence */
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.space-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.space-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00;
+}
+
+/* Articles récents */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.article-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-meta {
+  padding: 1rem;
+  background-color: var(--background-color);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive - Tablettes */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+/* Responsive - Mobiles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .test {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    justify-content: center !important;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .space-card, .article-card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  .text {
+    text-align: center;
+  }
+}
+
+/* Responsive - Très petits écrans */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-content {
+    padding: 0 0.5rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .space-card, .article-card {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .spaces-grid, .articles-grid {
+    gap: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */
+  }
+  
+  p {
+    line-height: 1.7; /* Améliorer l'espacement des lignes */
+    margin-bottom: 1rem;
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  /* Améliorer l'espacement tactile */
+  .nav-item a, .btn {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo" style="color:white;">Théorie RIASEC de John Holland</h1>
+                <p class="tagline">Modèle d'orientation professionnelle par congruence personnalité-environnement</p>
+            </div>
+        </header>
+          <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu "style="justify-content: end;">
+                <li class="nav-item"><a href="espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="espace-eleve.html">فضاء التلميذ</a></li> 
+                  <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/" class="active">فضاء الاستاذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/" >الصفحة الرئيسية</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+        <main class="container">
+            <!-- Section Introduction -->
+            <section class="section">
+                <h2 class="section-title">Introduction</h2>
+                <p>Développée dès les années 1950 par le psychologue John L. Holland, la théorie RIASEC propose une classification des personnalités en <strong>6 types</strong>, établissant un lien crucial entre orientation professionnelle et épanouissement personnel.</p>
+                
+                <div class="quote">
+                    « La satisfaction professionnelle dépend de l'adéquation entre les aspirations individuelles et les caractéristiques de l'environnement de travail »<br>
+                    <div class="author">- Guichard & Huteau (2007)</div>
+                </div>
+            </section>
+
+            <!-- Section Types de personnalité -->
+            <section class="section">
+                <h2 class="section-title">Les 6 Types RIASEC</h2>
+                <div class="spaces-grid">
+                    <!-- Réaliste -->
+                    <div class="space-card">
+                        <h3>🛠️ Réaliste (R)</h3>
+                        <p><strong>Traits dominants :</strong><br>
+                        Pratique - Autonome - Habileté manuelle</p>
+                        <p><strong>Environnement idéal :</strong><br>
+                        Travail concret avec machines/outils</p>
+                        <p><strong>Métiers typiques :</strong><br>
+                        Ingénieur • Mécanicien • Agriculteur</p>
+                        <em>« Préfère les résultats tangibles aux débats théoriques »</em>
+                    </div>
+
+                    <!-- Investigateur -->
+                    <div class="space-card">
+                        <h3>🔍 Investigateur (I)</h3>
+                        <p><strong>Traits dominants :</strong><br>
+                        Curiosité intellectuelle - Rigueur analytique</p>
+                        <p><strong>Environnement idéal :</strong><br>
+                        Laboratoires • Recherche scientifique</p>
+                        <p><strong>Métiers typiques :</strong><br>
+                        Chercheur • Médecin • Data Scientist</p>
+                        <em>« Cherche à comprendre plutôt qu'à agir »</em>
+                    </div>
+
+                    <!-- Artistique -->
+                    <div class="space-card">
+                        <h3>🎨 Artistique (A)</h3>
+                        <p><strong>Traits dominants :</strong><br>
+                        Créativité - Intuition - Non-conformisme</p>
+                        <p><strong>Environnement idéal :</strong><br>
+                        Espaces libres • Projets innovants</p>
+                        <p><strong>Métiers typiques :</strong><br>
+                        Designer • Musicien • Écrivain</p>
+                        <em>« Fuit les routines pour explorer l'inconnu »</em>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="space-card">
+                        <h3>🤝 Social (S)</h3>
+                        <p><strong>Traits dominants :</strong><br>
+                        Empathie - Communication - Altruisme</p>
+                        <p><strong>Environnement idéal :</strong><br>
+                        Équipes collaboratives • Aide humaine</p>
+                        <p><strong>Métiers typiques :</strong><br>
+                        Enseignant • Psychologue • Travailleur social</p>
+                        <em>« S'épanouit en facilitant la croissance d'autrui »</em>
+                    </div>
+
+                    <!-- Entrepreneur -->
+                    <div class="space-card">
+                        <h3>💼 Entrepreneur (E)</h3>
+                        <p><strong>Traits dominants :</strong><br>
+                        Leadership - Ambition - Persuasion</p>
+                        <p><strong>Environnement idéal :</strong><br>
+                        Défis compétitifs • Prise de décision</p>
+                        <p><strong>Métiers typiques :</strong><br>
+                        Manager • Homme politique • Agent commercial</p>
+                        <em>« Transforme les idées en actions rentables »</em>
+                    </div>
+
+                    <!-- Conventionnel -->
+                    <div class="space-card">
+                        <h3>📊 Conventionnel (C)</h3>
+                        <p><strong>Traits dominants :</strong><br>
+                        Organisation - Minutie - Respect des règles</p>
+                        <p><strong>Environnement idéal :</strong><br>
+                        Tâches structurées • Environnement de bureau</p>
+                        <p><strong>Métiers typiques :</strong><br>
+                        Comptable • Secrétaire • Analyste financier</p>
+                        <em>« Excelle dans l'ordre et la précision »</em>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Applications -->
+            <section class="section">
+                <h2 class="section-title">Applications Pratiques</h2>
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3>Bénéfices de l'adéquation</h3>
+                        <ul>
+                            <li>✅ Satisfaction professionnelle accrue</li>
+                            <li>✅ Augmentation de la performance</li>
+                            <li>✅ Stabilité dans l'emploi</li>
+                            <li>✅ Meilleure résilience au stress</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© Théorie RIASEC de John Holland</p>
+                <p>Modèle d'orientation professionnelle</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

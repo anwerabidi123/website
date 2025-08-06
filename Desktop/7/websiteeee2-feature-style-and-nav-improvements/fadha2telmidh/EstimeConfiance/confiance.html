@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estime et Confiance en Soi - Guide Complet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
+
+/* Variables CSS pour la cohérence du thème */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #e91e63;
+  --accent-color: #ff9800;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: end;
+}
+
+.test {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  word-wrap: break-word; /* Permettre la coupure des mots longs */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 0.5rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap; /* Permettre le retour à la ligne */
+}
+
+
+.nav-item a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  white-space: nowrap; /* Éviter la coupure des liens */
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%; /* Assurer la largeur complète */
+}
+
+/* Sections */
+.section {
+  background: var(--white);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%; /* Assurer la largeur complète */
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  word-wrap: break-word; /* Permettre la coupure des titres longs */
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* Grille pour les espaces */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.space-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-color);
+  width: 100%;
+  min-height: 200px; /* Hauteur minimale pour la cohérence */
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.space-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.space-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00;
+}
+
+/* Articles récents */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.article-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-meta {
+  padding: 1rem;
+  background-color: var(--background-color);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive - Tablettes */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+/* Responsive - Mobiles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .test {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    justify-content: center !important;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .space-card, .article-card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  .text {
+    text-align: center;
+  }
+}
+
+/* Responsive - Très petits écrans */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-content {
+    padding: 0 0.5rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .space-card, .article-card {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .spaces-grid, .articles-grid {
+    gap: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */
+  }
+  
+  p {
+    line-height: 1.7; /* Améliorer l'espacement des lignes */
+    margin-bottom: 1rem;
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  /* Améliorer l'espacement tactile */
+  .nav-item a, .btn {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo" style="color:white;">Estime et Confiance en Soi</h1>
+                <p class="tagline">Développez votre potentiel grâce à une meilleure connaissance de vous-même</p>
+            </div>
+        </header>
+        <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu "style="justify-content: end;">
+                <li class="nav-item"><a href="espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="espace-eleve.html">فضاء التلميذ</a></li> 
+                  <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/" class="active">فضاء الاستاذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/" >الصفحة الرئيسية</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+        <main class="container">
+            <section class="section" id="concepts">
+                <h2 class="section-title">Comprendre les Concepts</h2>
+                <p>L'estime de soi et la confiance en soi sont deux piliers fondamentaux de notre épanouissement personnel. Bien que liées, ces deux notions présentent des différences importantes.</p>
+                
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3><i class="fas fa-heart"></i> L'Estime de Soi</h3>
+                        <p>L'estime de soi est la valeur que l'on s'accorde en tant que personne. Elle repose sur l'évaluation globale de soi-même, incluant ses forces et faiblesses. Une bonne estime de soi permet de s'accepter tel qu'on est, avec ses qualités et ses défauts.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-lightbulb"></i> La Confiance en Soi</h3>
+                        <p>La confiance en soi concerne la croyance en ses capacités à accomplir des actions spécifiques. Elle est liée à la perception de sa compétence dans des domaines particuliers et se développe à travers l'expérience et la maîtrise.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-link"></i> Leur Interrelation</h3>
+                        <p>Ces deux concepts sont intimement liés : une bonne estime de soi facilite le développement de la confiance en soi, et inversement, la confiance acquise dans différents domaines renforce l'estime de soi. Ensemble, elles forment le socle de notre identité.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="pillars">
+                <h2 class="section-title">Les 4 Piliers Fondamentaux</h2>
+                
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3><i class="fas fa-user-check"></i> L'auto-acceptation</h3>
+                        <p>Reconnaître et accepter ses forces et ses limites sans jugement excessif. Cela implique de cesser de se comparer aux autres et de s'accepter tel qu'on est.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-trophy"></i> La compétence perçue</h3>
+                        <p>Croire en sa capacité à atteindre ses objectifs et à faire face aux défis. Cette perception se construit par l'accumulation de petites réussites.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-hands-helping"></i> L'affirmation de soi</h3>
+                        <p>Exprimer ses besoins, ses opinions et ses émotions de manière appropriée, tout en respectant ceux des autres.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-balance-scale"></i> La cohérence personnelle</h3>
+                        <p>Agir en accord avec ses valeurs et ses principes, ce qui renforce le sentiment d'intégrité et d'authenticité.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="school-project">
+                <h2 class="section-title">Estime de soi, Confiance en soi et projet scolaire</h2>
+                
+                <p>L'estime de soi et la confiance en soi jouent un rôle crucial dans la réussite scolaire et le développement de projets éducatifs ambitieux. Voici comment elles interagissent :</p>
+                
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3>Motivation et engagement</h3>
+                        <p>Les étudiants avec une bonne estime de soi sont plus motivés et s'engagent davantage dans leurs études. Ils perçoivent les défis comme des opportunités plutôt que des menaces.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Résilience face aux échecs</h3>
+                        <p>La confiance en soi permet de rebondir après un échec scolaire. Les étudiants comprennent qu'un mauvais résultat ne définit pas leur valeur personnelle.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Orientation scolaire</h3>
+                        <p>Une bonne estime de soi aide à faire des choix d'orientation alignés avec ses aspirations réelles plutôt qu'influencés par les attentes des autres.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Participation en classe</h3>
+                        <p>La confiance en soi favorise la participation active, la prise de parole et les interactions constructives avec les enseignants et les pairs.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Gestion du stress</h3>
+                        <p>Les périodes d'examens et de projets importants sont mieux gérées lorsque l'étudiant a confiance en ses capacités.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Développement de compétences</h3>
+                        <p>L'estime de soi soutient la persévérance nécessaire pour acquérir de nouvelles compétences complexes.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="strategies">
+                <h2 class="section-title">Stratégies pour Renforcer sa Confiance</h2>
+                
+                <div class="quote-box">
+                    "La confiance ne vient pas parce que vous avez toujours raison, mais parce que vous n'avez pas peur d'avoir tort."
+                    <div class="author">- Peter McIntyre</div>
+                </div>
+                
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3>Pratiquez l'auto-compassion</h3>
+                        <p>Traitez-vous avec la même bienveillance que vous auriez envers un ami. Acceptez que l'erreur fasse partie de l'apprentissage et évitez l'auto-critique destructrice.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Fixez des objectifs réalistes</h3>
+                        <p>Décomposez vos grands projets en petites étapes réalisables. Chaque succès, même modeste, renforce votre sentiment de compétence.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Sortez de votre zone de confort</h3>
+                        <p>Affrontez progressivement vos peurs. Chaque nouvelle expérience élargit votre champ de compétences et renforce votre résilience.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Développez vos compétences</h3>
+                        <p>Investissez dans l'apprentissage continu. La maîtrise de nouvelles compétences est l'un des moyens les plus efficaces de renforcer la confiance en soi.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Pratiquez la posture de confiance</h3>
+                        <p>Adoptez une posture corporelle ouverte et assurée. Notre langage corporel influence notre état d'esprit et notre perception de nous-mêmes.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3>Entourez-vous de soutien</h3>
+                        <p>Construisez un réseau de relations positives qui vous encouragent et vous soutiennent. Évitez les personnes toxiques qui sapent votre confiance.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section" id="resources">
+                <h2 class="section-title">Ressources Complémentaires</h2>
+                
+                <div class="benefits-list">
+                    <h3>Livres recommandés :</h3>
+                    <ul>
+                        <li><strong>L'Estime de soi</strong> - Christophe André</li>
+                        <li><strong>Imparfaits, libres et heureux</strong> - Christophe André</li>
+                        <li><strong>La Confiance en soi</strong> - Charles Pépin</li>
+                        <li><strong>Les 5 blessures qui empêchent d'être soi-même</strong> - Lise Bourbeau</li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 20px;">Applications utiles :</h3>
+                    <ul>
+                        <li><strong>Petit Bambou</strong> - Méditation et développement personnel</li>
+                        <li><strong>Jour</strong> - Journaling et réflexion personnelle</li>
+                        <li><strong>Moodnotes</strong> - Suivi de l'humeur et des pensées</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section">
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <a href="https://orientationpositive.tn/wp/estime-de-soi_confiance_en_soi_et_projet_scolaire/" class="btn" target="_blank">
+                            <i class="fas fa-book"></i>  Estime & Confiance en soi
+                        </a>
+                    </div>
+                    <div class="space-card">
+                        <a href="https://orientationpositive.tn/wp/estime_de_soi_et_confiance_en-_oi-deux_piliers_fondamentaux/" class="btn" target="_blank">
+                            <i class="fas fa-download"></i>  Les deux piliers fondamentaux
+                        </a>
+                    </div>
+                    <div class="space-card">
+                        <a href="https://orientationpositive.tn/wp/elementor-1303/" class="btn" target="_blank">
+                            <i class="fas fa-download"></i>  Ressources
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© Estime et Confiance en Soi - Guide Complet</p>
+                <p>Développez votre potentiel unique</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

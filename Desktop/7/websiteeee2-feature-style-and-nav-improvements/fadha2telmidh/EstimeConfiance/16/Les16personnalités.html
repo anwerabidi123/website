@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide complet du MBTI® - Mon guide d'orientation positive</title>
+    <style>
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
+
+/* Variables CSS pour la cohérence du thème */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #e91e63;
+  --accent-color: #ff9800;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: end;
+}
+
+.test {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  word-wrap: break-word; /* Permettre la coupure des mots longs */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 0.5rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap; /* Permettre le retour à la ligne */
+}
+
+
+.nav-item a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  white-space: nowrap; /* Éviter la coupure des liens */
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%; /* Assurer la largeur complète */
+}
+
+/* Sections */
+.section {
+  background: var(--white);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%; /* Assurer la largeur complète */
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  word-wrap: break-word; /* Permettre la coupure des titres longs */
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* Grille pour les espaces */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.space-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-color);
+  width: 100%;
+  min-height: 200px; /* Hauteur minimale pour la cohérence */
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.space-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.space-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00;
+}
+
+/* Articles récents */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.article-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-meta {
+  padding: 1rem;
+  background-color: var(--background-color);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive - Tablettes */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+/* Responsive - Mobiles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .test {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    justify-content: center !important;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .space-card, .article-card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  .text {
+    text-align: center;
+  }
+}
+
+/* Responsive - Très petits écrans */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-content {
+    padding: 0 0.5rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .space-card, .article-card {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .spaces-grid, .articles-grid {
+    gap: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */
+  }
+  
+  p {
+    line-height: 1.7; /* Améliorer l'espacement des lignes */
+    margin-bottom: 1rem;
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  /* Améliorer l'espacement tactile */
+  .nav-item a, .btn {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <a href="#" class="logo">Mon guide d'orientation positive</a>
+                <div class="tagline">Découvrez votre potentiel avec le MBTI®</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu "style="justify-content: end;">
+                <li class="nav-item"><a href="espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="espace-eleve.html">فضاء التلميذ</a></li> 
+                  <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/" class="active">فضاء الاستاذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/" >الصفحة الرئيسية</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Section principale -->
+        <section class="section fade-in">
+            <h1 class="section-title">Qu'est-ce que le MBTI® ?</h1>
+            <p>Le <strong>MBTI®</strong> (Myers-Briggs Type Indicator) est un modèle visant à comprendre les différents types de personnalités.</p>
+
+            <p>Chaque individu possède naturellement des manières distinctes de recueillir des informations et de prendre des décisions. Ces préférences influencent profondément nos réactions, notre communication, notre leadership, nos besoins, nos forces et notre développement personnel. Leur combinaison forme <strong>16 types de personnalités</strong> uniques.</p>
+
+            <p>Développé à partir des théories de Carl Jung dans <em>"Les types psychologiques"</em>, le MBTI® permet d'identifier ces profils, leurs atouts, leurs défis et leurs évolutions possibles. Il a donné naissance à la <strong>formation aux types de personnalités</strong> la plus répandue au monde.</p>
+        </section>
+
+        <!-- Section des lettres MBTI -->
+        <section class="section fade-in">
+            <h2 class="section-subtitle">Les lettres du MBTI® : que signifient-elles ?</h2>
+            <ol>
+                <li><strong>Extraversion (E) vs Introversion (I)</strong> : Source d'énergie
+                    <ul>
+                        <li><strong>E</strong> : Puise son énergie dans les interactions et le monde extérieur</li>
+                        <li><strong>I</strong> : Se recharge dans le calme et l'introspection</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Sensation (S) vs Intuition (N)</strong> : Perception des informations
+                    <ul>
+                        <li><strong>S</strong> : S'appuie sur les faits concrets, le réel (présent ou passé)</li>
+                        <li><strong>N</strong> : Privilégie les liens entre idées et possibilités futures</li>
+                    </ul>
+                </li>
+
+                <li><strong>Pensée (T) vs Sentiment (F)</strong> : Prise de décision
+                    <ul>
+                        <li><strong>T</strong> : Décide via la logique et l'analyse objective</li>
+                        <li><strong>F</strong> : Privilégie les valeurs personnelles et l'impact sur autrui</li>
+                    </ul>
+                </li>
+
+                <li><strong>Jugement (J) vs Perception (P)</strong> : Organisation de vie
+                    <ul>
+                        <li><strong>J</strong> : Aime la structure et la planification</li>
+                        <li><strong>P</strong> : Préfère la flexibilité et l'adaptabilité</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section des 16 types -->
+        <section class="section fade-in">
+            <h2 class="section-subtitle">Les 16 types de personnalité</h2>
+            
+            <!-- Grille des types MBTI -->
+            <div class="spaces-grid">
+                <!-- Première rangée -->
+                <div class="space-card">
+                    <h3>ISTJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le passé</li>
+                        <li>Concret, terre à terre</li>
+                        <li>Suit les règles</li>
+                        <li>Communique directement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ISTJ</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ISFJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le passé</li>
+                        <li>Concret, terre à terre</li>
+                        <li>Prend soin des autres</li>
+                        <li>Communique diplomatiquement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ISFJ</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>INFJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le futur</li>
+                        <li>Abstrait, conceptuel</li>
+                        <li>Prend soin des autres</li>
+                        <li>Communique diplomatiquement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching INFJ</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>INTJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le futur</li>
+                        <li>Abstrait, conceptuel</li>
+                        <li>Suit les règles</li>
+                        <li>Communique directement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching INTJ</a>
+                </div>
+
+                <!-- Deuxième rangée -->
+                <div class="space-card">
+                    <h3>ISTP</h3>
+                    <ul>
+                        <li>Adaptatif, spontané</li>
+                        <li>Réactions rapides</li>
+                        <li>Tourné vers le présent</li>
+                        <li>Concret, pragmatique</li>
+                        <li>Suit sa propre logique</li>
+                        <li>Communique directement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ISTP</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ISFP</h3>
+                    <ul>
+                        <li>Adaptatif, spontané</li>
+                        <li>Réactions rapides</li>
+                        <li>Tourné vers le présent</li>
+                        <li>Concret, pragmatique</li>
+                        <li>Suit ses valeurs</li>
+                        <li>Communique délicatement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ISFP</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>INFP</h3>
+                    <ul>
+                        <li>Adaptatif</li>
+                        <li>Passe du coq à l'âne</li>
+                        <li>Présent, passé, futur</li>
+                        <li>Imagé, global</li>
+                        <li>Suit ses valeurs</li>
+                        <li>Communique délicatement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching INFP</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>INTP</h3>
+                    <ul>
+                        <li>Adaptatif</li>
+                        <li>Passe du coq à l'âne</li>
+                        <li>Présent, passé, futur</li>
+                        <li>Imagé, global</li>
+                        <li>Suit sa propre logique</li>
+                        <li>Communique délicatement</li>
+                        <li>En attente de contact</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching INTP</a>
+                </div>
+
+                <!-- Troisième rangée -->
+                <div class="space-card">
+                    <h3>ESTP</h3>
+                    <ul>
+                        <li>Adaptatif, spontané</li>
+                        <li>Réactions rapides</li>
+                        <li>Tourné vers le présent</li>
+                        <li>Concret, pragmatique</li>
+                        <li>Suit sa propre logique</li>
+                        <li>Communique directement</li>
+                        <li>Va au contact</li>
+                        <li>Plutôt directif</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ESTP</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ESFP</h3>
+                    <ul>
+                        <li>Adaptatif, spontané</li>
+                        <li>Réactions rapides</li>
+                        <li>Tourné vers le présent</li>
+                        <li>Concret, pragmatique</li>
+                        <li>Suit ses valeurs</li>
+                        <li>Communique délicatement</li>
+                        <li>Va au contact</li>
+                        <li>Enjoué</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ESFP</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ENFP</h3>
+                    <ul>
+                        <li>Adaptatif</li>
+                        <li>Passe du coq à l'âne</li>
+                        <li>Présent, passé, futur</li>
+                        <li>Imagé, global</li>
+                        <li>Suit ses valeurs</li>
+                        <li>Communique délicatement</li>
+                        <li>Va au contact</li>
+                        <li>Contact facile</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ENFP</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ENTP</h3>
+                    <ul>
+                        <li>Adaptatif</li>
+                        <li>Passe du coq à l'âne</li>
+                        <li>Présent, passé, futur</li>
+                        <li>Imagé, global</li>
+                        <li>Suit sa propre logique</li>
+                        <li>Communique délicatement</li>
+                        <li>Va au contact</li>
+                        <li>Peu extraverti</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ENTP</a>
+                </div>
+
+                <!-- Quatrième rangée -->
+                <div class="space-card">
+                    <h3>ESTJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le passé</li>
+                        <li>Concret, terre à terre</li>
+                        <li>Suit les règles</li>
+                        <li>Communique directement</li>
+                        <li>Va au contact</li>
+                        <li>Plutôt directif</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ESTJ</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ESFJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le passé</li>
+                        <li>Concret, terre à terre</li>
+                        <li>Prend soin des autres</li>
+                        <li>Communique diplomatiquement</li>
+                        <li>Va au contact</li>
+                        <li>Plutôt maternant</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ESFJ</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ENFJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le futur</li>
+                        <li>Abstrait, conceptuel</li>
+                        <li>Prend soin des autres</li>
+                        <li>Communique diplomatiquement</li>
+                        <li>Va au contact</li>
+                        <li>Plutôt directif</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ENFJ</a>
+                </div>
+
+                <div class="space-card">
+                    <h3>ENTJ</h3>
+                    <ul>
+                        <li>Fiable, responsable</li>
+                        <li>Structuré, organisé</li>
+                        <li>Tourné vers le futur</li>
+                        <li>Abstrait, conceptuel</li>
+                        <li>Suit les règles</li>
+                        <li>Communique directement</li>
+                        <li>Va au contact</li>
+                        <li>Plutôt directif</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Coaching ENTJ</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section découverte -->
+        <section class="section fade-in">
+            <h2 class="section-subtitle">Comment découvrir votre type MBTI® ?</h2>
+            <p>De nombreuses personnes recherchent un <em>"test MBTI® gratuit"</em>, mais la démarche idéale implique :</p>
+            <ul>
+                <li>Une réflexion approfondie sur soi</li>
+                <li>L'analyse des préférences naturelles</li>
+                <li>Un accompagnement professionnel éventuel</li>
+                <li>La comparaison avec les descriptions types</li>
+            </ul>
+
+            <p><em>Les descriptions détaillées incluent : styles de leadership, gestion des conflits, fonctionnement sous stress, et évolutions potentielles.</em></p>
+            
+            <div class="text-center mt-2">
+                <a href="#" class="btn">Découvrir mon type MBTI®</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Mon guide d'orientation positive. Tous droits réservés.</p>
+            <div class="social-links">
+                <a href="#">📧</a>
+                <a href="#">📱</a>
+                <a href="#">🌐</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

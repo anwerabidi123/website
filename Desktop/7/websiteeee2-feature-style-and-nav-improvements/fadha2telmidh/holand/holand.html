@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La théorie des intérêts professionnels de John Holland</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Thème unifié pour Mon guide d'orientation positive - Version Responsive */
+
+/* Variables CSS pour la cohérence du thème */
+:root {
+  --primary-color: #2c5aa0;
+  --secondary-color: #e91e63;
+  --accent-color: #ff9800;
+  --text-color: #333;
+  --text-light: #666;
+  --background-color: #f8f9fa;
+  --white: #ffffff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 10px rgba(0,0,0,0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text {
+  text-align: end;
+}
+
+.test {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  overflow-x: hidden; /* Éviter le défilement horizontal */
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+  word-wrap: break-word; /* Permettre la coupure des mots longs */
+}
+
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+}
+
+/* Navigation */
+.nav {
+  background-color: var(--primary-color);
+  padding: 0.5rem 0;
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  flex-wrap: wrap; /* Permettre le retour à la ligne */
+}
+
+
+.nav-item a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  white-space: nowrap; /* Éviter la coupure des liens */
+}
+
+.nav-item a:hover,
+.nav-item a.active {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%; /* Assurer la largeur complète */
+}
+
+/* Sections */
+.section {
+  background: var(--white);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%; /* Assurer la largeur complète */
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  word-wrap: break-word; /* Permettre la coupure des titres longs */
+}
+
+.section-subtitle {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+/* Grille pour les espaces */
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Réduire la taille minimale */
+  gap: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.space-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-color);
+  width: 100%;
+  min-height: 200px; /* Hauteur minimale pour la cohérence */
+}
+
+.space-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.space-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  word-wrap: break-word;
+}
+
+.space-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00;
+}
+
+/* Articles récents */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.article-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.article-meta {
+  padding: 1rem;
+  background-color: var(--background-color);
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.article-content {
+  padding: 1.5rem;
+}
+
+.article-title {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-links {
+  margin: 1rem 0;
+}
+
+.social-links a {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive - Tablettes */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+/* Responsive - Mobiles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .test {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    justify-content: center !important;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-item a {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .space-card, .article-card {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    width: auto;
+    min-width: 120px;
+  }
+  
+  .text {
+    text-align: center;
+  }
+}
+
+/* Responsive - Très petits écrans */
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-content {
+    padding: 0 0.5rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .section {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .space-card, .article-card {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .spaces-grid, .articles-grid {
+    gap: 0.8rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Utilitaires */
+.text-center { text-align: center; }
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.mb-2 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 2rem; }
+
+/* Amélioration de la lisibilité sur mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* Taille de police de base plus grande sur mobile */
+  }
+  
+  p {
+    line-height: 1.7; /* Améliorer l'espacement des lignes */
+    margin-bottom: 1rem;
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  /* Améliorer l'espacement tactile */
+  .nav-item a, .btn {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo" style="color:white;">La théorie des intérêts professionnels</h1>
+                <p class="tagline">Découvrez l'œuvre pionnière de John Holland en orientation professionnelle</p>
+            </div>
+        </header>
+     <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu "style="justify-content: end;">
+                
+              
+                
+                <li class="nav-item"><a href="espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="espace-eleve.html">فضاء التلميذ</a></li> 
+                  <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/" class="active">فضاء الاستاذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/" >الصفحة الرئيسية</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+       
+        <main class="container">
+            <img src="data:image/jpeg;base64,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" alt="john holland">
+            
+            <section class="section">
+                <h2 class="section-title">John L. Holland (1919-2008)</h2>
+                <p>Psychologue américain et fondateur de la théorie RIASEC</p>
+                
+                <div class="biography">
+                    <div class="biography-text">
+                        <p>John Lewis Holland, né le 21 octobre 1919 à Omaha (Nebraska) et décédé le 27 novembre 2008, était un psychologue américain renommé pour ses travaux pionniers en psychologie vocationnelle.</p>
+                        
+                        <p>Après avoir servi dans l'armée pendant la Seconde Guerre mondiale, Holland obtient son doctorat en psychologie à l'Université du Minnesota en 1952. Il développe ensuite sa théorie des choix vocationnels alors qu'il travaille à l'American College Testing Program et à l'Université Johns Hopkins.</p>
+                        
+                        <p>Sa théorie des types professionnels, souvent appelée modèle RIASEC, propose que les choix de carrière sont l'expression de la personnalité individuelle et que les environnements de travail peuvent être classés selon les mêmes typologies.</p>
+                        
+                        <p>Holland a reçu de nombreux prix pour ses contributions à la psychologie, dont le Prix pour l'ensemble des réalisations professionnelles de l'American Psychological Association en 2008.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">La théorie des types professionnels</h2>
+                <p>La théorie de Holland repose sur plusieurs principes fondamentaux :</p>
+                
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3><i class="fas fa-people-arrows"></i> Correspondance personne-environnement</h3>
+                        <p>La satisfaction professionnelle dépend du degré de correspondance entre les caractéristiques d'une personne et son environnement de travail.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-boxes"></i> Les six types de personnalité</h3>
+                        <p>Holland identifie six types dominants : Réaliste, Investigateur, Artistique, Social, Entreprenant et Conventionnel (RIASEC).</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-project-diagram"></i> Relations entre les types</h3>
+                        <p>Les types sont disposés selon un modèle hexagonal où la proximité entre types indique leur similarité psychologique.</p>
+                    </div>
+                    
+                    <div class="space-card">
+                        <h3><i class="fas fa-briefcase"></i> Applications pratiques</h3>
+                        <p>La théorie permet de prédire la satisfaction au travail, la stabilité professionnelle et les réussites académiques.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title">L'héritage scientifique</h2>
+                <p>La théorie de Holland a profondément influencé le domaine de l'orientation professionnelle :</p>
+                
+                <ul>
+                    <li><strong>Inventaire des intérêts professionnels :</strong> Outil largement utilisé dans les écoles et centres d'orientation</li>
+                    <li><strong>Recherche en psychologie vocationnelle :</strong> Base théorique pour des centaines d'études scientifiques</li>
+                    <li><strong>Pratiques de conseil :</strong> Approche systématique pour l'orientation scolaire et professionnelle</li>
+                    <li><strong>Ressources humaines :</strong> Modèle utilisé pour le recrutement et la gestion de carrière</li>
+                </ul>
+                
+                <p>Plus de 40 ans après sa formulation, la théorie RIASEC reste l'un des modèles les plus influents et les plus utilisés en orientation professionnelle à travers le monde.</p>
+            </section>
+            
+            <!-- Section des boutons ajoutée ici -->
+            <section class="section">
+                <div class="spaces-grid">
+                    <div class="space-card">
+                        <h3>Théorie de J. Holland</h3>
+                        <p>Accédez à la théorie complète de John Holland.</p>
+                        <a href="https://orientationpositive.tn/wp/theorie_riasec_de_john_holland/" class="btn" target="_blank">
+                            <i class="fas fa-book"></i> Lire la théorie
+                        </a>
+                    </div>
+                    <div class="space-card">
+                        <h3>Ressources</h3>
+                        <p>Téléchargez des ressources supplémentaires pour mieux comprendre le RIASEC.</p>
+                        <a href="https://orientationpositive.tn/wp/pourmieux_comprendre_le_riasec/" class="btn" target="_blank">
+                            <i class="fas fa-download"></i> Télécharger les ressources
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© Théorie des intérêts professionnels de John Holland</p>
+                <p>Ressources éducatives sur la psychologie vocationnelle</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

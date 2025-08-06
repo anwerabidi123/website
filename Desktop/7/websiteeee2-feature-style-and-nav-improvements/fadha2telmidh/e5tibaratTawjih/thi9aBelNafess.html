@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon guide d'orientation positive - La voie du succès</title>
+    <link rel="icon" type="image/x-icon" href="../tnn.jpg">
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content test">
+            <div>
+                <a href="../index.html" class="logo">دليلي للتوجيه الإيجابي</a>
+                <div class="tagline">طريق النجاح
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+        <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu " style="justify-content: end;">
+
+                <li class="nav-item"><a href="../espace-parent.html">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/" class="active">فضاء التلميذ</a></li>
+                 <li class=nav-item><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
+                <li class="nav-item"><a href="../index.html">الصفحة الرئيسية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Contenu principal -->
+<main class="container">
+<section class="section">
+
+    <h1 class="section-title">الاختبار الشامل للثقة بالنفس</h1>
+
+    <div class="section-content thiqa-quiz-content">
+        <div class="container">
+            <form id="confidenceTest">
+                <div class="questions-container">
+                    <!-- الأسئلة يتم إنشاؤها ديناميكيًا -->
+                </div>
+
+                <div class="captcha text-center">
+                    <p>الرجاء إدخال الرمز التالي: <strong id="captchaCode"></strong></p>
+                    <input type="text" id="captchaInput" placeholder="أدخل الرمز هنا">
+                </div>
+
+                <div class="text-center mt-2">
+                    <button type="button" class="btn" onclick="calculateScore()">تحليل النتائج</button>
+                </div>
+            </form>
+
+            <div class="result" id="result">
+            <h2>التقرير التفصيلي</h2>
+
+            <div class="strength-meter">
+                <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <p id="score" class="score-display"></p>
+
+            <div class="charts-container">
+                <div class="chart-box">
+                    <canvas id="scoreChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="detailed-analysis">
+                <h3>📈 تحليل الأداء</h3>
+                <p id="analysis"></p>
+
+                <div class="key-findings">
+                    <h4>🔑 النتائج الرئيسية:</h4>
+                    <ul id="keyPoints"></ul>
+                </div>
+
+                <div class="improvement-plan">
+                    <h4>🎯 خطة التطوير الشخصي</h4>
+                    <div id="conseils" class="conseils"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // الأسئلة
+        const questions = [
+            "أنا واثق من قدرتي على تحقيق أهدافي",
+            "أتعامل بسهولة مع المواقف الاجتماعية الجديدة",
+            "أشعر بالرضا عن إنجازاتي الشخصية",
+            "أستطيع التعبير عن رأيي بصراحة",
+            "أتحمل المسؤولية الكاملة عن قراراتي",
+            "أتعامل مع الانتقادات بشكل بناء",
+            "أمارس التعبير عن احتياجاتي بطلاقة",
+            "أحافظ على هدوئي في المواقف الصعبة",
+            "أثق في حكمي على الأمور",
+            "أبدأ المحادثات بسهولة مع الآخرين",
+            "أتعافى بسرعة من الخيبات",
+            "أضع حدودًا صحية في العلاقات",
+            "أقدر على إدارة وقتي بشكل فعال",
+            "أشعر بالاستحقاق للنجاح",
+            "أتعلم بسرعة من أخطائي",
+            // العبارات الجديدة
+            "أشعر بالراحة عند التحدث أمام الجمهور",
+            "أستطيع اتخاذ قرارات صعبة دون تردد",
+            "أقبل التغييرات الجديدة بسهولة",
+            "أشعر بأنني قادر على التأثير في الآخرين",
+            "أتحلى بالصبر عند مواجهة التحديات",
+            "أشعر بأنني أستحق الحب والاحترام",
+            "أستطيع التعامل مع الفشل بشكل إيجابي",
+            "أشعر بالثقة في قدرتي على حل المشكلات",
+            "أقدر على تحفيز نفسي لتحقيق الأهداف",
+            "أشعر بالراحة عند طلب المساعدة من الآخرين",
+            "أستطيع التكيف مع الظروف الجديدة بسرعة",
+            "أشعر بأنني قادر على إدارة الضغوط بشكل جيد",
+            "أقدر على تحويل الأفكار إلى أفعال",
+            "أشعر بالثقة في قدرتي على إلهام الآخرين",
+            "أستطيع الحفاظ على توازني العاطفي في المواقف الصعبة"
+        ];
+
+        // الفئات
+        const categories = {
+            'الثقة الأساسية': [0, 1, 3, 6, 8, 15, 16, 18, 22, 26],
+            'المرونة النفسية': [2, 4, 7, 10, 14, 17, 19, 21, 23, 27],
+            'المهارات الاجتماعية': [5, 9, 11, 12, 20, 24, 28],
+            'التقدير الذاتي': [13, 25, 29]
+        };
+
+        // إنشاء الأسئلة ديناميكيًا
+        const form = document.getElementById('confidenceTest');
+        const questionsContainer = form.querySelector('.questions-container');
+
+        questions.forEach((question, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `
+                <label>${index + 1}. ${question}</label>
+                <select>
+                    <option value="0">نادرًا جدًا</option>
+                    <option value="1">نادرًا</option>
+                    <option value="2">أحيانًا</option>
+                    <option value="3">غالبًا</option>
+                    <option value="4">دائمًا</option>
+                </select>
+            `;
+            questionsContainer.appendChild(questionDiv);
+        });
+
+        // CAPTCHA
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += chars[Math.floor(Math.random() * chars.length)];
+            }
+            document.getElementById('captchaCode').textContent = captcha;
+        }
+        generateCaptcha();
+
+        // حساب النتائج
+        function calculateScore() {
+            const captchaInput = document.getElementById('captchaInput').value;
+            const captchaCode = document.getElementById('captchaCode').innerText;
+
+            if (captchaInput.toUpperCase() !== captchaCode.toUpperCase()) {
+                alert("الرمز غير صحيح، يرجى المحاولة مرة أخرى");
+                return;
+            }
+
+            let totalScore = 0;
+            const categoryScores = {};
+
+            // حساب النتائج لكل فئة
+            Object.keys(categories).forEach(cat => {
+                categoryScores[cat] = 0;
+                categories[cat].forEach(qIndex => {
+                    const value = parseInt(document.querySelectorAll('.question select')[qIndex].value);
+                    categoryScores[cat] += value;
+                    totalScore += value;
+                });
+            });
+
+            showResults(totalScore, categoryScores);
+        }
+
+        // عرض النتائج
+        function showResults(totalScore, categoryScores) {
+            const maxScore = questions.length * 4; // القيمة العظمى الآن هي 4 لكل سؤال
+            const percentage = (totalScore / maxScore) * 100;
+
+            // رسم المخططات
+            new Chart(document.getElementById('scoreChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['أدائك'],
+                    datasets: [{
+                        label: 'الدرجة',
+                        data: [totalScore],
+                        backgroundColor: '#4CAF50',
+                        borderWidth: 0
+                    }, {
+                        label: 'الحد الأقصى',
+                        data: [maxScore],
+                        backgroundColor: '#ecf0f1'
+                    }]
+                },
+                options: {
+                    scales: { y: { max: maxScore } }
+                }
+            });
+
+            new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: {
+                    labels: Object.keys(categoryScores),
+                    datasets: [{
+                        label: 'توزيع المهارات',
+                        data: Object.values(categoryScores),
+                        backgroundColor: 'rgba(76, 175, 80, 0.2)',
+                        borderColor: '#4CAF50'
+                    }]
+                },
+                options: {
+                    scales: { r: { beginAtZero: true } }
+                }
+            });
+
+            // تحديث واجهة النتائج
+            document.getElementById('strengthFill').style.width = `${percentage}%`;
+            document.getElementById('score').innerHTML = `
+                <span style="font-size: 1.8em; color: #2c3e50">${totalScore}/${maxScore}</span>
+                <br><span style="color: #4CAF50">${percentage.toFixed(1)}%</span>
+            `;
+
+            // التحليل التفصيلي
+            let analysis = "";
+            const keyPoints = [];
+
+            if (percentage < 40) {
+                analysis = `🌟 <strong>مستوى الثقة: منخفض</strong><br>
+                تحتاج إلى بناء أساسات أقوى للثقة بالنفس. ركز على التعرف على نقاط قوتك ومارس التعبير عن نفسك بانتظام.`;
+                keyPoints.push("✅ التركيز على التعزيز الإيجابي اليومي");
+                keyPoints.push("📌 تطوير مهارات التواصل الأساسية");
+            } else if (percentage >= 40 && percentage < 70) {
+                analysis = `🔥 <strong>مستوى الثقة: متوسط</strong><br>
+                لديك أساس جيد ويمكنك تطويره أكثر. اعمل على تحدي نفسك في مواقف جديدة ووسع حدود قدراتك.`;
+                keyPoints.push("✅ تعزيز المهارات القيادية");
+                keyPoints.push("📌 تطوير المرونة العاطفية");
+            } else {
+                analysis = `🚀 <strong>مستوى الثقة: عالي</strong><br>
+                ثقتك العالية بالنفس تمكنك من تحقيق إنجازات كبيرة. ركز على الحفاظ على هذا المستوى وتوجيهه نحو أهداف أكبر.`;
+                keyPoints.push("✅ تطوير مشاريع ذات تأثير واسع");
+                keyPoints.push("📌 التوجيه والتدريب للآخرين");
+            }
+
+            keyPoints.push("<br>📊 توزيع الدرجات:");
+            for (const [cat, score] of Object.entries(categoryScores)) {
+                keyPoints.push(
+                    `${cat}: ${score}/${categories[cat].length * 4} (${Math.round((score / (categories[cat].length * 4)) * 100)}%)`
+                );
+            }
+
+            document.getElementById('analysis').innerHTML = analysis;
+            document.getElementById('keyPoints').innerHTML = keyPoints.map(k => `<li>${k}</li>`).join('');
+
+            // النصائح المخصصة
+            const conseils = generateConseils(totalScore, categoryScores);
+            document.getElementById('conseils').innerHTML = conseils;
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // إنشاء النصائح
+        function generateConseils(totalScore, categoryScores) {
+            const conseils = [];
+            const weakCategories = Object.entries(categoryScores)
+                .filter(([cat, score]) => score < (categories[cat].length * 4) * 0.6);
+
+            if (weakCategories.length > 0) {
+                conseils.push("<h5>مجالات التحسين الرئيسية:</h5>");
+                weakCategories.forEach(([cat]) => {
+                    conseils.push(`<div class="advice-item">🎯 ${cat}: ${getSpecificAdvice(cat)}</div>`);
+                });
+            }
+
+            conseils.push("<h5>نصائح عامة:</h5>");
+            conseils.push("💡 خصص 10 دقائق يوميًا للتأمل الإيجابي");
+            conseils.push("📔 سجل 3 إنجازات يومية قبل النوم");
+            conseils.push("🤝 شارك في نشاط اجتماعي أسبوعي");
+
+            return conseils.map(c => `<div class="conseil">${c}</div>`).join('');
+        }
+
+        // النصائح المحددة لكل فئة
+        function getSpecificAdvice(category) {
+            const advice = {
+                'الثقة الأساسية': 'مارس تمارين التأكيد الذاتي أمام المرآة',
+                'المرونة النفسية': 'تعلم تقنيات إدارة التوتر',
+                'المهارات الاجتماعية': 'شارك في نقاشات جماعية',
+                'التقدير الذاتي': 'اكتب قائمة بنقاط قوتك'
+            };
+            return advice[category] || 'ركز على التطوير المتوازن';
+        }
+    </script>
+</section>
+</main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Mon guide d'orientation positive. Tous droits réservés.</p>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="../index.html">الصفحة الرئيسية</a></li>
+                    <li><a href="../espace-parent.html">فضاء الأولياء</a></li>
+                    <li><a href="../malaficha5ssi/page.html">ملفي الشخصي</a></li>
+                    <li><a href="dhaka2etMouta3adida.html">اختبار الذكاءات المتعددة</a></li>
+                    <li><a href="e5tibarTa9dirDhet.html">اختبار تقدير الذات</a></li>
+                    <li><a href="thi9aBelNafess.html">اختبار الثقة بالنفس</a></li>
+                    <li><a href="../warachetTafa3oulia/3a9elbaten.html">العقل الباطن والتوجيه</a></li>
+                    <li><a href="../warachetTafa3oulia/eltamayoz.html">التميز</a></li>
+                    <li><a href="../warachetTafa3oulia/kifeya.html">الكفاية</a></li>
+                    <li><a href="../warachetTafa3oulia/mou3ta9adet.html">المعتقدات</a></li>
+                    <li><a href="../warachetTafa3oulia/sifet-ni9at9ouwa.html">نقاط القوة</a></li>
+                </ul>
+            </div>
+            <div class="footer-links"><h4>روابط سريعة</h4><ul><li><a href="../index.html">الصفحة الرئيسية</a></li><li><a href="../espace-parent.html">فضاء الأولياء</a></li><li><a href="../malaficha5ssi/page.html">ملفي الشخصي</a></li><li><a href="dhaka2etMouta3adida.html">اختبار الذكاءات المتعددة</a></li><li><a href="e5tibarTa9dirDhet.html">اختبار تقدير الذات</a></li><li><a href="thi9aBelNafess.html">اختبار الثقة بالنفس</a></li><li><a href="../warachetTafa3oulia/3a9elbaten.html">العقل الباطن والتوجيه</a></li><li><a href="../warachetTafa3oulia/eltamayoz.html">التميز</a></li><li><a href="../warachetTafa3oulia/kifeya.html">الكفاية</a></li><li><a href="../warachetTafa3oulia/mou3ta9adet.html">المعتقدات</a></li><li><a href="../warachetTafa3oulia/sifet-ni9at9ouwa.html">نقاط القوة</a></li></ul></div>
+<div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>// JavaScript pour Mon guide d'orientation positive
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Animation d'apparition des éléments
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observer tous les éléments avec la classe 'section'
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Animation des cartes au survol
+    const cards = document.querySelectorAll('.space-card, .article-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        });
+    });
+
+
+
+    // Navigation mobile (hamburger menu)
+    const navToggle = document.createElement('button');
+    navToggle.classList.add('nav-toggle');
+    navToggle.innerHTML = '☰';
+    navToggle.style.display = 'none';
+
+    const navContent = document.querySelector('.nav-content');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (navContent && navMenu) {
+        navContent.insertBefore(navToggle, navMenu);
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('nav-menu-open');
+        });
+    }
+
+    // Smooth scrolling pour les liens internes
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Effet de typing pour le titre principal (optionnel)
+    const mainTitle = document.querySelector('.section-title');
+    if (mainTitle && mainTitle.textContent.includes('Bienvenue')) {
+        const text = mainTitle.textContent;
+        mainTitle.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                mainTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Démarrer l'effet après un court délai
+        setTimeout(typeWriter, 500);
+    }
+
+    // Gestion des formulaires (si présents)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validation basique
+            const inputs = this.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#e91e63';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+
+            if (isValid) {
+                // Simulation d'envoi
+                const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
+                if (submitBtn) {
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Envoi en cours...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Message envoyé !';
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            form.reset();
+                        }, 2000);
+                    }, 1000);
+                }
+            }
+        });
+    });
+
+
+    // Statistiques de visite (simulation)
+    const stats = {
+        visits: localStorage.getItem('visits') || 0,
+        lastVisit: localStorage.getItem('lastVisit') || new Date().toISOString()
+    };
+
+    stats.visits++;
+    localStorage.setItem('visits', stats.visits);
+    localStorage.setItem('lastVisit', new Date().toISOString());
+
+    console.log(`Bienvenue ! C'est votre visite n°${stats.visits}`);
+});
+
+// Fonctions utilitaires
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.classList.add('notification', `notification-${type}`);
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        z-index: 1002;
+        animation: slideDown 0.3s ease-out;
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.animation = 'slideUp 0.3s ease-out';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+
+</script>
+</body>
+</html>

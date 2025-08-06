@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فضاء الأولياء - دليلي للتوجيه الإيجابي</title>
+    <link rel="icon" type="image/x-icon" href="tnn.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content test">
+            <div>
+                <a href="index.html" class="logo">دليلي للتوجيه الإيجابي</a>
+                <div class="tagline">طريق النجاح
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-menu " style="justify-content: end;">
+
+                <li class="nav-item"><a href="espace-parent.html" class="active">فضاء الأولياء</a></li>
+                <li class="nav-item"><a href="https://orientationpositive.tn/wp/%D8%AD%D9%82%D9%8A%D8%A8%D8%A9-%D8%A7%D9%84%D8%AA%D9%84%D9%85%D9%8A%D8%B0/">فضاء التلميذ</a></li>
+                 <li class="nav-item"><a href="https://orientationpositive.tn/wp/%d8%ad%d9%82%d9%8a%d8%a8%d8%a9-%d8%a7%d9%84%d8%a3%d8%b3%d8%aa%d8%a7%d8%b0/">فضاء الاستاذ</a></li>
+                <li class="nav-item"><a href="index.html">الصفحة الرئيسية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="container"><section class="section"><h1 class="section-title">Espace Parent</h1><p>Cette page est en cours de construction.</p></section></main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Mon guide d'orientation positive. Tous droits réservés.</p>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الصفحة الرئيسية</a></li>
+                    <li><a href="espace-parent.html">فضاء الأولياء</a></li>
+                    <li><a href="malaficha5ssi/page.html">ملفي الشخصي</a></li>
+                    <li><a href="e5tibaratTawjih/dhaka2etMouta3adida.html">اختبار الذكاءات المتعددة</a></li>
+                    <li><a href="e5tibaratTawjih/e5tibarTa9dirDhet.html">اختبار تقدير الذات</a></li>
+                    <li><a href="e5tibaratTawjih/thi9aBelNafess.html">اختبار الثقة بالنفس</a></li>
+                    <li><a href="warachetTafa3oulia/3a9elbaten.html">العقل الباطن والتوجيه</a></li>
+                    <li><a href="warachetTafa3oulia/eltamayoz.html">التميز</a></li>
+                    <li><a href="warachetTafa3oulia/kifeya.html">الكفاية</a></li>
+                    <li><a href="warachetTafa3oulia/mou3ta9adet.html">المعتقدات</a></li>
+                    <li><a href="warachetTafa3oulia/sifet-ni9at9ouwa.html">نقاط القوة</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="YouTube">📺</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>// JavaScript pour Mon guide d'orientation positive
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Animation d'apparition des éléments
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    // Observer tous les éléments avec la classe 'section'
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Animation des cartes au survol
+    const cards = document.querySelectorAll('.space-card, .article-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        });
+    });
+
+
+
+    // Navigation mobile (hamburger menu)
+    const navToggle = document.createElement('button');
+    navToggle.classList.add('nav-toggle');
+    navToggle.innerHTML = '☰';
+    navToggle.style.display = 'none';
+
+    const navContent = document.querySelector('.nav-content');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (navContent && navMenu) {
+        navContent.insertBefore(navToggle, navMenu);
+
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('nav-menu-open');
+        });
+    }
+
+    // Smooth scrolling pour les liens internes
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Effet de typing pour le titre principal (optionnel)
+    const mainTitle = document.querySelector('.section-title');
+    if (mainTitle && mainTitle.textContent.includes('Bienvenue')) {
+        const text = mainTitle.textContent;
+        mainTitle.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                mainTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Démarrer l'effet après un court délai
+        setTimeout(typeWriter, 500);
+    }
+
+    // Gestion des formulaires (si présents)
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validation basique
+            const inputs = this.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#e91e63';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+
+            if (isValid) {
+                // Simulation d'envoi
+                const submitBtn = this.querySelector('button[type="submit"], input[type="submit"]');
+                if (submitBtn) {
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Envoi en cours...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Message envoyé !';
+                        setTimeout(() => {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            form.reset();
+                        }, 2000);
+                    }, 1000);
+                }
+            }
+        });
+    });
+
+
+    // Statistiques de visite (simulation)
+    const stats = {
+        visits: localStorage.getItem('visits') || 0,
+        lastVisit: localStorage.getItem('lastVisit') || new Date().toISOString()
+    };
+
+    stats.visits++;
+    localStorage.setItem('visits', stats.visits);
+    localStorage.setItem('lastVisit', new Date().toISOString());
+
+    console.log(`Bienvenue ! C'est votre visite n°${stats.visits}`);
+});
+
+// Fonctions utilitaires
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.classList.add('notification', `notification-${type}`);
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary-color);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: var(--border-radius);
+        z-index: 1002;
+        animation: slideDown 0.3s ease-out;
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.style.animation = 'slideUp 0.3s ease-out';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+
+</script>
+</body>
+</html>
