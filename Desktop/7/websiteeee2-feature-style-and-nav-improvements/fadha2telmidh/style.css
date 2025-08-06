@@ -296,7 +296,7 @@ body {
 }
 
 .footer-links li a {
-    color: #000;
+    color: #f0f0f0;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -315,7 +315,7 @@ body {
 }
 
 .social-links a {
-    color: #000;
+    color: #f0f0f0;
     font-size: 1.8rem;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -328,7 +328,7 @@ body {
 
 .footer-content > p {
     font-size: 0.9rem;
-    color: #000;
+    color: #f0f0f0;
     margin-top: 1rem;
 }
 
