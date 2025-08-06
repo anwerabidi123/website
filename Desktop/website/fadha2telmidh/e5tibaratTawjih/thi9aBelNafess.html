@@ -1,284 +1,0 @@
-<!DOCTYPE html>␍
-<html lang="ar" dir="rtl">␍
-<head>␍
-    <meta charset="UTF-8">␍
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">␍
-    <title>اختبار الثقة بالنفس - تقييم شامل</title>␍
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>␍
-    <style>␍
-        /* أنماط CSS هنا (نفس الأنماط السابقة) */␍
-    </style>␍
-</head>␍
-<body>␍
-␍
-    <h1>الاختبار الشامل للثقة بالنفس</h1>␍
-␍
-    <div class="container">␍
-        <form id="confidenceTest">␍
-            <div class="questions-container">␍
-                <!-- الأسئلة يتم إنشاؤها ديناميكيًا -->␍
-            </div>␍
-␍
-            <div class="captcha">␍
-                <p>الرجاء إدخال الرمز التالي: <strong id="captchaCode"></strong></p>␍
-                <input type="text" id="captchaInput" placeholder="أدخل الرمز هنا">␍
-            </div>␍
-␍
-            <button type="button" onclick="calculateScore()">تحليل النتائج</button>␍
-        </form>␍
-␍
-        <div class="result" id="result">␍
-            <h2>التقرير التفصيلي</h2>␍
-            ␍
-            <div class="strength-meter">␍
-                <div class="strength-fill" id="strengthFill"></div>␍
-            </div>␍
-            <p id="score" class="score-display"></p>␍
-␍
-            <div class="charts-container">␍
-                <div class="chart-box">␍
-                    <canvas id="scoreChart"></canvas>␍
-                </div>␍
-                <div class="chart-box">␍
-                    <canvas id="radarChart"></canvas>␍
-                </div>␍
-            </div>␍
-␍
-            <div class="detailed-analysis">␍
-                <h3>📈 تحليل الأداء</h3>␍
-                <p id="analysis"></p>␍
-                ␍
-                <div class="key-findings">␍
-                    <h4>🔑 النتائج الرئيسية:</h4>␍
-                    <ul id="keyPoints"></ul>␍
-                </div>␍
-␍
-                <div class="improvement-plan">␍
-                    <h4>🎯 خطة التطوير الشخصي</h4>␍
-                    <div id="conseils" class="conseils"></div>␍
-                </div>␍
-            </div>␍
-        </div>␍
-    </div>␍
-␍
-    <script>␍
-        // الأسئلة␍
-        const questions = [␍
-            "أنا واثق من قدرتي على تحقيق أهدافي",␍
-            "أتعامل بسهولة مع المواقف الاجتماعية الجديدة",␍
-            "أشعر بالرضا عن إنجازاتي الشخصية",␍
-            "أستطيع التعبير عن رأيي بصراحة",␍
-            "أتحمل المسؤولية الكاملة عن قراراتي",␍
-            "أتعامل مع الانتقادات بشكل بناء",␍
-            "أمارس التعبير عن احتياجاتي بطلاقة",␍
-            "أحافظ على هدوئي في المواقف الصعبة",␍
-            "أثق في حكمي على الأمور",␍
-            "أبدأ المحادثات بسهولة مع الآخرين",␍
-            "أتعافى بسرعة من الخيبات",␍
-            "أضع حدودًا صحية في العلاقات",␍
-            "أقدر على إدارة وقتي بشكل فعال",␍
-            "أشعر بالاستحقاق للنجاح",␍
-            "أتعلم بسرعة من أخطائي",␍
-            // العبارات الجديدة␍
-            "أشعر بالراحة عند التحدث أمام الجمهور",␍
-            "أستطيع اتخاذ قرارات صعبة دون تردد",␍
-            "أقبل التغييرات الجديدة بسهولة",␍
-            "أشعر بأنني قادر على التأثير في الآخرين",␍
-            "أتحلى بالصبر عند مواجهة التحديات",␍
-            "أشعر بأنني أستحق الحب والاحترام",␍
-            "أستطيع التعامل مع الفشل بشكل إيجابي",␍
-            "أشعر بالثقة في قدرتي على حل المشكلات",␍
-            "أقدر على تحفيز نفسي لتحقيق الأهداف",␍
-            "أشعر بالراحة عند طلب المساعدة من الآخرين",␍
-            "أستطيع التكيف مع الظروف الجديدة بسرعة",␍
-            "أشعر بأنني قادر على إدارة الضغوط بشكل جيد",␍
-            "أقدر على تحويل الأفكار إلى أفعال",␍
-            "أشعر بالثقة في قدرتي على إلهام الآخرين",␍
-            "أستطيع الحفاظ على توازني العاطفي في المواقف الصعبة"␍
-        ];␍
-␍
-        // الفئات␍
-        const categories = {␍
-            'الثقة الأساسية': [0, 1, 3, 6, 8, 15, 16, 18, 22, 26],␍
-            'المرونة النفسية': [2, 4, 7, 10, 14, 17, 19, 21, 23, 27],␍
-            'المهارات الاجتماعية': [5, 9, 11, 12, 20, 24, 28],␍
-            'التقدير الذاتي': [13, 25, 29]␍
-        };␍
-␍
-        // إنشاء الأسئلة ديناميكيًا␍
-        const form = document.getElementById('confidenceTest');␍
-        const questionsContainer = form.querySelector('.questions-container');␍
-        ␍
-        questions.forEach((question, index) => {␍
-            const questionDiv = document.createElement('div');␍
-            questionDiv.className = 'question';␍
-            questionDiv.innerHTML = `␍
-                <label>${index + 1}. ${question}</label>␍
-                <select>␍
-                    <option value="0">نادرًا جدًا</option>␍
-                    <option value="1">نادرًا</option>␍
-                    <option value="2">أحيانًا</option>␍
-                    <option value="3">غالبًا</option>␍
-                    <option value="4">دائمًا</option>␍
-                </select>␍
-            `;␍
-            questionsContainer.appendChild(questionDiv);␍
-        });␍
-␍
-        // CAPTCHA␍
-        function generateCaptcha() {␍
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';␍
-            let captcha = '';␍
-            for (let i = 0; i < 6; i++) {␍
-                captcha += chars[Math.floor(Math.random() * chars.length)];␍
-            }␍
-            document.getElementById('captchaCode').textContent = captcha;␍
-        }␍
-        generateCaptcha();␍
-␍
-        // حساب النتائج␍
-        function calculateScore() {␍
-            const captchaInput = document.getElementById('captchaInput').value;␍
-            const captchaCode = document.getElementById('captchaCode').innerText;␍
-␍
-            if (captchaInput !== captchaCode) {␍
-                alert("الرمز غير صحيح، يرجى المحاولة مرة أخرى");␍
-                return;␍
-            }␍
-␍
-            let totalScore = 0;␍
-            const categoryScores = {};␍
-␍
-            // حساب النتائج لكل فئة␍
-            Object.keys(categories).forEach(cat => {␍
-                categoryScores[cat] = 0;␍
-                categories[cat].forEach(qIndex => {␍
-                    const value = parseInt(document.querySelectorAll('.question select')[qIndex].value);␍
-                    categoryScores[cat] += value;␍
-                    totalScore += value;␍
-                });␍
-            });␍
-␍
-            showResults(totalScore, categoryScores);␍
-        }␍
-␍
-        // عرض النتائج␍
-        function showResults(totalScore, categoryScores) {␍
-            const maxScore = questions.length * 4; // القيمة العظمى الآن هي 4 لكل سؤال␍
-            const percentage = (totalScore / maxScore) * 100;␍
-␍
-            // رسم المخططات␍
-            new Chart(document.getElementById('scoreChart'), {␍
-                type: 'bar',␍
-                data: {␍
-                    labels: ['أدائك'],␍
-                    datasets: [{␍
-                        label: 'الدرجة',␍
-                        data: [totalScore],␍
-                        backgroundColor: '#4CAF50',␍
-                        borderWidth: 0␍
-                    }, {␍
-                        label: 'الحد الأقصى',␍
-                        data: [maxScore],␍
-                        backgroundColor: '#ecf0f1'␍
-                    }]␍
-                },␍
-                options: {␍
-                    scales: { y: { max: maxScore } }␍
-                }␍
-            });␍
-␍
-            new Chart(document.getElementById('radarChart'), {␍
-                type: 'radar',␍
-                data: {␍
-                    labels: Object.keys(categoryScores),␍
-                    datasets: [{␍
-                        label: 'توزيع المهارات',␍
-                        data: Object.values(categoryScores),␍
-                        backgroundColor: 'rgba(76, 175, 80, 0.2)',␍
-                        borderColor: '#4CAF50'␍
-                    }]␍
-                },␍
-                options: {␍
-                    scales: { r: { beginAtZero: true } }␍
-                }␍
-            });␍
-␍
-            // تحديث واجهة النتائج␍
-            document.getElementById('strengthFill').style.width = `${percentage}%`;␍
-            document.getElementById('score').innerHTML = `␍
-                <span style="font-size: 1.8em; color: #2c3e50">${totalScore}/${maxScore}</span>␍
-                <br><span style="color: #4CAF50">${percentage.toFixed(1)}%</span>␍
-            `;␍
-␍
-            // التحليل التفصيلي␍
-            let analysis = "";␍
-            const keyPoints = [];␍
-            ␍
-            if (percentage < 40) {␍
-                analysis = `🌟 <strong>مستوى الثقة: منخفض</strong><br>␍
-                تحتاج إلى بناء أساسات أقوى للثقة بالنفس. ركز على التعرف على نقاط قوتك ومارس التعبير عن نفسك بانتظام.`;␍
-                keyPoints.push("✅ التركيز على التعزيز الإيجابي اليومي");␍
-                keyPoints.push("📌 تطوير مهارات التواصل الأساسية");␍
-            } else if (percentage >= 40 && percentage < 70) {␍
-                analysis = `🔥 <strong>مستوى الثقة: متوسط</strong><br>␍
-                لديك أساس جيد ويمكنك تطويره أكثر. اعمل على تحدي نفسك في مواقف جديدة ووسع حدود قدراتك.`;␍
-                keyPoints.push("✅ تعزيز المهارات القيادية");␍
-                keyPoints.push("📌 تطوير المرونة العاطفية");␍
-            } else {␍
-                analysis = `🚀 <strong>مستوى الثقة: عالي</strong><br>␍
-                ثقتك العالية بالنفس تمكنك من تحقيق إنجازات كبيرة. ركز على الحفاظ على هذا المستوى وتوجيهه نحو أهداف أكبر.`;␍
-                keyPoints.push("✅ تطوير مشاريع ذات تأثير واسع");␍
-                keyPoints.push("📌 التوجيه والتدريب للآخرين");␍
-            }␍
-␍
-            keyPoints.push("<br>📊 توزيع الدرجات:");␍
-            for (const [cat, score] of Object.entries(categoryScores)) {␍
-                keyPoints.push(␍
-                    `${cat}: ${score}/${categories[cat].length * 4} (${Math.round((score / (categories[cat].length * 4)) * 100)}%)`␍
-                );␍
-            }␍
-␍
-            document.getElementById('analysis').innerHTML = analysis;␍
-            document.getElementById('keyPoints').innerHTML = keyPoints.map(k => `<li>${k}</li>`).join('');␍
-␍
-            // النصائح المخصصة␍
-            const conseils = generateConseils(totalScore, categoryScores);␍
-            document.getElementById('conseils').innerHTML = conseils;␍
-            document.getElementById('result').style.display = 'block';␍
-        }␍
-␍
-        // إنشاء النصائح␍
-        function generateConseils(totalScore, categoryScores) {␍
-            const conseils = [];␍
-            const weakCategories = Object.entries(categoryScores)␍
-                .filter(([cat, score]) => score < (categories[cat].length * 4) * 0.6);␍
-␍
-            if (weakCategories.length > 0) {␍
-                conseils.push("<h5>مجالات التحسين الرئيسية:</h5>");␍
-                weakCategories.forEach(([cat]) => {␍
-                    conseils.push(`<div class="advice-item">🎯 ${cat}: ${getSpecificAdvice(cat)}</div>`);␍
-                });␍
-            }␍
-␍
-            conseils.push("<h5>نصائح عامة:</h5>");␍
-            conseils.push("💡 خصص 10 دقائق يوميًا للتأمل الإيجابي");␍
-            conseils.push("📔 سجل 3 إنجازات يومية قبل النوم");␍
-            conseils.push("🤝 شارك في نشاط اجتماعي أسبوعي");␍
-␍
-            return conseils.map(c => `<div class="conseil">${c}</div>`).join('');␍
-        }␍
-␍
-        // النصائح المحددة لكل فئة␍
-        function getSpecificAdvice(category) {␍
-            const advice = {␍
-                'الثقة الأساسية': 'مارس تمارين التأكيد الذاتي أمام المرآة',␍
-                'المرونة النفسية': 'تعلم تقنيات إدارة التوتر',␍
-                'المهارات الاجتماعية': 'شارك في نقاشات جماعية',␍
-                'التقدير الذاتي': 'اكتب قائمة بنقاط قوتك'␍
-            };␍
-            return advice[category] || 'ركز على التطوير المتوازن';␍
-        }␍
-    </script>␍
-</body>␍
-</html>
